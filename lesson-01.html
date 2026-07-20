@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>🧬 平衡膳食宝塔（2022）· 高中生物课风格互动讲解</title>
+<style>
+  :root{
+    --paper:#fbf7ee; --ink:#2c2a26; --board:#1f3b34; --board2:#27534a;
+    --green:#2e7d52; --green-soft:#e7f3ec; --amber:#b8860b; --amber-soft:#fdf3df;
+    --red:#c0392b; --red-soft:#fdecea; --blue:#2a6db5; --blue-soft:#e9f1fa;
+    --line:#e4dccb; --hl:#fff3b0;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",system-ui,-apple-system,sans-serif;
+    line-height:1.85; font-size:17px; padding-bottom:170px;
+  }
+  /* 顶部黑板 */
+  header{
+    background:linear-gradient(135deg,var(--board),var(--board2));
+    color:#eafff4; padding:22px 18px 18px; text-align:center;
+    box-shadow:0 4px 14px rgba(0,0,0,.18); position:relative;
+  }
+  header h1{margin:0 0 4px; font-size:23px; letter-spacing:1px}
+  header p{margin:0; opacity:.82; font-size:13.5px}
+  .chalk{display:inline-block; border:1px dashed #8fd9bd; border-radius:999px; padding:3px 12px; margin-top:10px; font-size:12.5px; color:#bdebd6}
+  /* 控制条 */
+  .bar{
+    position:sticky; top:0; z-index:30; background:rgba(251,247,238,.96);
+    backdrop-filter:blur(6px); border-bottom:1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding:10px 14px;
+  }
+  .bar button{
+    border:none; cursor:pointer; border-radius:10px; padding:9px 14px;
+    font-size:14px; font-weight:600; transition:.15s;
+  }
+  .play{background:var(--green); color:#fff}
+  .play:hover{filter:brightness(1.07)}
+  .play.on{background:var(--red)}
+  .stop{background:#eee; color:#444}
+  .bar select,.bar input{font-size:13px; padding:7px 8px; border-radius:8px; border:1px solid var(--line); background:#fff}
+  .bar label{font-size:12.5px; color:#6b6557; display:flex; align-items:center; gap:4px}
+  .voiceInfo{margin-left:auto; font-size:12px; color:var(--green); font-weight:600}
+  /* 内容 */
+  main{max-width:820px; margin:0 auto; padding:18px 16px 30px}
+  section{
+    background:#fff; border:1px solid var(--line); border-radius:14px;
+    padding:18px 20px; margin:16px 0; box-shadow:0 2px 8px rgba(0,0,0,.04);
+  }
+  h2{font-size:19px; margin:0 0 12px; color:var(--board); border-left:5px solid var(--green); padding-left:10px}
+  h3{font-size:15.5px; color:var(--green); margin:16px 0 6px}
+  p{margin:10px 0}
+  .muted{color:#7a7468; font-size:14px}
+  /* 表格 */
+  table{width:100%; border-collapse:collapse; margin:12px 0; font-size:14.5px}
+  th,td{border:1px solid var(--line); padding:9px 10px; text-align:left; vertical-align:top}
+  th{background:var(--green-soft); color:var(--green); font-weight:700}
+  tr:nth-child(even) td{background:#faf8f2}
+  /* 口诀卡 */
+  .rhyme{
+    background:linear-gradient(135deg,#fff8e6,#fdeecb); border:1px solid #f0d99a;
+    border-radius:12px; padding:14px 18px; margin:12px 0; font-size:16px; line-height:2;
+  }
+  .rhyme b{color:var(--amber)}
+  /* 易错点 */
+  .trap{
+    border-left:6px solid var(--red); background:var(--red-soft);
+    border-radius:0 10px 10px 0; padding:10px 14px; margin:10px 0;
+  }
+  .trap b{color:var(--red)}
+  /* 解题步骤 */
+  ol.steps{counter-reset:s; padding-left:0; list-style:none}
+  ol.steps li{
+    position:relative; padding:10px 12px 10px 46px; margin:8px 0;
+    background:var(--blue-soft); border-radius:10px;
+  }
+  ol.steps li::before{
+    counter-increment:s; content:counter(s); position:absolute; left:10px; top:10px;
+    width:26px; height:26px; background:var(--blue); color:#fff; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px;
+  }
+  /* 互动对话 */
+  .chat{margin:10px 0}
+  .chat .line{margin:8px 0; padding:8px 12px; border-radius:10px; font-size:14.5px}
+  .tch{background:var(--green-soft); border:1px solid #cfe7d6}
+  .stu{background:#f1edf7; border:1px solid #ddd2ef}
+  .chat .who{font-weight:700; margin-right:6px}
+  /* 测验 */
+  .quiz{border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; background:#fffdf7}
+  .quiz .q{font-weight:600; margin-bottom:8px}
+  .opt{padding:6px 10px; margin:4px 0; border-radius:8px; background:#f6f3ec}
+  .opt.ok{background:#e7f3ec; border:1px solid #bfe0c8; font-weight:600}
+  .ans{display:none; margin-top:10px; padding:10px 12px; background:var(--amber-soft); border-radius:8px; font-size:14px}
+  .ans.show{display:block}
+  .quiz button.ansbtn{margin-top:6px; border:none; background:var(--amber); color:#5a3e00; border-radius:8px; padding:6px 12px; font-weight:700; cursor:pointer}
+  /* 费曼自检 */
+  .feynman li{margin:8px 0}
+  .feynman input{transform:scale(1.2); margin-right:8px}
+  /* 高亮（朗读时） */
+  .sent{border-radius:4px; transition:background .12s}
+  .sent.active{background:var(--hl); box-shadow:0 0 0 2px #ffe066}
+  /* 底部字幕条（不遮挡讲解） */
+  #subtitle{
+    position:fixed; left:0; right:0; bottom:0; z-index:40;
+    background:rgba(20,30,28,.92); color:#f4fff8; backdrop-filter:blur(8px);
+    padding:14px 18px 16px; font-size:16px; line-height:1.6;
+    max-height:140px; overflow-y:auto; border-top:2px solid var(--green);
+    box-shadow:0 -4px 16px rgba(0,0,0,.25);
+  }
+  #subtitle .now{font-size:11px; color:#8fd9bd; letter-spacing:1px; display:block; margin-bottom:4px}
+  #subtitle.empty{color:#9fd9c2; font-style:italic}
+  .tip{font-size:12.5px; color:#8a8475; margin-top:6px}
+  .badge{display:inline-block; background:var(--green-soft); color:var(--green); border-radius:6px; padding:1px 8px; font-size:12px; font-weight:700}
+  a.src{color:var(--blue); font-size:13px}
+  @media(max-width:560px){ body{font-size:16px} header h1{font-size:20px} .voiceInfo{width:100%; margin:4px 0 0} }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🧬 平衡膳食宝塔（2022）</h1>
+  <p>注册营养师考点 · 高中生物课风格互动讲解 · 一节45分钟的量</p>
+  <span class="chalk">🎧 点击下方「晓晓老师朗读」，边听边看，字幕不挡讲解</span>
+</header>
+
+<div class="bar">
+  <button id="playBtn" class="play">🔊 晓晓老师朗读讲解</button>
+  <button id="stopBtn" class="stop">⏹ 停止</button>
+  <label>语音
+    <select id="voiceSel"><option value="">（加载中…）</option></select>
+  </label>
+  <label>语速
+    <input id="rate" type="range" min="0.7" max="1.2" step="0.05" value="1" />
+    <span id="rateVal">1.0×</span>
+  </label>
+  <span class="voiceInfo" id="voiceInfo">当前朗读：—</span>
+</div>
+
+<main>
+
+  <section>
+    <h2>一、课堂导入：为什么吃东西也有"建筑图纸"？</h2>
+    <p class="speak">把我们的身体想象成一座24小时不停工的生物化工厂。原料，也就是食物，进厂之后，经过消化、吸收、合成，变成肌肉、血液、酶和能量。</p>
+    <p class="speak">如果原料配比乱了，油多了、盐多了、维生素少了，这座工厂就会冒烟停产，表现出来就是肥胖、高血压、营养不良。于是营养学家画了一张配方图纸，叫做平衡膳食宝塔，把每天吃什么、吃多少、分几类，一层层画出来。学完这一节，你就拿到了自己身体的采购清单。</p>
+  </section>
+
+  <section>
+    <h2>二、核心知识一：宝塔长啥样？五层从下到上</h2>
+    <p>一句总纲：<span class="badge">底大顶小，越往下越该多吃，越往上越要少吃</span></p>
+    <table>
+      <thead><tr><th>层</th><th>食物</th><th>每天推荐量（2022版）</th><th>记忆</th></tr></thead>
+      <tbody>
+        <tr><td>第1层（塔基）</td><td>谷薯类</td><td>谷类 200~300g（其中全谷物+杂豆 50~150g），薯类 50~100g</td><td>主食打底</td></tr>
+        <tr><td>第2层</td><td>蔬菜水果</td><td>蔬菜 300~500g，水果 200~350g</td><td>果蔬护体</td></tr>
+        <tr><td>第3层</td><td>动物性食物</td><td>120~200g（每天1个鸡蛋，每周≥2次水产品）</td><td>鱼肉蛋补蛋白</td></tr>
+        <tr><td>第4层</td><td>奶类+大豆坚果</td><td>奶及奶制品 300~500g，大豆及坚果 25~35g</td><td>奶豆壮骨</td></tr>
+        <tr><td>第5层（塔尖）</td><td>油、盐</td><td>油 25~30g，盐 &lt;5g</td><td>油盐点睛，越少越好</td></tr>
+      </tbody>
+    </table>
+    <p class="speak">另外还有两样贯穿全身的：水是每天1500到1700毫升，大约7到8杯；身体活动是每天相当于6000步。记住，宝塔五层加白水加运动，才是一张完整的配方。</p>
+  </section>
+
+  <section>
+    <h2>三、核心知识二：底层逻辑——为什么这么排？</h2>
+    <p class="speak">谷薯类在最下面、量最大，因为它提供碳水化合物，是身体最主要的燃料，就像工厂烧的煤。蔬菜水果在中下层，提供维生素、矿物质和膳食纤维，是工厂的润滑剂和维护件。</p>
+    <p class="speak">动物性食物在中层，提供优质蛋白质、铁和锌，是真正的建筑材料。奶豆坚果在上一层，奶是钙和优质蛋白的最佳来源，大豆提供植物蛋白，坚果补不饱和脂肪酸和维生素E。油盐在塔尖、量最小，它们是调味品，也是风险品，过量就会直接伤血管、升血压。</p>
+  </section>
+
+  <section>
+    <h2>四、口诀：五层宝塔顺口溜</h2>
+    <div class="rhyme speak">
+      谷底果菜中层肉，<br>
+      奶豆坚果次顶层，<br>
+      油盐塔尖少少少，<br>
+      七杯白水六千步。<br>
+      <span class="muted" style="font-size:13.5px">（"次顶层"=第4层；"七杯白水"≈1500~1700ml；"六千步"=身体活动）</span>
+    </div>
+    <h3>数字口诀（记关键量）</h3>
+    <div class="rhyme speak">
+      <b>盐五</b>油卅（30）<b>奶三五</b>（300–500），<br>
+      <b>菜五</b>果三（菜300–500、果200–350）<b>谷两三</b>（200–300），<br>
+      <b>肉二</b>蛋一（肉120–200、1个蛋）<b>鱼每周两顿餐</b>。
+    </div>
+  </section>
+
+  <section>
+    <h2>五、易错点：考试最爱在这里挖坑（重点对比2016版）</h2>
+    <div class="trap speak"><b>⚠️ 坑1：盐不是6克，是 &lt;5克！</b> 2022版把限盐目标从2016的&lt;6g收紧到&lt;5g，与WHO一致。</div>
+    <div class="trap speak"><b>⚠️ 坑2：奶不是300克，是 300~500克！</b> 2022版加码了，因为国人奶喝得太少，牛奶是优质蛋白和钙的重要来源。</div>
+    <div class="trap speak"><b>⚠️ 坑3：鸡蛋要吃"全蛋"，不能只吃蛋清、扔蛋黄！</b> 蛋黄胆固醇的害处被夸大了，每天1个全蛋的益处远大于风险。"每天1个鸡蛋"指全蛋。</div>
+    <div class="trap speak"><b>⚠️ 坑4：动物性食物总量 120~200g，不是畜禽肉单独的量！</b> 2016版是畜禽40–75、水产40–75、蛋40–50分着算；2022版合并成"动物性食物120–200g"，并强调"每周至少2次水产品"。</div>
+    <div class="trap speak"><b>⚠️ 坑5：谷类 ≠ 谷薯类。</b> 2022版谷类200–300g，加上全谷物杂豆50–150g（算在谷类里）、薯类50–100g，合起来才是谷薯总量。别把"谷类200–300"误当成"主食总量"。</div>
+    <div class="trap speak"><b>⚠️ 坑6：顺序不能乱——谷薯在下、油盐在上。</b> 考题常把"盐最多""油最多"当干扰项，记住：塔尖=最少。</div>
+  </section>
+
+  <section>
+    <h2>六、解题步骤：三步拿分法</h2>
+    <ol class="steps speak">
+      <li><b>定位层数</b>：题干说"提供主要能量/碳水"→第1层；"维C、纤维"→第2层；"优质蛋白、铁"→第3层；"钙"→第4层；"限量、伤血管"→第5层。</li>
+      <li><b>抓数值范围</b>：在脑中调出口诀数字——盐&lt;5、油25–30、奶300–500、菜300–500、果200–350、谷200–300、肉120–200。</li>
+      <li><b>排除干扰项</b>：①张冠李戴（把上层数字安给下层）；②用旧版数字（6克盐、300克奶）；③偷换"全蛋/蛋清"。看到这些，直接排除。</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>七、课堂互动：模拟提问（费曼式）</h2>
+    <div class="chat speak">
+      <div class="line tch"><span class="who">👩‍🏫 老师：</span>小明，如果今天你只吃了两碗白米饭、一点青菜，没吃肉蛋奶，你的宝塔哪层"塌了"？</div>
+      <div class="line stu"><span class="who">🧑 小明：</span>呃……缺了第3、4层？蛋白和钙不够？</div>
+      <div class="line tch"><span class="who">👩‍🏫 老师：</span>对！而且你全吃精白米，连第1层里的"全谷物杂豆50–150g"也没达标——纤维和B族维生素会缺。所以"吃饱"≠"吃对"。</div>
+      <div class="line tch"><span class="who">👩‍🏫 老师：</span>小红，有人说"我每天吃6克盐很健康"，对吗？</div>
+      <div class="line stu"><span class="who">👧 小红：</span>对吧？以前不都说不超过6克吗？</div>
+      <div class="line tch"><span class="who">👩‍🏫 老师：</span>陷阱！那是2016版。2022版收紧到小于5克了。你若按6克吃，已经超标。记住"盐五"。</div>
+      <div class="line tch"><span class="who">👩‍🏫 老师：</span>小刚，健身要多吃蛋白，那我每天吃5个鸡蛋只吃蛋清行不行？</div>
+      <div class="line stu"><span class="who">🧔 小刚：</span>蛋白多啊，应该更好？</div>
+      <div class="line tch"><span class="who">👩‍🏫 老师：</span>错！①总量上，动物性食物才120–200g，5个蛋早超了；②蛋黄别扔——"吃鸡蛋不弃蛋黄"，全蛋营养才完整。</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>八、改编题：练手（注册营养师考向）</h2>
+
+    <div class="quiz">
+      <div class="q">题1（单选）：依据《中国居民膳食指南（2022）》平衡膳食宝塔，成年人每天烹调油与食盐的推荐摄入上限分别为：</div>
+      <div class="opt">A. 油25~30g，盐&lt;6g</div>
+      <div class="opt ok">B. 油25~30g，盐&lt;5g ✅</div>
+      <div class="opt">C. 油&lt;30g，盐&lt;5g</div>
+      <div class="opt">D. 油30~50g，盐&lt;6g</div>
+      <button class="ansbtn" onclick="this.nextElementSibling.classList.toggle('show')">显示解析</button>
+      <div class="ans">直接考查2022版油盐上限：油25~30g、盐&lt;5g。A、D用旧版6克盐是陷阱。</div>
+    </div>
+
+    <div class="quiz">
+      <div class="q">题2（单选）：关于2022版与2016版的变化，正确的是：</div>
+      <div class="opt">A. 奶及奶制品推荐量由300~500g降为300g</div>
+      <div class="opt ok">B. 食盐由&lt;6g收紧为&lt;5g ✅</div>
+      <div class="opt">C. 动物性食物由120~200g改为畜禽40–75g</div>
+      <div class="opt">D. 取消了"每天1个鸡蛋"的建议</div>
+      <button class="ansbtn" onclick="this.nextElementSibling.classList.toggle('show')">显示解析</button>
+      <div class="ans">A反了（升为300–500）；C反了（2016才是分算）；D错，2022反而强调每天1个全蛋。</div>
+    </div>
+
+    <div class="quiz">
+      <div class="q">题3（单选）：平衡膳食宝塔中位于最底层、每日推荐量最大，主要为人体提供碳水化合物的是：</div>
+      <div class="opt">A. 蔬菜水果类</div>
+      <div class="opt ok">B. 谷薯类 ✅</div>
+      <div class="opt">C. 动物性食物</div>
+      <div class="opt">D. 奶类及大豆</div>
+      <button class="ansbtn" onclick="this.nextElementSibling.classList.toggle('show')">显示解析</button>
+      <div class="ans">塔基=谷薯类，提供碳水化合物，是能量主来源。考查"底层逻辑"定位。</div>
+    </div>
+
+    <div class="quiz">
+      <div class="q">题4（案例分析，改编自真实考情）：某社区居民体检发现高血压、肥胖比例高。膳食调查：主食以精白米面为主，几乎不吃粗粮；每天食盐约8克，炒菜油大；很少喝牛奶，每周吃鱼不到1次。请结合平衡膳食宝塔（2022）指出至少3处违背并给出建议。</div>
+      <button class="ansbtn" onclick="this.nextElementSibling.classList.toggle('show')">显示参考答案</button>
+      <div class="ans">
+        ① 谷类200–300g中全谷物杂豆应占50–150g → 建议粗细搭配；<br>
+        ② 盐应&lt;5g，现8g超标 → 减盐；<br>
+        ③ 油25–30g，现过量 → 控油；<br>
+        ④ 奶300–500g，现极少 → 增奶；<br>
+        ⑤ 每周至少2次水产品，现&lt;1次 → 增鱼。
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>九、费曼输出任务：今天请你当老师</h2>
+    <p class="muted">合上笔记，用自己的话讲给"空气学生"听（或念出声）。能讲顺，才是真懂。</p>
+    <ul class="feynman">
+      <li><label><input type="checkbox"> 宝塔为什么底大顶小？</label></li>
+      <li><label><input type="checkbox"> 五层各管什么营养？</label></li>
+      <li><label><input type="checkbox"> 2022版和2016版有哪4个关键变化？（盐、奶、蛋、水产）</label></li>
+    </ul>
+    <p class="tip">讲不顺的地方，就是没真懂的地方——回去再看口诀和易错点。</p>
+  </section>
+
+  <section>
+    <p class="muted" style="font-size:13px">
+      资料依据：《中国居民膳食指南（2022）》平衡膳食八准则、中国居民平衡膳食宝塔（2022）、中国营养学会官方解读。
+      详见 <a class="src" href="https://dg.cnsoc.org/" target="_blank" rel="noopener">中国营养学会</a> ·
+      <a class="src" href="https://www.cnsoc.org/knowledge/442220200.html" target="_blank" rel="noopener">一图读懂2022</a>
+    </p>
+  </section>
+
+</main>
+
+<div id="subtitle" class="empty"><span class="now">字幕</span>点击「晓晓老师朗读讲解」开始听课，字幕将显示在这里，不遮挡上面的内容。</div>
+
+<script>
+(function(){
+  "use strict";
+  var synth = window.speechSynthesis;
+  var playBtn = document.getElementById('playBtn');
+  var stopBtn = document.getElementById('stopBtn');
+  var voiceSel = document.getElementById('voiceSel');
+  var rate = document.getElementById('rate');
+  var rateVal = document.getElementById('rateVal');
+  var voiceInfo = document.getElementById('voiceInfo');
+  var subtitle = document.getElementById('subtitle');
+
+  var voices = [];
+  var speaking = false;
+  var sents = [];      // 句子节点数组（按文档顺序）
+  var cur = -1;        // 当前句子索引
+  var keepAlive = null;
+
+  // ---- 预处理：把 .speak 块拆成句子 span ----
+  function splitSentences(){
+    var blocks = document.querySelectorAll('.speak');
+    var all = [];
+    blocks.forEach(function(b){
+      var text = b.innerText.replace(/\s+\n\s+/g,'\n').trim();
+      // 按中文/英文标点断句，保留标点
+      var parts = text.match(/[^。！？!?\n]+[。！？!?]?|\n+/g) || [text];
+      var html = '';
+      parts.forEach(function(p){
+        p = p.trim();
+        if(!p) return;
+        if(p === '\n'){ html += '<br>'; return; }
+        html += '<span class="sent">'+escapeHtml(p)+'</span> ';
+      });
+      b.innerHTML = html;
+    });
+    // 收集所有句子（按文档顺序）
+    sents = Array.prototype.slice.call(document.querySelectorAll('.speak .sent'));
+  }
+
+  function escapeHtml(s){
+    return s.replace(/[&<>]/g, function(c){ return c==='&'?'&amp;':c==='<'?'&lt;':'&gt;'; });
+  }
+
+  // ---- 语音选择 ----
+  function loadVoices(){
+    voices = synth ? synth.getVoices() : [];
+    // 填充下拉（只放中文相关 + 全部）
+    var sel = voiceSel;
+    sel.innerHTML = '';
+    var zh = voices.filter(function(v){ return /^zh/i.test(v.lang); });
+    var list = zh.length ? zh : voices;
+    list.forEach(function(v, i){
+      var o = document.createElement('option');
+      o.value = v.name; o.textContent = v.name + ' (' + v.lang + ')';
+      sel.appendChild(o);
+    });
+    // 默认选中晓晓
+    var xiao = list.find(function(v){ return /xiaoxiao|晓晓/i.test(v.name); });
+    if(xiao){ sel.value = xiao.name; }
+    updateVoiceInfo();
+  }
+
+  function currentVoice(){
+    if(!synth) return null;
+    var name = voiceSel.value;
+    var v = voices.find(function(x){ return x.name === name; });
+    if(v) return v;
+    // 兜底：晓晓 / 中文neural / 任意中文
+    v = voices.find(function(x){ return /xiaoxiao|晓晓/i.test(x.name); });
+    if(v) return v;
+    v = voices.find(function(x){ return /^zh[-_]?CN/i.test(x.lang) && /neural|online|natural/i.test(x.name); });
+    if(v) return v;
+    v = voices.find(function(x){ return /^zh/i.test(x.lang); });
+    return v || null;
+  }
+
+  function updateVoiceInfo(){
+    var v = currentVoice();
+    voiceInfo.textContent = '当前朗读：' + (v ? v.name : '（无可用语音）');
+  }
+
+  // ---- 朗读控制 ----
+  function setActive(i){
+    if(cur >= 0 && sents[cur]) sents[cur].classList.remove('active');
+    cur = i;
+    if(cur >= 0 && sents[cur]){
+      var sp = sents[cur];
+      sp.classList.add('active');
+      sp.scrollIntoView({block:'center', behavior:'smooth'});
+      subtitle.classList.remove('empty');
+      subtitle.innerHTML = '<span class="now">字幕 · 晓晓老师</span>' + sp.textContent;
+    }
+  }
+
+  function speakNext(){
+    if(!speaking) return;
+    if(cur + 1 >= sents.length){
+      finish();
+      return;
+    }
+    setActive(cur + 1);
+    var u = new SpeechSynthesisUtterance(sents[cur].textContent);
+    var v = currentVoice();
+    if(v) u.voice = v;
+    u.lang = 'zh-CN';
+    u.rate = parseFloat(rate.value) || 1;
+    u.pitch = 1;
+    u.onend = function(){ if(speaking) speakNext(); };
+    u.onerror = function(){ if(speaking) speakNext(); };
+    synth.speak(u);
+  }
+
+  function start(){
+    if(!synth){ alert('当前浏览器不支持语音合成，请用 Edge 或 Chrome 打开本页。'); return; }
+    if(sents.length === 0) splitSentences();
+    speaking = true;
+    playBtn.classList.add('on');
+    playBtn.textContent = '⏸ 暂停朗读';
+    // Chrome 15秒自动暂停的保护
+    keepAlive = setInterval(function(){
+      if(speaking && synth.speaking && !synth.paused){ /* keep */ }
+    }, 5000);
+    // 立即开始第一句
+    cur = -1;
+    speakNext();
+  }
+
+  function pause(){
+    if(synth && synth.speaking){ synth.pause(); }
+    speaking = false;
+    playBtn.classList.remove('on');
+    playBtn.textContent = '▶ 继续朗读';
+  }
+
+  function finish(){
+    speaking = false;
+    cur = -1;
+    playBtn.classList.remove('on');
+    playBtn.textContent = '🔊 晓晓老师朗读讲解';
+    if(keepAlive){ clearInterval(keepAlive); keepAlive = null; }
+    if(synth) synth.cancel();
+    subtitle.classList.remove('empty');
+    subtitle.innerHTML = '<span class="now">字幕</span>✅ 讲解播完啦！合上书，试试下面的「费曼输出任务」→';
+  }
+
+  function stopAll(){
+    speaking = false;
+    cur = -1;
+    playBtn.classList.remove('on');
+    playBtn.textContent = '🔊 晓晓老师朗读讲解';
+    if(keepAlive){ clearInterval(keepAlive); keepAlive = null; }
+    if(synth) synth.cancel();
+    sents.forEach(function(s){ s.classList.remove('active'); });
+    subtitle.classList.add('empty');
+    subtitle.innerHTML = '<span class="now">字幕</span>已停止。点击「晓晓老师朗读讲解」重新开始。';
+  }
+
+  // ---- 事件 ----
+  playBtn.addEventListener('click', function(){
+    if(!synth){ alert('当前浏览器不支持语音合成，请用 Edge 或 Chrome 打开本页。'); return; }
+    if(speaking){
+      // 正在读 → 暂停
+      pause();
+    } else if(playBtn.textContent.indexOf('继续') >= 0){
+      // 继续
+      speaking = true;
+      playBtn.classList.add('on');
+      playBtn.textContent = '⏸ 暂停朗读';
+      if(synth.paused) synth.resume();
+      speakNext();
+    } else {
+      start();
+    }
+  });
+
+  stopBtn.addEventListener('click', stopAll);
+  voiceSel.addEventListener('change', updateVoiceInfo);
+  rate.addEventListener('input', function(){ rateVal.textContent = parseFloat(rate.value).toFixed(2).replace(/0$/,'') + '×'; });
+
+  // ---- 初始化 ----
+  if(synth){
+    if(typeof synth.onvoiceschanged !== 'undefined'){
+      synth.onvoiceschanged = loadVoices;
+    }
+    loadVoices();
+    // 部分浏览器首次 getVoices 为空，延时再取
+    setTimeout(loadVoices, 300);
+  } else {
+    voiceInfo.textContent = '当前浏览器不支持语音合成';
+    playBtn.disabled = true;
+  }
+  splitSentences();
+})();
+</script>
+</body>
+</html>
