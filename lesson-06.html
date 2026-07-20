@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第6课 · 准则六 规律进餐，足量饮水｜注册营养师考点互动课</title>
+<style>
+  :root{
+    --fs: 12pt;            /* 默认宋体小四号 */
+    --song: "宋体","SimSun",serif;
+    --ink:#1f2933; --sub:#52606d; --line:#e3e8ef;
+    --brand:#b3001b; --brand2:#c9a227; --ok:#1f7a3d; --warn:#b3001b;
+    --card:#fffdf7; --soft:#fbf6ea;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:var(--song); font-size:var(--fs); color:var(--ink);
+    line-height:1.95; margin:0; padding:0 0 90px;
+    background:linear-gradient(180deg,#fdfbf5,#f6f1e6);
+  }
+  .wrap{max-width:920px; margin:0 auto; padding:24px 22px 0;}
+  h1{font-size:1.7em; color:var(--brand); border-bottom:3px double var(--brand2); padding-bottom:10px; margin:8px 0 4px;}
+  h2{font-size:1.32em; color:var(--brand); margin:30px 0 8px; border-left:8px solid var(--brand2); padding-left:12px;}
+  h3{font-size:1.12em; color:#7a1020; margin:18px 0 6px;}
+  .lead{color:var(--sub); font-size:.98em; margin:2px 0 0;}
+  p{margin:8px 0;}
+  b,strong{color:#7a1020;}
+  .tag{display:inline-block; background:var(--brand); color:#fff; border-radius:6px; padding:1px 9px; font-size:.82em; margin-right:6px;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin:14px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  .note{background:var(--soft); border-left:5px solid var(--brand2); padding:10px 14px; border-radius:0 10px 10px 0; margin:12px 0;}
+  .review{background:#f3f7ff; border:1px solid #cfe0ff; border-radius:12px; padding:6px 18px 12px; margin:14px 0;}
+  table{border-collapse:collapse; width:100%; margin:12px 0; font-size:.95em;}
+  th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top;}
+  th{background:#f0e6d2; color:#5a3a00;}
+  tr:nth-child(even) td{background:#fcfaf3;}
+  .err{border:2px solid var(--warn); border-radius:12px; padding:12px 16px; margin:12px 0; background:#fff6f6; position:relative;}
+  .err:before{content:"⚠ 易错点"; position:absolute; top:-12px; left:14px; background:var(--warn); color:#fff; font-size:.8em; padding:1px 10px; border-radius:6px;}
+  .jue{background:#fff; border:2px dashed var(--brand2); border-radius:12px; padding:12px 16px; margin:12px 0;}
+  .jue .k{color:var(--brand); font-weight:bold;}
+  .quiz{border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; background:#fffdfa;}
+  .quiz h4{margin:0 0 8px; font-size:1.02em; color:#333;}
+  .opt{display:block; padding:6px 10px; margin:5px 0; border:1px solid var(--line); border-radius:8px; cursor:pointer;}
+  .opt:hover{background:#fbf3e2;}
+  .opt.cho{background:#fff0d6; border-color:var(--brand2);}
+  .opt.right{background:#e7f6ec; border-color:var(--ok);}
+  .opt.wrong{background:#fdeaea; border-color:var(--warn);}
+  .reveal{display:none; margin-top:8px; padding:9px 12px; background:#f4f8ff; border-left:4px solid #2b6cb0; border-radius:0 8px 8px 0; font-size:.95em;}
+  .reveal b{color:#2b6cb0;}
+  .btn{display:inline-block; background:var(--brand); color:#fff; border:none; border-radius:8px; padding:5px 14px; cursor:pointer; font-family:var(--song); font-size:.95em;}
+  .btn.ghost{background:#fff; color:var(--brand); border:1px solid var(--brand);}
+  svg{display:block; margin:10px auto; max-width:100%;}
+  .figcap{text-align:center; color:var(--sub); font-size:.86em; margin:-4px 0 6px;}
+  .feynman label{display:block; padding:6px 10px; margin:6px 0; border:1px solid var(--line); border-radius:8px; cursor:pointer; background:#fff;}
+  .feynman input{transform:scale(1.3); margin-right:8px;}
+  .spk.active{background:#fff6da; border-radius:6px; box-shadow:0 0 0 3px #ffe9a8;}
+  .fsctl{position:fixed; right:14px; top:14px; z-index:60; background:#fff; border:1px solid var(--line); border-radius:10px; padding:6px 8px; box-shadow:0 2px 8px rgba(0,0,0,.12);}
+  .fsctl button{font-family:var(--song); font-size:1em; border:1px solid var(--line); background:#fbfaf5; border-radius:6px; cursor:pointer; padding:2px 10px; margin:0 2px;}
+  .fsctl .lab{font-size:.82em; color:var(--sub); display:block; text-align:center;}
+  /* 浮动可拖动播放器 */
+  #player{position:fixed; left:18px; bottom:18px; width:340px; z-index:80;
+    background:#fffef9; border:2px solid var(--brand2); border-radius:14px; box-shadow:0 8px 26px rgba(0,0,0,.22); overflow:hidden;}
+  #phead{cursor:grab; background:linear-gradient(90deg,var(--brand),#d23b4f); color:#fff; padding:7px 12px; font-weight:bold; display:flex; justify-content:space-between; align-items:center; user-select:none;}
+  #phead .pin{font-size:.8em; cursor:pointer; background:rgba(255,255,255,.25); border-radius:6px; padding:1px 7px;}
+  #sub{height:62px; overflow-y:auto; padding:8px 12px; font-size:.92em; color:#333; background:#fffdf3; border-bottom:1px solid var(--line);}
+  #sub .cur{color:var(--brand); font-weight:bold;}
+  #pctrl{padding:9px 12px;}
+  .row{display:flex; align-items:center; gap:7px; margin:6px 0; flex-wrap:wrap;}
+  .row button{font-family:var(--song); font-size:1.05em; border:1px solid var(--line); background:#fbfaf5; border-radius:8px; cursor:pointer; padding:4px 11px;}
+  .row button:hover{background:#f3e9d2;}
+  #seek{width:100%;}
+  .mini{font-size:.82em; color:var(--sub);}
+  select,input[type=range]{font-family:var(--song);}
+  #hint{font-size:.8em; color:#9a6b00; padding:0 12px 8px; display:none;}
+  .footer{text-align:center; color:var(--sub); font-size:.85em; margin-top:30px; border-top:1px solid var(--line); padding-top:14px;}
+  @media(max-width:560px){#player{width:94vw; left:3vw;} .fsctl{top:8px; right:8px;}}
+</style>
+</head>
+<body>
+
+<div class="fsctl">
+  <span class="lab">字号（默认宋体小四）</span>
+  <button onclick="setFS(-1)">A−</button>
+  <button onclick="setFS(1)">A＋</button>
+</div>
+
+<div class="wrap">
+  <h1>第6课 · 准则六：规律进餐，足量饮水</h1>
+  <p class="lead">注册营养师考点 · 依据《中国居民膳食指南(2022)》官方原文（中国营养学会 dg.cnsoc.org）· 高中生物课体量 · 费曼式精讲</p>
+
+  <!-- ===== 温故 ===== -->
+  <div class="review">
+    <h2 style="border:none;margin-top:6px;">📚 温故（第1–5课要点速记）</h2>
+    <table>
+      <tr><th>课</th><th>考点</th><th>必背数字 / 句式</th></tr>
+      <tr><td>第1课</td><td>平衡膳食宝塔2022</td><td>盐&lt;5g；油25–30g；奶300–500g；谷200–300g；蔬300–500g；果200–350g；动物120–200g；水1500–1700ml；6000步</td></tr>
+      <tr><td>第2课</td><td>准则二 吃动平衡</td><td>BMI中国标准：18.5 / 24 / 28；腰围男≥90 女≥85；每周≥150分钟；减重0.5–1kg/周</td></tr>
+      <tr><td>第3课</td><td>准则三 蔬果奶类全谷大豆</td><td>蔬菜≥300g且深色占½；水果200–350g；蔬果不互换；奶相当≥300ml液态奶；坚果≈10g</td></tr>
+      <tr><td>第4课</td><td>准则四 鱼禽蛋瘦肉</td><td>动物性总量120–200g/天；鱼300–500g/周(≈2次)；蛋300–350g/周(≈1个/天)；不弃蛋黄；加工肉IARC 1类、红肉2A类</td></tr>
+      <tr><td>第5课</td><td>准则五 少盐少油控糖限酒</td><td>盐&lt;5g；油25–30g；添加糖&lt;50g最好&lt;25g；反式脂肪&lt;2g；酒精&lt;15g；四类禁酒；1g钠≈2.5g盐</td></tr>
+    </table>
+    <p class="spk">同学们好，今天我们学第六课。前面五课我们把"吃什么、吃多少"讲完了，今天这条准则是全新维度——<b>怎么吃、什么时候吃、喝什么</b>。它也是2022版相比2016版<strong>新增</strong>的一条，足见重要。</p>
+  </div>
+
+  <!-- ===== 导入 ===== -->
+  <h2>一、课堂导入：小林的一天</h2>
+  <div class="card spk">
+    <p>大三学生小林，为了"减肥"常常<b>不吃早餐</b>；中午在食堂随便扒两口；晚上熬夜赶作业，点一份重油外卖当夜宵。白天渴了就买<b>一瓶奶茶</b>代替喝水，觉得"奶茶也是水嘛"。</p>
+    <p>三个月后，他精力下降、上课犯困、体重反而涨了，还总便秘。问题出在哪？——今天学完准则六，你就能用营养师的话，把小林的问题一条条说清楚。</p>
+  </div>
+
+  <!-- ===== 核心推荐 ===== -->
+  <h2>二、准则六 核心推荐（官方原文4条）</h2>
+  <div class="card">
+    <p class="spk"><b>核心推荐①：</b>合理安排一日三餐，定时定量，<b>不漏餐</b>，<b>每天吃早餐</b>。</p>
+    <p class="spk"><b>核心推荐②：</b>规律进餐、饮食适度，<b>不暴饮暴食、不偏食挑食、不过度节食</b>。</p>
+    <p class="spk"><b>核心推荐③：</b>足量饮水，<b>少量多次</b>。在温和气候条件下，低身体活动水平成年<b>男性每天喝水1700 ml，女性每天喝水1500 ml</b>。</p>
+    <p class="spk"><b>核心推荐④：</b>推荐喝<b>白水或茶水</b>，<b>少喝或不喝含糖饮料，不用饮料代替白水</b>。</p>
+  </div>
+
+  <h3>底层逻辑（老师划重点）</h3>
+  <div class="note spk">
+    <p>准则六回答三个问题：<b>①定时定量（何时吃、吃多少）</b> → 稳定血糖与代谢；<b>②不过量不过节（怎么吃）</b> → 维持健康体重；<b>③足量饮水（喝什么）</b> → 维持水合状态、保护认知与泌尿系统。</p>
+    <p>关键事实（考试直接考）：规律三餐↓超重肥胖/糖尿病风险；吃好早餐→血糖平稳、改善认知与工作效率；饮水过少脱水→↓认知与体能、↑泌尿系统疾病。</p>
+  </div>
+
+  <!-- ===== 图1 三餐能量分配 ===== -->
+  <h3>图1 · 一日三餐能量分配（25%–30% / 30%–40% / 30%–35%）</h3>
+  <svg viewBox="0 0 680 230" width="640" role="img" aria-label="三餐能量分配环图">
+    <g transform="translate(120,115)">
+      <circle r="80" fill="none" stroke="#f0c9c9" stroke-width="34"
+        stroke-dasharray="140.7 361.9" stroke-dashoffset="0" transform="rotate(-90)"/>
+      <circle r="80" fill="none" stroke="#c9a227" stroke-width="34"
+        stroke-dasharray="186.0 316.6" stroke-dashoffset="-140.7" transform="rotate(-90)"/>
+      <circle r="80" fill="none" stroke="#7ab8e0" stroke-width="34"
+        stroke-dasharray="175.9 326.7" stroke-dashoffset="-326.7" transform="rotate(-90)"/>
+      <text x="0" y="-4" text-anchor="middle" font-size="14" fill="#7a1020" font-family="SimSun">三餐能量</text>
+      <text x="0" y="16" text-anchor="middle" font-size="12" fill="#555" font-family="SimSun">占全天%</text>
+    </g>
+    <g font-family="SimSun" font-size="15">
+      <rect x="300" y="40" width="18" height="18" fill="#f0c9c9"/><text x="326" y="55">早餐 25%–30%</text>
+      <rect x="300" y="72" width="18" height="18" fill="#c9a227"/><text x="326" y="87">午餐 30%–40%</text>
+      <rect x="300" y="104" width="18" height="18" fill="#7ab8e0"/><text x="326" y="119">晚餐 30%–35%</text>
+      <text x="300" y="156" font-size="13" fill="#555">要点：晚餐比例≤午餐，且要清淡少油少盐；</text>
+      <text x="300" y="176" font-size="13" fill="#555">低活动成人早餐能量约 600–700 千卡。</text>
+    </g>
+  </svg>
+  <p class="figcap">图1 三餐能量按"早少、午多、晚中"分配，晚餐不超过午餐。</p>
+  <p class="spk">记法：把一天的能量当成一个蛋糕。早餐切 25%–30%，午餐切 30%–40%（最大一块），晚餐 30%–35%。<b>晚餐这块不能比午餐大</b>，而且做法要清淡——这是很多人"晚餐太丰盛"的误区。</p>
+
+  <!-- ===== 图2 三餐时间轴 ===== -->
+  <h3>图2 · 三餐时间与间隔（两餐间隔 4–6 小时）</h3>
+  <svg viewBox="0 0 680 170" width="640" role="img" aria-label="三餐时间轴">
+    <line x1="40" y1="90" x2="640" y2="90" stroke="#bbb" stroke-width="3"/>
+    <g font-family="SimSun" text-anchor="middle" font-size="14">
+      <circle cx="120" cy="90" r="13" fill="#b3001b"/><text x="120" y="60" fill="#b3001b">早餐</text><text x="120" y="118" font-size="12" fill="#555">6:30–8:30</text>
+      <circle cx="340" cy="90" r="13" fill="#c9a227"/><text x="340" y="60" fill="#9a7b00">午餐</text><text x="340" y="118" font-size="12" fill="#555">11:30–13:30</text>
+      <circle cx="560" cy="90" r="13" fill="#2b6cb0"/><text x="560" y="60" fill="#2b6cb0">晚餐</text><text x="560" y="118" font-size="12" fill="#555">18:00–20:00</text>
+      <text x="230" y="78" font-size="12" fill="#888">间隔 4–6h</text>
+      <text x="450" y="78" font-size="12" fill="#888">间隔 4–6h</text>
+    </g>
+    <text x="340" y="150" text-anchor="middle" font-family="SimSun" font-size="13" fill="#555">用餐时长：早餐15–20分钟，午晚餐20–30分钟；细嚼慢咽、专心吃饭。</text>
+  </svg>
+  <p class="figcap">图2 三餐应在固定时间段、两餐间隔4–6小时。</p>
+  <p class="spk">时间也有讲究：两餐之间隔 <b>4–6 小时</b>最合适。早餐在 6:30–8:30，午餐 11:30–13:30，晚餐 18:00–20:00。晚餐别太晚——<b>至少睡前2小时吃完</b>。</p>
+
+  <!-- ===== 图3 饮水量 ===== -->
+  <h3>图3 · 足量饮水：男 1700 / 女 1500 ml（每杯≈200ml）</h3>
+  <svg viewBox="0 0 680 220" width="640" role="img" aria-label="饮水量阶梯">
+    <g font-family="SimSun">
+      <rect x="150" y="40" width="70" height="150" fill="#7ab8e0"/>
+      <rect x="150" y="40" width="70" height="150" fill="none" stroke="#2b6cb0" stroke-width="2"/>
+      <text x="185" y="205" text-anchor="middle" font-size="14" fill="#2b6cb0">男 1700ml</text>
+      <text x="185" y="30" text-anchor="middle" font-size="13" fill="#555">≈ 8–9 杯</text>
+      <rect x="380" y="70" width="70" height="120" fill="#9ed0f0"/>
+      <rect x="380" y="70" width="70" height="120" fill="none" stroke="#2b6cb0" stroke-width="2"/>
+      <text x="415" y="205" text-anchor="middle" font-size="14" fill="#2b6cb0">女 1500ml</text>
+      <text x="415" y="60" text-anchor="middle" font-size="13" fill="#555">≈ 7–8 杯</text>
+      <text x="560" y="100" font-size="13" fill="#555">每杯≈200ml</text>
+      <text x="560" y="124" font-size="13" fill="#555">早晚各1杯</text>
+      <text x="560" y="148" font-size="13" fill="#555">其余每1–2h一杯</text>
+      <text x="560" y="172" font-size="13" fill="#555">温度10–40℃</text>
+    </g>
+  </svg>
+  <p class="figcap">图3 温和气候、低活动水平成人每日饮水适宜量；"8杯水"取决于杯容量，记毫升更准。</p>
+  <p class="spk">喝水记<b>毫升</b>最稳：成年男性 <b>1700 ml</b>、女性 <b>1500 ml</b>（前提：温和气候 + 低身体活动水平）。网上常说"每天8杯水"，但杯子有大有小——用300ml杯算，男约6杯、女约5杯，所以<b>记毫升比记杯数更准</b>。喝法：主动、少量多次，每次约200ml，别等渴了猛灌。</p>
+
+  <!-- ===== 图4 白水vs含糖饮料 ===== -->
+  <h3>图4 · 白水 / 茶水 vs 含糖饮料</h3>
+  <svg viewBox="0 0 680 210" width="640" role="img" aria-label="白水与含糖饮料对比">
+    <g font-family="SimSun" font-size="14">
+      <rect x="60" y="30" width="250" height="150" rx="12" fill="#eaf6ee" stroke="#1f7a3d" stroke-width="2"/>
+      <text x="185" y="58" text-anchor="middle" font-size="17" fill="#1f7a3d">✅ 白水 / 茶水</text>
+      <text x="185" y="90" text-anchor="middle">0 额外能量</text>
+      <text x="185" y="116" text-anchor="middle">无添加糖风险</text>
+      <text x="185" y="142" text-anchor="middle">廉价、安全、首选</text>
+      <rect x="370" y="30" width="250" height="150" rx="12" fill="#fdeaea" stroke="#b3001b" stroke-width="2"/>
+      <text x="495" y="58" text-anchor="middle" font-size="17" fill="#b3001b">❌ 含糖饮料</text>
+      <text x="495" y="90" text-anchor="middle">龋齿</text>
+      <text x="495" y="116" text-anchor="middle">超重肥胖 / 2型糖尿病</text>
+      <text x="495" y="142" text-anchor="middle">血脂异常</text>
+    </g>
+  </svg>
+  <p class="figcap">图4 含糖饮料"不用代替白水"，过量增加四类健康风险。</p>
+  <p class="spk">准则六明确：<b>推荐喝白水或茶水，少喝或不喝含糖饮料，不用饮料代替白水</b>。含糖饮料营养价值低、添加糖高，过多摄入增加龋齿、超重肥胖、2型糖尿病、血脂异常风险。白水（白开水、直饮水、桶装水、矿泉水等）是首选；也可以喝淡茶水。怕没味？加片柠檬、几片薄荷，或自制无糖绿豆汤、酸梅汤。</p>
+
+  <!-- ===== 图5 缺水信号 ===== -->
+  <h3>图5 · 缺水信号：看尿液颜色</h3>
+  <svg viewBox="0 0 680 130" width="640" role="img" aria-label="尿液颜色与水合状态">
+    <g font-family="SimSun" font-size="13" text-anchor="middle">
+      <rect x="60" y="30" width="90" height="50" fill="#f5f3c0"/><text x="105" y="100">透明黄</text><text x="105" y="118" font-size="11" fill="#1f7a3d">充足</text>
+      <rect x="180" y="30" width="90" height="50" fill="#ecdf6e"/><text x="225" y="100">浅黄</text><text x="225" y="118" font-size="11" fill="#1f7a3d">充足</text>
+      <rect x="300" y="30" width="90" height="50" fill="#d9b53b"/><text x="345" y="100">黄色</text><text x="345" y="118" font-size="11" fill="#b8860b">偏少</text>
+      <rect x="420" y="30" width="90" height="50" fill="#b07d12"/><text x="465" y="100">深黄</text><text x="465" y="118" font-size="11" fill="#b3001b">脱水</text>
+      <rect x="540" y="30" width="90" height="50" fill="#7a5200"/><text x="585" y="100">深褐</text><text x="585" y="118" font-size="11" fill="#b3001b">明显脱水</text>
+    </g>
+  </svg>
+  <p class="figcap">图5 尿液颜色越深，提示机体越缺水；口渴已是明显缺水信号。</p>
+  <p class="spk">怎么判断缺水？三看：<b>口渴</b>（出现口渴就已经明显缺水了，别等渴）、<b>排尿次数/量</b>减少、<b>尿液颜色</b>加深。正常应呈透明黄或浅黄；颜色越深越缺水。所以要<b>主动喝水</b>，不等渴。</p>
+
+  <!-- ===== 图6 早餐四类食物 ===== -->
+  <h3>图6 · 吃好早餐：四类食物不能缺</h3>
+  <svg viewBox="0 0 680 240" width="640" role="img" aria-label="早餐四类食物盘">
+    <g transform="translate(200,120)">
+      <path d="M0,0 L80,0 A80,80 0 0,1 0,80 Z" fill="#f3d9a0"/>
+      <path d="M0,0 L0,80 A80,80 0 0,1 -80,0 Z" fill="#b6d7a8"/>
+      <path d="M0,0 L-80,0 A80,80 0 0,1 0,-80 Z" fill="#f0b3b3"/>
+      <path d="M0,0 L0,-80 A80,80 0 0,1 80,0 Z" fill="#c9c0e8"/>
+      <circle r="20" fill="#fff" stroke="#bbb"/>
+      <text x="0" y="4" text-anchor="middle" font-size="11" fill="#555">早餐盘</text>
+    </g>
+    <g font-family="SimSun" font-size="13">
+      <rect x="330" y="40" width="14" height="14" fill="#f3d9a0"/><text x="350" y="52">谷薯类（粥/面/薯）</text>
+      <rect x="330" y="72" width="14" height="14" fill="#b6d7a8"/><text x="350" y="84">蔬菜水果</text>
+      <rect x="330" y="104" width="14" height="14" fill="#f0b3b3"/><text x="350" y="116">动物性食物（蛋/肉）</text>
+      <rect x="330" y="136" width="14" height="14" fill="#c9c0e8"/><text x="350" y="148">奶豆坚果</text>
+      <text x="330" y="182" font-size="12" fill="#555">四类食物齐全 = 营养充足的早餐</text>
+    </g>
+  </svg>
+  <p class="figcap">图6 合格早餐应覆盖谷薯、蔬果、动物性、奶豆坚果四类。</p>
+  <p class="spk">"每天吃早餐"不是随便吃点心。营养充足的早餐要包括<b>四类</b>：谷薯类、蔬菜水果、动物性食物、奶豆坚果。只吃一个面包，不算"吃好早餐"。</p>
+
+  <!-- ===== 口诀 ===== -->
+  <h2>三、四套口诀（背下来，考场上秒答）</h2>
+  <div class="jue">
+    <p class="spk"><span class="k">① 三餐口诀：</span>早吃好、午吃饱、晚吃少；定时量、不漏餐，早餐天天不能少。</p>
+    <p class="spk"><span class="k">② 饮水口诀：</span>男十七、女十五（1700 / 1500），白水茶水是最好；少量多次莫等渴，含糖饮料尽量少。</p>
+    <p class="spk"><span class="k">③ 规律口诀：</span>三餐定时又定量，不暴不挑不过节（不过度节食）。</p>
+    <p class="spk"><span class="k">④ 综合口诀：</span>规律进餐足量水，温和气候男17女15；白水茶水代甜饮，早餐四样不能缺。</p>
+  </div>
+
+  <!-- ===== 易错点 ===== -->
+  <h2>四、六大易错点（红框警告，考试专坑）</h2>
+  <div class="err spk"><p><b>1. 数字与单位：</b>是 <b>1700 ml / 1500 ml</b>（毫升），别漏写成 1.7L/1.5L 时把"0"丢掉变 170/150；也别把男女记反——<b>男 1700 &gt; 女 1500</b>。</p></div>
+  <div class="err spk"><p><b>2. 前提条件：</b>男1700/女1500 是"<b>温和气候 + 低身体活动水平</b>"。高温、高海拔或体力活动多时要<b>增加</b>饮水量，不能死记一个数。</p></div>
+  <div class="err spk"><p><b>3. 含糖饮料两处都考：</b>准则五（控糖限酒）和准则六（足量饮水）都提到含糖饮料。准则六的落脚点是"<b>足量饮水、别用饮料代白水</b>"，二者角度不同，<b>两条都要会</b>。</p></div>
+  <div class="err spk"><p><b>4. 三餐能量比：</b>早 25%–30% / 午 30%–40% / 晚 30%–35%。<b>晚餐比例不超过午餐</b>，且晚餐要清淡少油少盐；睡前2小时吃完。</p></div>
+  <div class="err spk"><p><b>5. "不漏餐"重点是早餐：</b>很多人漏早餐。关键事实：<b>不吃早餐反而↑超重肥胖、糖尿病风险</b>，并非"不吃早餐能减肥"——这是高频误区。</p></div>
+  <div class="err spk"><p><b>6. 缺水判断：</b><b>口渴已是明显缺水信号</b>，应主动、少量多次喝水，不等渴；睡前1小时不宜吃零食，睡前不宜大量饮水。</p></div>
+
+  <!-- ===== 三步解题法 ===== -->
+  <h2>五、三步解题法（遇到准则六题，照做不慌）</h2>
+  <div class="card spk">
+    <p><b>第一步·审题定位：</b>看清问的是"三餐安排 / 能量分配 / 饮水推荐量 / 含糖饮料 / 缺水判断"哪一类，锁定考点。</p>
+    <p><b>第二步·调取数据：</b>对应硬数据——饮水男1700女1500（温和低活动）；三餐比 25–30/30–40/30–35；两餐间隔4–6h；含糖饮料四害（龋/肥/T2DM/血脂）。</p>
+    <p><b>第三步·辨析陷阱：</b>检查选项有没有混性别、漏前提、用饮料代水、晚餐超过午餐、把"口渴才喝"当正确做法——凡是踩中易错点6条之一，基本就是错项。</p>
+  </div>
+
+  <!-- ===== 课堂提问 ===== -->
+  <h2>六、课堂提问（费曼互动：先自己答，再听解析）</h2>
+  <div class="card spk">
+    <p><b>老师问①：</b>小林每天用一瓶奶茶"代替喝水"，符合准则六吗？</p>
+    <p><b>老师问②：</b>有人说"我一天喝8杯水肯定够"，这句话严谨吗？</p>
+    <p><b>老师问③：</b>为了减肥不吃早餐，对不对？为什么？</p>
+    <p><b>老师问④：</b>晚餐应该比午餐更丰盛、吃得更晚，对吗？</p>
+  </div>
+  <div class="note spk"><p>参考答案：①不符合——含糖饮料不能代替白水；②不严谨——杯容量不同，应记毫升(男1700/女1500)；③不对——不吃早餐↑肥胖/糖尿病风险，且不利认知；④不对——晚餐比例≤午餐、应清淡、睡前2小时前吃完。</p></div>
+
+  <!-- ===== 改编题 ===== -->
+  <h2>七、改编题（6道，点"对答案"看解析）</h2>
+
+  <div class="quiz">
+    <h4 class="spk">1. 合理分配一日三餐能量，早餐应占全天总能量的：</h4>
+    <div class="opt" data-ans="B">A. 15%–20%</div>
+    <div class="opt" data-ans="B">B. 25%–30%</div>
+    <div class="opt" data-ans="B">C. 35%–40%</div>
+    <div class="opt" data-ans="B">D. 40%–45%</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：B。</b>指南：早餐25%–30%、午餐30%–40%、晚餐30%–35%。A偏低（漏算早餐能量），C/D是午餐及以上区间。</div>
+  </div>
+
+  <div class="quiz">
+    <h4 class="spk">2. 在温和气候、低身体活动水平下，成年男性每天饮水的适宜摄入量是：</h4>
+    <div class="opt" data-ans="B">A. 1500 ml</div>
+    <div class="opt" data-ans="B">B. 1700 ml</div>
+    <div class="opt" data-ans="B">C. 2000 ml</div>
+    <div class="opt" data-ans="B">D. 1200 ml</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：B。</b>男1700 ml、女1500 ml。易错：把男女记反（A是女量）；且勿漏"温和气候+低活动"前提。</div>
+  </div>
+
+  <div class="quiz">
+    <h4 class="spk">3. 关于早餐，下列说法错误的是：</h4>
+    <div class="opt" data-ans="B">A. 应包括谷薯、蔬果、动物性、奶豆坚果四类</div>
+    <div class="opt" data-ans="B">B. 为了减肥可以不吃早餐</div>
+    <div class="opt" data-ans="B">C. 低活动成人能量约 600–700 千卡</div>
+    <div class="opt" data-ans="B">D. 建议在 6:30–8:30 之间吃</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：B。</b>不吃早餐反而升高超重肥胖、糖尿病风险，且不利认知；准则六要求"每天吃早餐"。A/C/D均正确。</div>
+  </div>
+
+  <div class="quiz">
+    <h4 class="spk">4. 安排一日三餐，两餐之间的适宜间隔是：</h4>
+    <div class="opt" data-ans="B">A. 2–3 小时</div>
+    <div class="opt" data-ans="B">B. 4–6 小时</div>
+    <div class="opt" data-ans="B">C. 8–10 小时</div>
+    <div class="opt" data-ans="B">D. 越久越好</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：B。</b>指南建议两餐间隔4–6小时，符合消化系统生理特点。间隔过短消化不充分，过长易过饿暴食。</div>
+  </div>
+
+  <div class="quiz">
+    <h4 class="spk">5. 关于"足量饮水"，下列做法正确的是：</h4>
+    <div class="opt" data-ans="B">A. 等到口渴了再大量喝水</div>
+    <div class="opt" data-ans="B">B. 主动喝水、少量多次</div>
+    <div class="opt" data-ans="B">C. 用含糖饮料代替白水更方便</div>
+    <div class="opt" data-ans="B">D. 一次猛喝 2 升补回来</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：B。</b>应主动、少量多次；口渴已是明显缺水信号，不宜等渴；含糖饮料不能代水；一次猛灌有"水中毒"风险。</div>
+  </div>
+
+  <div class="quiz">
+    <h4 class="spk">6. 过多摄入含糖饮料会增加多种疾病风险，下列哪项<u>不</u>在其列：</h4>
+    <div class="opt" data-ans="D">A. 龋齿</div>
+    <div class="opt" data-ans="D">B. 超重肥胖</div>
+    <div class="opt" data-ans="D">C. 2 型糖尿病</div>
+    <div class="opt" data-ans="D">D. 提升认知能力与工作效率</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：D。</b>含糖饮料增加龋齿、超重肥胖、2型糖尿病、血脂异常风险；"提升认知"恰恰相反——脱水/高糖反损认知。D为错误项。</div>
+  </div>
+
+  <!-- ===== 费曼自检 ===== -->
+  <h2>八、费曼自检（逐条打勾，能讲出来才算会）</h2>
+  <div class="card feynman spk">
+    <label><input type="checkbox"> ① 我能脱口说出准则六的4条核心推荐。</label>
+    <label><input type="checkbox"> ② 我能解释"为什么不能等口渴才喝水"。</label>
+    <label><input type="checkbox"> ③ 我能背出饮水男1700/女1500及两个前提条件。</label>
+    <label><input type="checkbox"> ④ 我能默写出三餐能量分配比（25–30 / 30–40 / 30–35）。</label>
+    <label><input type="checkbox"> ⑤ 我能列举含糖饮料的4类危害。</label>
+    <label><input type="checkbox"> ⑥ 我能用一句口诀提醒自己"规律进餐、足量水"。</label>
+  </div>
+
+  <!-- ===== 下节预告 ===== -->
+  <div class="note spk">
+    <p><b>📌 下节预告（第7课 · 准则七：会烹会选，会看标签）：</b>在生命各阶段做好健康膳食规划；认识食物，选新鲜、营养素密度高的食物；学会读食品标签，合理选预包装食品；学习烹饪、传承传统饮食；在外就餐不忘适量与平衡。我们继续"向前一步"——从"吃什么"走向"怎么挑、怎么做"。</p>
+  </div>
+
+  <div class="footer">第6课 · 准则六 规律进餐，足量饮水 ｜ 依据《中国居民膳食指南(2022)》官方原文 ｜ 本页为独立一课，永久保留不更新 ｜ 注册营养师考点系列</div>
+</div>
+
+<!-- 浮动可拖动播放器 -->
+<div id="player">
+  <div id="phead">🔊 晓晓老师讲解 <span class="pin" id="pin" onclick="togglePin()">📌固定</span></div>
+  <div id="sub"><span class="cur">点"播放"开始听讲，或拖动画面到不挡位置。</span></div>
+  <div id="pctrl">
+    <div class="row">
+      <button onclick="prevSen()">⏮ 上一句</button>
+      <button id="playBtn" onclick="togglePlay()">▶ 播放</button>
+      <button onclick="nextSen()">下一句 ⏭</button>
+    </div>
+    <div class="row">
+      <input type="range" id="seek" min="0" max="0" value="0" oninput="seekTo(this.value)">
+    </div>
+    <div class="row mini"><span id="pos">第 0 / 0 句</span></div>
+    <div class="row">
+      <span class="mini">语速</span>
+      <input type="range" id="rate" min="0.5" max="2" step="0.1" value="1" oninput="setRate(this.value)">
+      <span class="mini" id="rateLab">1.0×</span>
+    </div>
+    <div class="row">
+      <span class="mini">语音</span>
+      <select id="voice" onchange="changeVoice()"></select>
+    </div>
+  </div>
+  <div id="hint">未检测到晓晓神经网络语音：当前浏览器将使用其他中文语音；在 Windows 的 Edge 浏览器中可调用"Microsoft Xiaoxiao Online"神经网络语音，效果最佳。</div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var spk = Array.prototype.slice.call(document.querySelectorAll('.spk'));
+  var total = spk.length;
+  var idx = -1, playing = false, pinned = false, curVoice = null;
+  var rate = 1, timer = null;
+
+  var sub = document.getElementById('sub');
+  var seek = document.getElementById('seek');
+  var pos = document.getElementById('pos');
+  var playBtn = document.getElementById('playBtn');
+  var voiceSel = document.getElementById('voice');
+
+  seek.max = total - 1;
+
+  function clean(el){ return (el.textContent || '').replace(/\s+/g,' ').trim(); }
+
+  function highlight(i){
+    spk.forEach(function(e){ e.classList.remove('active'); });
+    if(i>=0 && i<total){
+      spk[i].classList.add('active');
+      try{ spk[i].scrollIntoView({block:'center', behavior:'smooth'}); }catch(e){}
+    }
+  }
+
+  function showSub(i){
+    if(i<0||i>=total){ sub.innerHTML = '<span class="cur">已到结尾。</span>'; return; }
+    sub.innerHTML = '<span class="cur">'+ clean(spk[i]) +'</span>';
+    sub.scrollTop = sub.scrollHeight;
+    pos.textContent = '第 ' + (i+1) + ' / ' + total + ' 句';
+    seek.value = i;
+  }
+
+  function speak(i){
+    if(i<0||i>=total) return;
+    if(!('speechSynthesis' in window)){ showSub(i); return; }
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(clean(spk[i]));
+    u.lang = 'zh-CN'; u.rate = rate;
+    if(curVoice) u.voice = curVoice;
+    u.onend = function(){
+      if(idx === i && playing){
+        if(i+1 < total){ idx = i+1; highlight(idx); showSub(idx); speak(idx); }
+        else { playing = false; playBtn.textContent = '▶ 播放'; }
+      }
+    };
+    u.onerror = function(){ if(idx===i && playing){ playing=false; playBtn.textContent='▶ 播放'; } };
+    window.speechSynthesis.speak(u);
+  }
+
+  window.togglePlay = function(){
+    if(!('speechSynthesis' in window)){ alert('当前环境不支持语音朗读，请直接阅读正文。'); return; }
+    if(playing){ playing=false; window.speechSynthesis.cancel(); playBtn.textContent='▶ 播放'; return; }
+    if(idx<0) idx=0;
+    playing=true; playBtn.textContent='⏸ 暂停';
+    highlight(idx); showSub(idx); speak(idx);
+  };
+  window.nextSen = function(){ if(idx<total-1){ idx++; playing=false; playBtn.textContent='▶ 播放'; highlight(idx); showSub(idx); if('speechSynthesis'in window) window.speechSynthesis.cancel(); } };
+  window.prevSen = function(){ if(idx>0){ idx--; playing=false; playBtn.textContent='▶ 播放'; highlight(idx); showSub(idx); if('speechSynthesis'in window) window.speechSynthesis.cancel(); } };
+  window.seekTo = function(v){ idx=parseInt(v,10); playing=false; playBtn.textContent='▶ 播放'; highlight(idx); showSub(idx); if('speechSynthesis'in window) window.speechSynthesis.cancel(); };
+  window.setRate = function(v){ rate=parseFloat(v); document.getElementById('rateLab').textContent=rate.toFixed(1)+'×'; if(playing && idx>=0){ speak(idx); } };
+  window.changeVoice = function(){ var v=voiceSel.value; curVoice = voices.filter(function(x){return x.name===v;})[0] || null; };
+
+  // 字号
+  var fsStep = [10,11,12,14,16,18,20]; var fsI = 2; // 默认12pt=小四
+  window.setFS = function(d){ fsI = Math.max(0, Math.min(fsStep.length-1, fsI+d)); document.documentElement.style.setProperty('--fs', fsStep[fsI]+'pt'); };
+
+  // 语音列表
+  var voices = [];
+  function loadVoices(){
+    voices = window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
+    voiceSel.innerHTML = '';
+    var zh = voices.filter(function(v){ return /zh|chinese|中文|普通话/i.test(v.lang+v.name); });
+    if(zh.length===0) zh = voices;
+    zh.forEach(function(v){ var o=document.createElement('option'); o.value=v.name; o.textContent=v.name; voiceSel.appendChild(o); });
+    // 默认晓晓
+    var xiao = voices.filter(function(v){ return /xiaoxiao|晓晓/i.test(v.name); })[0];
+    if(xiao){ curVoice = xiao; voiceSel.value = xiao.name; document.getElementById('hint').style.display='none'; }
+    else if(zh.length){ curVoice = zh[0]; voiceSel.value = zh[0].name; document.getElementById('hint').style.display='block'; }
+  }
+  if('speechSynthesis' in window){
+    loadVoices();
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+  } else { document.getElementById('hint').style.display='block'; }
+
+  // 拖动播放器
+  var player = document.getElementById('player');
+  var head = document.getElementById('phead');
+  var drag=false, ox=0, oy=0;
+  head.addEventListener('mousedown', function(e){ if(pinned) return; drag=true; var r=player.getBoundingClientRect(); ox=e.clientX-r.left; oy=e.clientY-r.top; head.style.cursor='grabbing'; e.preventDefault(); });
+  window.addEventListener('mousemove', function(e){ if(!drag) return; var x=e.clientX-ox, y=e.clientY-oy; x=Math.max(0, Math.min(window.innerWidth-player.offsetWidth, x)); y=Math.max(0, Math.min(window.innerHeight-player.offsetHeight, y)); player.style.left=x+'px'; player.style.top=y+'px'; player.style.bottom='auto'; player.style.right='auto'; });
+  window.addEventListener('mouseup', function(){ drag=false; head.style.cursor='grab'; });
+  // 触摸拖动
+  head.addEventListener('touchstart', function(e){ if(pinned) return; drag=true; var r=player.getBoundingClientRect(); var t=e.touches[0]; ox=t.clientX-r.left; oy=t.clientY-r.top; e.preventDefault(); }, {passive:false});
+  window.addEventListener('touchmove', function(e){ if(!drag) return; var t=e.touches[0]; var x=t.clientX-ox, y=t.clientY-oy; x=Math.max(0, Math.min(window.innerWidth-player.offsetWidth, x)); y=Math.max(0, Math.min(window.innerHeight-player.offsetHeight, y)); player.style.left=x+'px'; player.style.top=y+'px'; player.style.bottom='auto'; player.style.right='auto'; }, {passive:false});
+  window.addEventListener('touchend', function(){ drag=false; });
+
+  window.togglePin = function(){ pinned=!pinned; document.getElementById('pin').textContent = pinned?'📌已固定':'📌固定'; };
+
+  // 选择题
+  window.reveal = function(btn){
+    var q = btn.parentNode;
+    var ans = q.querySelector('.opt[data-ans]').getAttribute('data-ans');
+    var opts = q.querySelectorAll('.opt');
+    opts.forEach(function(o){
+      o.classList.add('cho');
+      var l = o.textContent.trim().charAt(0);
+      if(l===ans) o.classList.add('right');
+    });
+    var rev = q.querySelector('.reveal');
+    rev.style.display='block';
+    btn.disabled = true;
+  };
+  // 选项点击高亮
+  document.querySelectorAll('.opt').forEach(function(o){
+    o.addEventListener('click', function(){
+      var sibs = o.parentNode.querySelectorAll('.opt');
+      sibs.forEach(function(s){ s.classList.remove('cho'); });
+      o.classList.add('cho');
+    });
+  });
+
+  showSub(-1);
+  console.log('LESSON6_OK sentences='+total);
+})();
+</script>
+</body>
+</html>
