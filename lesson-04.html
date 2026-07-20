@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第4课 · 准则四：适量吃鱼、禽、蛋、瘦肉（晓晓老师讲解版）</title>
+<style>
+  :root{ --fs:14pt; --ink:#1f2a36; --line:#dfe6ee; --card:#fff; --accent:#2f6f8f; --red:#c0392b; --green:#2e8b57; --amber:#d98324; --soft:#f4f8fb; }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{ font-family:"SimSun","宋体",STSong,serif; font-size:var(--fs); line-height:1.9; color:var(--ink);
+        background:#eef3f7; padding:24px 18px 40px; }
+  .wrap{ max-width:980px; margin:0 auto; background:var(--card); border:1px solid var(--line);
+         border-radius:14px; padding:30px 34px 36px; box-shadow:0 6px 24px rgba(40,70,90,.08); }
+  h1{ font-size:1.55em; color:var(--accent); text-align:center; margin:.2em 0 .1em; }
+  h2{ font-size:1.22em; color:var(--accent); border-left:6px solid var(--accent); padding-left:12px; margin:1.4em 0 .6em; }
+  h3{ font-size:1.05em; color:#345; margin:.9em 0 .4em; }
+  p,li{ margin:.45em 0; }
+  .sub{ text-align:center; color:#678; font-size:.86em; margin-bottom:1em; }
+  table{ border-collapse:collapse; width:100%; margin:.6em 0; font-size:.95em; }
+  th,td{ border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
+  th{ background:var(--soft); color:#345; }
+  .case{ background:#fff8ec; border:1px dashed var(--amber); border-radius:10px; padding:14px 18px; margin:1em 0; }
+  .case b{ color:var(--amber); }
+  .mnemo{ background:#eaf5ee; border:1px solid #bfe3cd; border-radius:10px; padding:12px 18px; margin:.7em 0; }
+  .mnemo .k{ color:var(--green); font-weight:bold; }
+  .err{ border:2px solid var(--red); border-radius:10px; padding:12px 18px; margin:.7em 0; background:#fdf0ee; }
+  .err .t{ color:var(--red); font-weight:bold; }
+  .step{ background:var(--soft); border-radius:10px; padding:12px 18px; margin:.7em 0; }
+  .qa{ background:#f3f0fb; border-left:5px solid #7a5cc0; border-radius:8px; padding:10px 16px; margin:.7em 0; }
+  .qa .q{ font-weight:bold; color:#5a3fa0; }
+  .qa .a{ color:#333; }
+  .feyn{ background:#f6fbfd; border:1px solid #cfe6f2; border-radius:10px; padding:12px 18px; }
+  .feyn label{ display:block; margin:.35em 0; cursor:pointer; }
+  .feyn input{ transform:scale(1.25); margin-right:8px; vertical-align:middle; }
+  .fig{ text-align:center; margin:1em 0; }
+  .fig svg{ max-width:100%; height:auto; background:#fff; border:1px solid var(--line); border-radius:10px; }
+  .fig .cap{ font-size:.82em; color:#678; margin-top:6px; }
+  .quiz{ border:1px solid var(--line); border-radius:10px; padding:14px 18px; margin:1em 0; background:#fff; }
+  .quiz .qt{ font-weight:bold; margin-bottom:.5em; }
+  .opt{ display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fbfdfe;
+        border-radius:8px; padding:8px 12px; margin:6px 0; cursor:pointer; font-family:inherit; font-size:1em; color:var(--ink); }
+  .opt:hover{ border-color:var(--accent); }
+  .opt.correct{ background:#e7f7ec; border-color:var(--green); }
+  .opt.wrong{ background:#fdeaea; border-color:var(--red); }
+  .opt.dim{ opacity:.5; }
+  .explain{ display:none; margin-top:8px; padding:10px 14px; background:var(--soft); border-radius:8px; font-size:.94em; }
+  .explain.show{ display:block; }
+  .tag{ display:inline-block; background:var(--accent); color:#fff; border-radius:6px; padding:1px 9px; font-size:.78em; margin-right:6px; }
+  .next{ text-align:center; background:#eaf5ee; border:1px solid #bfe3cd; border-radius:10px; padding:16px; margin-top:1.6em; color:#2e6b45; font-size:1.02em; }
+  hr{ border:none; border-top:1px dashed var(--line); margin:1.6em 0; }
+
+  /* 浮动播放器 */
+  #player{ position:fixed; top:18px; right:18px; width:320px; background:rgba(255,255,255,.97);
+           border:1px solid var(--accent); border-radius:14px; box-shadow:0 8px 30px rgba(30,70,100,.28);
+           z-index:9999; overflow:hidden; font-family:inherit; }
+  #player .bar{ cursor:move; background:linear-gradient(135deg,#2f6f8f,#3f8fb0); color:#fff;
+                padding:8px 12px; font-size:.92em; display:flex; align-items:center; justify-content:space-between; }
+  #player .bar .pin{ cursor:pointer; user-select:none; background:rgba(255,255,255,.22); border-radius:6px; padding:0 7px; }
+  #player .body{ padding:10px 12px 12px; }
+  #subtitle{ min-height:3.2em; max-height:6.2em; overflow-y:auto; background:var(--soft); border-radius:8px;
+             padding:8px 10px; font-size:.92em; line-height:1.6; color:#234; margin-bottom:8px; }
+  #subtitle b{ color:var(--accent); }
+  .ctr{ display:flex; gap:6px; align-items:center; justify-content:center; margin-bottom:8px; }
+  .ctr button{ font-family:inherit; font-size:1.05em; border:1px solid var(--accent); background:#fff; color:var(--accent);
+               border-radius:8px; padding:5px 10px; cursor:pointer; }
+  .ctr button:hover{ background:var(--accent); color:#fff; }
+  .ctr .play{ font-size:1.2em; min-width:54px; }
+  #seek{ width:100%; }
+  .meta{ display:flex; gap:8px; align-items:center; margin-top:6px; font-size:.82em; color:#456; }
+  .meta select{ font-family:inherit; font-size:1em; flex:1; }
+  .voice-note{ font-size:.76em; color:#a05; margin-top:6px; display:none; }
+  @media (max-width:640px){ #player{ width:92%; right:4%; left:4%; } .wrap{ padding:22px 16px; } }
+</style>
+</head>
+<body>
+
+<!-- 浮动播放器：可拖动；字幕在面板内，不遮挡正文/图 -->
+<div id="player">
+  <div class="bar" id="pbar">
+    <span>🎧 晓晓老师讲解</span>
+    <span class="pin" id="pinBtn" title="固定/解锁拖动">📌解锁</span>
+  </div>
+  <div class="body">
+    <div id="subtitle">点▶开始，晓晓老师逐句讲解。拖动面板可避让图文，用「上一句/下一句」或拖动进度条调位置。</div>
+    <div class="ctr">
+      <button id="prevBtn" title="上一句">⏮上一句</button>
+      <button class="play" id="playBtn" title="播放/暂停">▶播放</button>
+      <button id="nextBtn" title="下一句">下一句⏭</button>
+    </div>
+    <input type="range" id="seek" min="0" max="0" value="0" step="1">
+    <div class="meta">
+      <span id="pos">0/0</span>
+      <select id="rateSel" title="语速">
+        <option value="0.8">语速 0.8x</option>
+        <option value="1" selected>语速 1.0x</option>
+        <option value="1.2">语速 1.2x</option>
+        <option value="1.5">语速 1.5x</option>
+      </select>
+    </div>
+    <div class="meta">
+      <select id="voiceSel" title="语音"></select>
+    </div>
+    <div class="voice-note" id="voiceNote">未检测到「晓晓(XiaoxiaoNeural)」神经网络语音，已用其它中文语音替代。建议用 Edge/Win 打开以获得最佳晓晓音色。</div>
+  </div>
+</div>
+
+<div class="wrap">
+  <h1>第4课 · 准则四：适量吃鱼、禽、蛋、瘦肉</h1>
+  <div class="sub">《中国居民膳食指南（2022）》注册营养师考点串讲｜温故（准则一二三）→ 新知 → 口诀 → 易错 → 解题 → 提问 → 改编题 → 费曼 → 预告</div>
+
+  <!-- 温故 -->
+  <h2>一、温故（上三课要点快速过）</h2>
+  <table>
+    <tr><th>考点</th><th>一句话核心</th><th>关键数字</th></tr>
+    <tr><td>平衡膳食宝塔</td><td>五层：谷薯→蔬果→畜禽鱼蛋奶→大豆坚果→油盐</td><td>盐&lt;5g、油25–30g、奶300–500g</td></tr>
+    <tr><td>准则一 食物多样</td><td>谷类为主、每天12种/周25种</td><td>谷类200–300g（全谷杂豆50–150g、薯类50–100g）</td></tr>
+    <tr><td>准则二 吃动平衡</td><td>能量天平、健康体重</td><td>BMI 18.5–23.9；腰围男≥90女≥85；6000步/周150分</td></tr>
+    <tr><td>准则三 蔬果奶类全谷大豆</td><td>餐餐有蔬菜、天天有水果、常吃奶类全谷</td><td>蔬菜≥300g（深色½）、水果200–350g、奶≥300ml、坚果≈10g</td></tr>
+  </table>
+  <p>今日目标：在"食物多样"的大盘子里，把<b>动物性食物</b>这一格讲透——吃多少、吃什么、怎么吃。</p>
+
+  <!-- 导入 -->
+  <h2>二、导入（一个案例）</h2>
+  <div class="case">
+    <b>案例：</b>高三男生小明"无肉不欢"——顿顿红烧肉、早餐培根三明治、周末炸鸡，几乎不吃鱼，还嫌蛋黄"胆固醇高"只吃蛋白。最近体检腰围 92cm、血脂偏高。<br>
+    <b>老师提问：</b>小明的吃法，踩了准则四的哪些"坑"？学完今天这一课，你能给他开出几条整改单吗？
+  </div>
+
+  <!-- 新知 -->
+  <h2>三、新知讲解：准则四 适量吃鱼、禽、蛋、瘦肉</h2>
+
+  <h3>1. 先记"量"——总量与每周配额</h3>
+  <p>• <b>每天</b>：鱼、禽、蛋类和瘦肉<b>合计 120～200 g</b>（这是所有动物性食物的总量，不是单指瘦肉）。</p>
+  <p>• <b>每周</b>三类各自配额（注意是"各"300～500g，不是三者加起来）：</p>
+  <ul>
+    <li>鱼（水产品）：<b>300～500 g</b>，最好每周吃 <b>2 次</b>；</li>
+    <li>蛋：<b>300～350 g</b> ≈ 每周 6～7 个 ≈ <b>每天 1 个</b>；</li>
+    <li>畜禽肉：<b>300～500 g</b>（其中畜肉建议 ≤500 g/周，≈每天 ≤70 g）。</li>
+  </ul>
+  <div class="fig">
+    <svg viewBox="0 0 640 300" role="img" aria-label="每日与每周动物性食物配额图">
+      <rect x="0" y="0" width="640" height="300" fill="#fff"/>
+      <text x="20" y="28" font-size="16" fill="#2f6f8f" font-family="SimSun">图1　动物性食物「量」：每天一小格，每周三配额</text>
+      <!-- 每天 -->
+      <rect x="40" y="60" width="560" height="80" rx="10" fill="#eaf5ee" stroke="#2e8b57"/>
+      <text x="56" y="92" font-size="15" fill="#234" font-family="SimSun">每天动物性食物总量：鱼+禽+蛋+瘦肉 合计</text>
+      <text x="56" y="124" font-size="20" fill="#2e8b57" font-weight="bold" font-family="SimSun">120 ～ 200 g</text>
+      <!-- 每周三根柱 -->
+      <g font-family="SimSun">
+        <rect x="70" y="180" width="120" height="80" fill="#3f8fb0"/>
+        <text x="130" y="200" font-size="14" fill="#fff" text-anchor="middle">鱼</text>
+        <text x="130" y="240" font-size="15" fill="#fff" text-anchor="middle">300-500g</text>
+        <text x="130" y="262" font-size="11" fill="#456" text-anchor="middle">≥2次/周</text>
+        <rect x="260" y="180" width="120" height="80" fill="#2e8b57"/>
+        <text x="320" y="200" font-size="14" fill="#fff" text-anchor="middle">蛋</text>
+        <text x="320" y="240" font-size="15" fill="#fff" text-anchor="middle">300-350g</text>
+        <text x="320" y="262" font-size="11" fill="#456" text-anchor="middle">≈每天1个</text>
+        <rect x="450" y="180" width="120" height="80" fill="#d98324"/>
+        <text x="510" y="200" font-size="14" fill="#fff" text-anchor="middle">畜禽肉</text>
+        <text x="510" y="240" font-size="15" fill="#fff" text-anchor="middle">300-500g</text>
+        <text x="510" y="262" font-size="11" fill="#456" text-anchor="middle">畜肉≤500g/周</text>
+        <text x="320" y="290" font-size="12" fill="#c0392b" text-anchor="middle">注意：鱼、蛋、畜禽肉是「各」300-500g/周，不是合计！</text>
+      </g>
+    </svg>
+    <div class="cap">图1｜每天 120–200g 是全部动物性食物的总量；每周鱼、蛋、畜禽肉各自 300–500g。</div>
+  </div>
+
+  <h3>2. 六条核心推荐</h3>
+  <p><span class="tag">官方原文 5 条</span></p>
+  <ol>
+    <li>鱼、禽、蛋类和瘦肉摄入要适量，平均每天 120～200g。</li>
+    <li>每周最好吃鱼 2 次或 300～500g，蛋类 300～350g，畜禽肉 300～500g。</li>
+    <li>少吃深加工肉制品。</li>
+    <li>鸡蛋营养丰富，吃鸡蛋不弃蛋黄。</li>
+    <li>优先选择鱼，少吃肥肉、烟熏和腌制肉制品。</li>
+  </ol>
+  <p><span class="tag">考试常用 6 条拆分</span></p>
+  <ol>
+    <li>适量摄入，平均每天 120～200g；</li>
+    <li>每周鱼 2 次/300–500g、蛋 300–350g、畜禽肉 300–500g；</li>
+    <li>少吃深加工肉制品；</li>
+    <li>吃鸡蛋不弃蛋黄；</li>
+    <li><b>优先选择鱼和禽</b>（白肉优先）；</li>
+    <li>吃畜肉宜选瘦肉，少吃肥肉、烟熏和腌制肉制品。</li>
+  </ol>
+  <div class="err"><span class="t">较真提示：</span>官方第 5 条写"优先选择鱼"，教材常扩展为"优先鱼和禽"——因为我国居民鱼、禽肉摄入过低、畜肉过高，调整方向一致，考试两种说法都对，记住"白肉（鱼禽）优先"即可。</div>
+
+  <h3>3. 底层逻辑：为什么这样推荐？（关键事实·证据）</h3>
+  <ul>
+    <li>动物性食物是<b>优质蛋白、脂肪、维生素 A、B₂、B₁₂、烟酸、铁、锌、硒</b>的高贡献来源。</li>
+    <li><b>现状问题</b>：畜肉过高、鱼禽过低 → 指南才强调"优先鱼禽、控制畜肉"。</li>
+    <li><b>健康证据</b>：增加鱼类→降低<b>全因死亡、脑卒中</b>风险；适量禽肉、鸡蛋→与<b>心血管疾病</b>风险无明显关联；过量畜肉→增加 <b>2型糖尿病、结直肠癌、肥胖</b>风险；烟熏肉→增加 <b>胃癌、食管癌</b>风险。</li>
+  </ul>
+
+  <h3>4. 白肉 vs 红肉（鱼禽 vs 畜）——选肉"优先序"</h3>
+  <div class="fig">
+    <svg viewBox="0 0 640 230" role="img" aria-label="白肉红肉对比图">
+      <rect x="0" y="0" width="640" height="230" fill="#fff"/>
+      <text x="20" y="26" font-size="16" fill="#2f6f8f" font-family="SimSun">图2　白肉（鱼禽）优先，红肉（畜）选瘦肉≠不吃</text>
+      <rect x="40" y="50" width="260" height="150" rx="12" fill="#eaf5ee" stroke="#2e8b57"/>
+      <text x="170" y="80" font-size="18" fill="#2e8b57" font-weight="bold" text-anchor="middle" font-family="SimSun">白肉（鱼、禽）</text>
+      <text x="60" y="110" font-size="13" fill="#234" font-family="SimSun">· 脂肪较低、不饱和脂肪多</text>
+      <text x="60" y="134" font-size="13" fill="#234" font-family="SimSun">· 鱼含 ω-3（DHA/EPA）</text>
+      <text x="60" y="158" font-size="13" fill="#234" font-family="SimSun">· 几乎无过量风险</text>
+      <text x="60" y="184" font-size="14" fill="#2e8b57" font-weight="bold" font-family="SimSun">→ 优先选择</text>
+      <rect x="340" y="50" width="260" height="150" rx="12" fill="#fdf0ee" stroke="#c0392b"/>
+      <text x="470" y="80" font-size="18" fill="#c0392b" font-weight="bold" text-anchor="middle" font-family="SimSun">红肉（猪牛羊）</text>
+      <text x="360" y="110" font-size="13" fill="#234" font-family="SimSun">· 富含血红素铁、锌、B₁₂</text>
+      <text x="360" y="134" font-size="13" fill="#234" font-family="SimSun">· 饱和脂肪较高</text>
+      <text x="360" y="158" font-size="13" fill="#234" font-family="SimSun">· 过量↑糖尿病/肠癌/肥胖</text>
+      <text x="360" y="184" font-size="14" fill="#c0392b" font-weight="bold" font-family="SimSun">→ 适量、选瘦肉</text>
+    </svg>
+    <div class="cap">图2｜白肉优先、红肉选瘦；鱼禽蛋，红肉瘦，加工熏腌靠边走。</div>
+  </div>
+
+  <div class="fig">
+    <svg viewBox="0 0 640 200" role="img" aria-label="鱼类ω-3心脑保护图">
+      <rect x="0" y="0" width="640" height="200" fill="#fff"/>
+      <text x="20" y="26" font-size="16" fill="#2f6f8f" font-family="SimSun">图3　多吃鱼：ω-3（DHA/EPA）护心脑</text>
+      <g transform="translate(70,100)">
+        <ellipse cx="0" cy="0" rx="40" ry="22" fill="#7fb8d6"/>
+        <polygon points="38,0 62,-16 62,16" fill="#7fb8d6"/>
+        <circle cx="-22" cy="-4" r="3.5" fill="#234"/>
+        <text x="0" y="44" font-size="13" fill="#234" text-anchor="middle" font-family="SimSun">鱼（水产品）</text>
+      </g>
+      <line x1="150" y1="100" x2="250" y2="100" stroke="#2e8b57" stroke-width="3"/>
+      <polygon points="250,100 238,94 238,106" fill="#2e8b57"/>
+      <rect x="166" y="80" width="84" height="34" rx="8" fill="#eaf5ee" stroke="#2e8b57"/>
+      <text x="208" y="102" font-size="13" fill="#2e8b57" text-anchor="middle" font-family="SimSun">ω-3 DHA/EPA</text>
+      <path d="M340 112 C340 88 372 88 372 112 C372 132 340 142 340 142 C340 142 308 132 308 112 C308 88 340 88 340 112 Z" fill="#c0392b"/>
+      <text x="340" y="168" font-size="13" fill="#234" text-anchor="middle" font-family="SimSun">护心·降脑卒中</text>
+      <ellipse cx="470" cy="108" rx="34" ry="26" fill="#d98324"/>
+      <text x="470" y="112" font-size="12" fill="#fff" text-anchor="middle" font-family="SimSun">脑</text>
+      <text x="470" y="168" font-size="13" fill="#234" text-anchor="middle" font-family="SimSun">护脑·降全因死亡</text>
+      <text x="560" y="104" font-size="18" fill="#2e8b57" text-anchor="middle" font-family="SimSun">✓</text>
+      <text x="560" y="124" font-size="11" fill="#456" text-anchor="middle" font-family="SimSun">优先</text>
+      <text x="320" y="190" font-size="12" fill="#456" text-anchor="middle" font-family="SimSun">指南证据：增加鱼类摄入可降低全因死亡与脑卒中风险</text>
+    </svg>
+    <div class="cap">图3｜鱼富含 ω-3（DHA/EPA），优先选择鱼，护心又护脑。</div>
+  </div>
+
+  <h3>5. 鸡蛋与蛋黄——破除"胆固醇误区"</h3>
+  <div class="fig">
+    <svg viewBox="0 0 640 250" role="img" aria-label="蛋黄营养图">
+      <rect x="0" y="0" width="640" height="250" fill="#fff"/>
+      <text x="20" y="26" font-size="16" fill="#2f6f8f" font-family="SimSun">图4　蛋黄是"营养富集区"——不弃蛋黄</text>
+      <ellipse cx="150" cy="140" rx="80" ry="100" fill="#fff7e6" stroke="#d98324" stroke-width="3"/>
+      <ellipse cx="150" cy="140" rx="38" ry="48" fill="#f6c544" stroke="#d98324"/>
+      <text x="150" y="146" font-size="14" fill="#7a5a00" text-anchor="middle" font-family="SimSun">蛋黄</text>
+      <g font-family="SimSun" font-size="13" fill="#234">
+        <circle cx="330" cy="70" r="6" fill="#2e8b57"/><text x="346" y="75">卵磷脂、胆碱</text>
+        <circle cx="330" cy="105" r="6" fill="#2e8b57"/><text x="346" y="110">维生素 A、D、B₁₂</text>
+        <circle cx="330" cy="140" r="6" fill="#2e8b57"/><text x="346" y="145">铁、锌、硒</text>
+        <circle cx="330" cy="175" r="6" fill="#2e8b57"/><text x="346" y="180">叶黄素（护眼）</text>
+        <circle cx="330" cy="210" r="6" fill="#2e8b57"/><text x="346" y="215">优质蛋白</text>
+      </g>
+      <text x="560" y="120" font-size="13" fill="#c0392b" text-anchor="middle" font-family="SimSun">误区</text>
+      <text x="560" y="142" font-size="13" fill="#c0392b" text-anchor="middle" font-family="SimSun">"蛋黄胆固醇高</text>
+      <text x="560" y="164" font-size="13" fill="#c0392b" text-anchor="middle" font-family="SimSun">不吃蛋黄"</text>
+      <text x="560" y="190" font-size="13" fill="#2e8b57" text-anchor="middle" font-family="SimSun">✘ 应不弃蛋黄</text>
+    </svg>
+    <div class="cap">图4｜蛋黄富集卵磷脂、胆碱、维生素、矿物质与叶黄素；膳食胆固醇对血胆固醇影响小，每天 1 个蛋与心血管风险无关。</div>
+  </div>
+
+  <h3>6. 加工 / 熏腌肉制品——明确"少吃"</h3>
+  <ul>
+    <li>深加工肉制品（香肠、培根、火腿、腊肉、肉罐头）：高盐、油脂过度氧化、常含亚硝酸盐 → 长期食用有风险，<b>应尽量少吃</b>。</li>
+    <li><b>拓展（IARC 分级，常考）：</b>国际癌症研究机构将<b>加工肉类列为 1 类致癌物（明确致癌）</b>、<b>红肉列为 2A 类（可能对人类致癌）</b>——这正是"少吃熏腌和深加工肉"的科学依据。</li>
+  </ul>
+  <div class="fig">
+    <svg viewBox="0 0 640 200" role="img" aria-label="加工肉IARC分级警示图">
+      <rect x="0" y="0" width="640" height="200" fill="#fff"/>
+      <text x="20" y="26" font-size="16" fill="#2f6f8f" font-family="SimSun">图5　吃肉风险分级（IARC）</text>
+      <rect x="40" y="50" width="170" height="110" rx="10" fill="#eaf5ee" stroke="#2e8b57"/>
+      <text x="125" y="92" font-size="15" fill="#2e8b57" font-weight="bold" text-anchor="middle" font-family="SimSun">新鲜鱼、禽</text>
+      <text x="125" y="118" font-size="13" fill="#234" text-anchor="middle" font-family="SimSun">优先选择</text>
+      <text x="125" y="142" font-size="12" fill="#456" text-anchor="middle" font-family="SimSun">白肉更健康</text>
+      <rect x="235" y="50" width="170" height="110" rx="10" fill="#fff3e0" stroke="#d98324"/>
+      <text x="320" y="88" font-size="15" fill="#d98324" font-weight="bold" text-anchor="middle" font-family="SimSun">红肉（畜）</text>
+      <text x="320" y="114" font-size="13" fill="#234" text-anchor="middle" font-family="SimSun">2A类</text>
+      <text x="320" y="136" font-size="12" fill="#456" text-anchor="middle" font-family="SimSun">可能致癌·适量</text>
+      <rect x="430" y="50" width="170" height="110" rx="10" fill="#fdeaea" stroke="#c0392b"/>
+      <text x="515" y="88" font-size="15" fill="#c0392b" font-weight="bold" text-anchor="middle" font-family="SimSun">加工肉</text>
+      <text x="515" y="114" font-size="13" fill="#c0392b" font-weight="bold" text-anchor="middle" font-family="SimSun">1类致癌物</text>
+      <text x="515" y="136" font-size="12" fill="#456" text-anchor="middle" font-family="SimSun">明确致癌·少吃</text>
+    </svg>
+    <div class="cap">图5｜新鲜鱼禽（绿）＞红肉适量（橙，2A类）＞加工肉少吃（红，1类）。香肠、培根、火腿、腊肉属加工肉。</div>
+  </div>
+  <p>其他：动物内脏建议<b>每月 2～3 次</b>、每次不过多，不必追求"山珍海味"。</p>
+
+  <div class="fig">
+    <svg viewBox="0 0 640 220" role="img" aria-label="小明吃法整改前后对比图">
+      <rect x="0" y="0" width="640" height="220" fill="#fff"/>
+      <text x="20" y="26" font-size="16" fill="#2f6f8f" font-family="SimSun">图6　案例：小明"无肉不欢"整改前后</text>
+      <rect x="40" y="48" width="240" height="150" rx="12" fill="#fdf0ee" stroke="#c0392b"/>
+      <text x="160" y="76" font-size="15" fill="#c0392b" font-weight="bold" text-anchor="middle" font-family="SimSun">整改前 ✘</text>
+      <text x="60" y="104" font-size="13" fill="#234" font-family="SimSun">· 顿顿红烧肉、培根</text>
+      <text x="60" y="128" font-size="13" fill="#234" font-family="SimSun">· 周末炸鸡</text>
+      <text x="60" y="152" font-size="13" fill="#234" font-family="SimSun">· 几乎不吃鱼</text>
+      <text x="60" y="176" font-size="13" fill="#c0392b" font-family="SimSun">· 弃蛋黄（误区）</text>
+      <line x1="290" y1="123" x2="350" y2="123" stroke="#2f6f8f" stroke-width="3"/>
+      <polygon points="350,123 338,117 338,129" fill="#2f6f8f"/>
+      <text x="320" y="112" font-size="11" fill="#2f6f8f" text-anchor="middle" font-family="SimSun">准则四</text>
+      <rect x="360" y="48" width="240" height="150" rx="12" fill="#eaf5ee" stroke="#2e8b57"/>
+      <text x="480" y="76" font-size="15" fill="#2e8b57" font-weight="bold" text-anchor="middle" font-family="SimSun">整改后 ✓</text>
+      <text x="380" y="104" font-size="13" fill="#234" font-family="SimSun">· 鱼≥2次/周</text>
+      <text x="380" y="128" font-size="13" fill="#234" font-family="SimSun">· 畜禽肉≤500g/周</text>
+      <text x="380" y="152" font-size="13" fill="#234" font-family="SimSun">· 每天1蛋不弃黄</text>
+      <text x="380" y="176" font-size="13" fill="#2e8b57" font-family="SimSun">· 总量120-200g/天</text>
+    </svg>
+    <div class="cap">图6｜把"畜肉过多、鱼禽不足、弃蛋黄"调成"优先鱼禽、不弃蛋黄、控总量"。</div>
+  </div>
+
+  <!-- 口诀 -->
+  <h2>四、口诀（背下来就是分）</h2>
+  <div class="mnemo">
+    <p><span class="k">① 总量/周配额：</span>"一天一二两（120–200g），鱼两顿（2次/周）、蛋七个（300–350g）、畜禽各半斤（各300–500g）。"</p>
+    <p><span class="k">② 六条：</span>"适（量）每（周配额）深（加工少吃）蛋（黄不弃）优（先鱼禽）瘦（肉）。"</p>
+    <p><span class="k">③ 选肉优先序：</span>"鱼禽蛋，红肉瘦；加工熏腌靠边走。"</p>
+    <p><span class="k">④ 蛋黄：</span>"蛋黄是个宝，弃之太可惜；卵磷胆碱好，眼脑都需要。"</p>
+  </div>
+
+  <!-- 易错 -->
+  <h2>五、易错点（6 个，考试最爱挖坑）</h2>
+  <div class="err"><span class="t">易错1：</span>把"鱼 300–500g + 畜禽肉 300–500g"误当成合计 300–500g → 实为<b>各类各自</b> 300–500g/周。</div>
+  <div class="err"><span class="t">易错2：</span>把"平均每天 120–200g"当成单指瘦肉 → 它是鱼、禽、蛋、瘦肉<b>全部动物性食物</b>的总量。</div>
+  <div class="err"><span class="t">易错3：</span>弃蛋黄误区（怕胆固醇不吃蛋黄）→ 应<b>不弃蛋黄</b>。</div>
+  <div class="err"><span class="t">易错4：</span>把"优先选择鱼/禽"记反成"优先红肉" → 白肉（鱼禽）优先。</div>
+  <div class="err"><span class="t">易错5：</span>把加工肉当普通肉忽略致癌风险 → 深加工/烟熏腌制肉要<b>少吃</b>（IARC：加工肉 1 类）。</div>
+  <div class="err"><span class="t">易错6：</span>混淆"畜禽肉 300–500g/周"与"畜肉 ≤500g/周" → 畜禽肉（合计）300–500g/周，其中<b>畜肉不宜超过 500g/周</b>，鱼要≥2次。</div>
+
+  <!-- 解题 -->
+  <h2>六、三步解题法</h2>
+  <div class="step">
+    <p><b>第一步·读题定位：</b>判断考点属于"量 / 种类优选 / 蛋黄 / 加工肉 / 白红肉"哪一类。</p>
+    <p><b>第二步·套数字原则：</b>120–200g/天；鱼 300–500/周（2次）；蛋 300–350/周；畜禽 300–500/周；不弃蛋黄；优先鱼禽；少吃加工熏腌。</p>
+    <p><b>第三步·辨陷阱：</b>看是否偷换"合计/各类"、是否把误区当正确（弃蛋黄、红肉优先）、是否忽略致癌分级。</p>
+  </div>
+
+  <!-- 提问 -->
+  <h2>七、课堂提问（师生互动）</h2>
+  <div class="qa"><span class="q">问1：</span>小明每天吃 2 个蛋黄，会"胆固醇爆表"吗？<br><span class="a">答：不会。膳食胆固醇对血胆固醇影响小；不弃蛋黄是正解。但前提是动物性食物总量别超 120–200g/天，整体均衡。</span></div>
+  <div class="qa"><span class="q">问2：</span>有人说"我每周吃 500g 牛肉 + 500g 鸡肉，刚好符合畜禽肉 300–500g"——对吗？<br><span class="a">答：错！畜禽肉（合计）建议 300–500g/周，500+500 远超上限。</span></div>
+  <div class="qa"><span class="q">问3：</span>香肠、培根算"适量吃瘦肉"吗？<br><span class="a">答：不算。它们是深加工肉制品，准则四明确要求"少吃"。</span></div>
+  <div class="q a">问4：鱼和畜禽肉每周都是 300–500g，每天到底吃多少？<br><span class="a">答：分散到各餐（最好每餐有肉、每天有蛋），每天动物性食物总量 120–200g。</span></div>
+
+  <!-- 改编题 -->
+  <h2>八、改编题（点选项看解析）</h2>
+
+  <div class="quiz" data-ans="B">
+    <div class="qt">1.（单选）成年人平均每天摄入鱼、禽、蛋类和瘦肉的总量应为：</div>
+    <button class="opt" data-v="A">A. 50～75g</button>
+    <button class="opt" data-v="B">B. 120～200g</button>
+    <button class="opt" data-v="C">C. 200～300g</button>
+    <button class="opt" data-v="D">D. 300～500g</button>
+    <div class="explain">✅ 答案 B。准则四核心推荐：鱼、禽、蛋类和瘦肉平均每天 120～200g（全部动物性食物总量）。</div>
+  </div>
+
+  <div class="quiz" data-ans="C">
+    <div class="qt">2.（单选）关于蛋类摄入，下列正确的是：</div>
+    <button class="opt" data-v="A">A. 每天宜吃 2～3 个鸡蛋</button>
+    <button class="opt" data-v="B">B. 为降胆固醇应弃蛋黄</button>
+    <button class="opt" data-v="C">C. 吃鸡蛋不弃蛋黄，每周 300～350g</button>
+    <button class="opt" data-v="D">D. 蛋黄胆固醇高故高血压者禁食</button>
+    <div class="explain">✅ 答案 C。鸡蛋营养丰富、不弃蛋黄；每周 300～350g（≈每天1个），健康人群与心血管风险无关。</div>
+  </div>
+
+  <div class="quiz" data-ans="B">
+    <div class="qt">3.（单选）关于水产品与畜禽肉的推荐量，正确的是：</div>
+    <button class="opt" data-v="A">A. 鱼和畜禽肉合计每周 300～500g</button>
+    <button class="opt" data-v="B">B. 鱼每周 300～500g、畜禽肉每周 300～500g</button>
+    <button class="opt" data-v="C">C. 鱼每周≥500g</button>
+    <button class="opt" data-v="D">D. 畜禽肉每周≥1000g</button>
+    <div class="explain">✅ 答案 B。鱼、蛋、畜禽肉是"各"300～500g/周，不是合计；鱼最好≥2次/周。</div>
+  </div>
+
+  <div class="quiz" data-ans="ABD">
+    <div class="qt">4.（多选）下列符合准则四的做法包括：</div>
+    <button class="opt" data-v="A">A. 优先选择鱼和禽</button>
+    <button class="opt" data-v="B">B. 每周吃鱼 2 次</button>
+    <button class="opt" data-v="C">C. 常吃深加工肉制品</button>
+    <button class="opt" data-v="D">D. 吃畜肉选瘦肉，少吃肥肉、烟熏腌制肉</button>
+    <button class="opt" data-v="E">E. 鸡蛋弃蛋黄</button>
+    <div class="explain">✅ 答案 A、B、D。深加工肉要少吃（C错），不弃蛋黄（E错）。</div>
+  </div>
+
+  <div class="quiz" data-ans="B">
+    <div class="qt">5.（单选）国际癌症研究机构（IARC）将下列哪种食物列为 1 类致癌物？</div>
+    <button class="opt" data-v="A">A. 新鲜鱼肉</button>
+    <button class="opt" data-v="B">B. 加工肉类（如香肠、培根）</button>
+    <button class="opt" data-v="C">C. 鸡蛋</button>
+    <button class="opt" data-v="D">D. 禽肉</button>
+    <div class="explain">✅ 答案 B。IARC 将加工肉类列为 1 类（明确致癌），红肉为 2A 类（可能致癌）。</div>
+  </div>
+
+  <div class="quiz" data-ans="OPEN">
+    <div class="qt">6.（简答·案例）某男，腰围 95cm，喜红烧肉、腊肉，几乎不吃鱼和蛋。请从准则四角度给出 3 条膳食建议。</div>
+    <button class="opt" data-v="show">点击查看参考答案</button>
+    <div class="explain">✅ 参考答案：①减少畜肉（尤其肥肉、烟熏腌制），畜肉 ≤500g/周；②增加鱼类（≥2次/周，300–500g/周）；③每天吃蛋、不弃蛋黄；④动物性食物分散各餐，总量 120–200g/天。</div>
+  </div>
+
+  <!-- 费曼 -->
+  <h2>九、费曼自检（能讲清楚 = 真懂）</h2>
+  <div class="feyn">
+    <label><input type="checkbox"> 1. 我能说出准则四的"每天总量"和"每周三类配额"数字。</label>
+    <label><input type="checkbox"> 2. 我能解释为什么优先鱼禽、以及为什么不能弃蛋黄。</label>
+    <label><input type="checkbox"> 3. 我能区分白肉（鱼禽）与红肉（畜）的利弊与优先序。</label>
+    <label><input type="checkbox"> 4. 我能说出加工/烟熏腌制肉的风险，以及 IARC 的 1 类 / 2A 类分级。</label>
+    <label><input type="checkbox"> 5. 我能讲出至少 3 个易错点（合计/各类、弃蛋黄、红肉优先等）。</label>
+    <label><input type="checkbox"> 6. 我能给"无肉不欢"的小明开出 3 条整改建议。</label>
+  </div>
+
+  <div class="next">📚 <b>下课预告 · 第5课 准则五：少盐少油，控糖限酒</b><br>盐 &lt;5g/天、油 25–30g/天、添加糖 &lt;50g/天（最好 &lt;25g）、反式脂肪酸 &lt;2g/天、酒精 &lt;15g/天；不喝含糖饮料。准备好你的"控盐控油控糖"三件套！</div>
+
+  <hr>
+  <p style="font-size:.8em;color:#89a;">本课件依据《中国居民膳食指南（2022）》官方文本（dg.cnsoc.org）编写，关键数字与核心推荐以官方为准；IARC 分级为国际癌症研究机构共识，作为"少吃加工熏腌肉"的科学补充。</p>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  /* ---------- 语音讲解脚本（逐句） ---------- */
+  var NARRATION = [
+    "同学们好，欢迎来到第4课。今天我们学习《中国居民膳食指南2022》的准则四：适量吃鱼、禽、蛋、瘦肉。",
+    "先温故一下。准则一讲食物多样，每天十二种、每周二十五种；准则二讲吃动平衡、健康体重；准则三讲多吃蔬果、奶类、全谷、大豆。",
+    "今天我们要把大盘子里动物性食物这一格讲透：吃多少、吃什么、怎么吃。",
+    "先来看一个数字案例。小明无肉不欢，顿顿红烧肉、培根三明治、炸鸡，几乎不吃鱼，还嫌蛋黄胆固醇高只吃蛋白。他的吃法踩了哪些坑？学完你就知道了。",
+    "第一，记量。鱼、禽、蛋类和瘦肉，平均每天合计一百二十到两百克。注意，这是所有动物性食物的总量，不是单指瘦肉。",
+    "第二，记每周配额，而且鱼、蛋、畜禽肉是各三百到五百克，不是三者加起来。鱼最好每周吃两次，或三百到五百克。",
+    "蛋每周三百到三百五十克，差不多每天一个，每周六七个。畜禽肉每周三百到五百克，其中畜肉建议不超过五百克，也就是每天别超过七十克。",
+    "对比记一下：谷类每天两百到三百克，蔬菜三百到五百克，水果两百到三百五十克，动物性食物只有一百二到两百克，是小小一格，但营养密度很高。",
+    "准则四有六条核心推荐。第一，适量摄入，平均每天一百二到两百克。第二，每周鱼两次、蛋三百到三百五十克、畜禽肉三百到五百克。",
+    "第三，少吃深加工肉制品。第四，鸡蛋营养丰富，吃鸡蛋不弃蛋黄。第五，优先选择鱼和禽，也就是白肉优先。第六，吃畜肉选瘦肉，少吃肥肉、烟熏和腌制肉制品。",
+    "老师较真一下：官方原文写的是优先选择鱼，教材常扩展成优先鱼和禽。因为咱们国家居民鱼禽吃得太少、畜肉太多，方向一致，考试两种说法都对，记住白肉优先就行。",
+    "为什么要这么推荐？看证据。动物性食物是优质蛋白、维生素A、B2、B12、铁、锌、硒的高贡献来源。但现状是畜肉过高、鱼禽过低，所以才要调整结构。",
+    "健康证据很清楚：多吃鱼，能降低全因死亡和脑卒中风险；适量吃禽肉和鸡蛋，跟心血管疾病风险基本没关系；可过量吃畜肉，会增加二型糖尿病、结直肠癌和肥胖的风险；烟熏肉还会增加胃癌、食管癌风险。",
+    "选肉有优先序。白肉，也就是鱼和禽，脂肪低、不饱和脂肪多，优先选。红肉，也就是猪牛羊，富含血红素铁、锌和B12，但饱和脂肪高，要适量、选瘦肉。",
+    "口诀记一下：鱼禽蛋，红肉瘦，加工熏腌靠边走。",
+    "再说鸡蛋和蛋黄，这是个大误区。很多人怕蛋黄胆固醇高，只吃蛋白不吃蛋黄。其实，膳食里的胆固醇对血液胆固醇影响很小。",
+    "蛋黄才是鸡蛋里营养素最集中的部位，有卵磷脂、胆碱、维生素A、D、B12，还有铁、锌、叶黄素。所以吃鸡蛋不要丢蛋黄。健康人每天一个蛋，跟心血管疾病没关系。",
+    "口诀：蛋黄是个宝，弃之太可惜；卵磷胆碱好，眼脑都需要。",
+    "最后是加工和熏腌肉。香肠、培根、火腿、腊肉这些深加工肉制品，高盐、油脂容易氧化、常含亚硝酸盐，长期吃有风险，要尽量少吃。",
+    "拓展一个考点：国际癌症研究机构，把加工肉类列为1类致癌物，也就是明确致癌；红肉列为2A类，也就是可能对人类致癌。这就是少吃熏腌和深加工肉的科学依据。",
+    "另外，动物内脏建议每个月吃两到三次，每次别太多，不必追求山珍海味。",
+    "来背口诀。总量周配额：一天一二两，鱼两顿、蛋七个、畜禽各半斤。六条：适每深蛋优瘦。选肉：鱼禽蛋，红肉瘦，加工熏腌靠边走。蛋黄：蛋黄是个宝。",
+    "六易错点，考试最爱挖坑。第一，把鱼三百五和畜禽肉三百五误当成合计三百五，其实是各类各自三百到五百。第二，把每天一百二到两百当成单指瘦肉，它是全部动物性食物的总量。",
+    "第三，弃蛋黄误区，应该不弃蛋黄。第四，把优先鱼禽记反成优先红肉。第五，把加工肉当普通肉，忽略致癌风险。第六，混淆畜禽肉三百五和畜肉不超过五百，畜肉每周别超五百克。",
+    "解题三步法。第一步，读题定位，判断考的是量、种类、蛋黄、加工肉还是白红肉。第二步，套数字和原则。第三步，辨陷阱，看有没有偷换合计各类、有没有把误区当正确。",
+    "课堂提问时间。有人说，我每周吃五百克牛肉加五百克鸡肉，刚好符合畜禽肉三百到五百克。对吗？错！畜禽肉合计才三百到五百，五百加五百远超上限。",
+    "又问：香肠培根算适量吃瘦肉吗？不算，他们是深加工肉制品，准则四明确要求少吃。",
+    "再问：鱼和畜禽肉每周都是三百到五百，每天吃多少？分散到各餐，每天动物性食物总量一百二到两百克，最好每餐有肉、每天有蛋。",
+    "来做几道改编题。第一题，成年人平均每天鱼禽蛋瘦肉总量是多少？A五十到七十五，B一百二到两百，C两百到三百，D三百到五百。答案是B。",
+    "第二题，关于蛋类正确的是？A每天两三个，B为降胆固醇弃蛋黄，C不弃蛋黄每周三百到三百五十克，D高血压禁食蛋黄。答案是C。",
+    "第三题，水产品与畜禽肉推荐量，正确的是？鱼每周三百到五百、畜禽肉每周三百到五百，选B。第四题多选，符合准则四的是优先鱼禽、每周吃鱼两次、畜肉选瘦肉少吃熏腌，选A、B、D。",
+    "第五题，IARC把哪种列为1类致癌物？加工肉类，选B。第六题案例，腰围九十五的男生爱吃红烧肉腊肉、不吃鱼蛋，请给三条建议：减畜肉、加鱼类、每天吃蛋不弃蛋黄、总量控在一百二到两百。",
+    "费曼自检：你能说出每天总量和每周三类配额吗？能解释优先鱼禽、不弃蛋黄吗？能区分白肉红肉吗？能说出加工肉风险和IARC分级吗？能讲三个易错点吗？能给小明开三条整改建议吗？",
+    "都打勾了，说明你真懂了。下课预告：第5课准则五，少盐少油、控糖限酒。盐小于五克、油二十五到三十克、糖小于五十克最好小于二十五克、酒精小于十五克。准备好你的控盐控油控糖三件套！同学们，下节课见。"
+  ];
+
+  /* ---------- 播放器逻辑 ---------- */
+  var synth = window.speechSynthesis;
+  var player = document.getElementById('player');
+  var subtitle = document.getElementById('subtitle');
+  var playBtn = document.getElementById('playBtn');
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+  var seek = document.getElementById('seek');
+  var pos = document.getElementById('pos');
+  var rateSel = document.getElementById('rateSel');
+  var voiceSel = document.getElementById('voiceSel');
+  var voiceNote = document.getElementById('voiceNote');
+
+  var idx = 0, playing = false, utter = null, xiaoVoice = null;
+
+  seek.max = NARRATION.length - 1;
+  pos.textContent = (idx+1) + '/' + NARRATION.length;
+
+  function pickVoice(){
+    if(!synth) return null;
+    var vs = synth.getVoices() || [];
+    // 优先晓晓神经网络语音
+    var x = vs.filter(function(v){ return /Xiaoxiao/i.test(v.name) || /Xiaoxiao/i.test(v.voiceURI); })[0];
+    if(x){ return x; }
+    // 退而求其次：任意中文语音
+    return vs.filter(function(v){ return /zh|Chinese|中文/i.test(v.lang + v.name); })[0] || null;
+  }
+
+  function refreshVoiceSelect(){
+    if(!synth) return;
+    var vs = synth.getVoices() || [];
+    var zh = vs.filter(function(v){ return /zh|Chinese|中文/i.test(v.lang + v.name); });
+    voiceSel.innerHTML = '';
+    zh.forEach(function(v, i){
+      var o = document.createElement('option');
+      o.value = i; o.textContent = v.name + (v.localService ? '（本地）' : '（云端）');
+      voiceSel.appendChild(o);
+    });
+    xiaoVoice = vs.filter(function(v){ return /Xiaoxiao/i.test(v.name) || /Xiaoxiao/i.test(v.voiceURI); })[0];
+    if(!xiaoVoice && zh.length){ voiceNote.style.display = 'block'; }
+  }
+
+  function currentVoice(){
+    if(!synth) return null;
+    var vs = synth.getVoices() || [];
+    var zh = vs.filter(function(v){ return /zh|Chinese|中文/i.test(v.lang + v.name); });
+    var i = parseInt(voiceSel.value, 10);
+    if(!isNaN(i) && zh[i]) return zh[i];
+    return xiaoVoice || pickVoice();
+  }
+
+  function speak(){
+    if(!synth){ return; }
+    synth.cancel();
+    utter = new SpeechSynthesisUtterance(NARRATION[idx]);
+    var v = currentVoice();
+    if(v){ utter.voice = v; utter.lang = v.lang; }
+    utter.rate = parseFloat(rateSel.value) || 1;
+    utter.onend = function(){ if(playing){ next(true); } };
+    subtitle.innerHTML = '<b>[' + (idx+1) + '/' + NARRATION.length + ']</b> ' + NARRATION[idx];
+    pos.textContent = (idx+1) + '/' + NARRATION.length;
+    seek.value = idx;
+    synth.speak(utter);
+  }
+
+  function play(){
+    if(!synth){ alert('当前浏览器不支持语音合成，请用 Edge / Chrome 打开。'); return; }
+    playing = true; playBtn.textContent = '⏸暂停';
+    speak();
+  }
+  function pause(){
+    playing = false; playBtn.textContent = '▶播放';
+    if(synth) synth.cancel();
+  }
+  function toggle(){ playing ? pause() : play(); }
+  function next(auto){
+    if(idx < NARRATION.length - 1){ idx++; if(auto || playing) speak(); else updateStatic(); }
+    else { if(playing){ pause(); } }
+  }
+  function prev(){
+    if(idx > 0){ idx--; if(playing) speak(); else updateStatic(); }
+  }
+  function updateStatic(){
+    subtitle.innerHTML = '<b>[' + (idx+1) + '/' + NARRATION.length + ']</b> ' + NARRATION[idx];
+    pos.textContent = (idx+1) + '/' + NARRATION.length;
+    seek.value = idx;
+  }
+
+  playBtn.addEventListener('click', toggle);
+  nextBtn.addEventListener('click', function(){ next(false); });
+  prevBtn.addEventListener('click', prev);
+  seek.addEventListener('input', function(){ idx = parseInt(seek.value,10); if(playing) speak(); else updateStatic(); });
+  rateSel.addEventListener('change', function(){ if(playing) speak(); });
+  voiceSel.addEventListener('change', function(){ if(playing) speak(); });
+
+  if(synth){
+    refreshVoiceSelect();
+    if(typeof synth.onvoiceschanged !== 'undefined'){ synth.onvoiceschanged = refreshVoiceSelect; }
+  } else {
+    voiceNote.style.display = 'block';
+    voiceNote.textContent = '当前浏览器不支持语音合成（Web Speech API），请用 Edge / Chrome 打开以收听晓晓老师讲解。';
+  }
+
+  /* ---------- 拖动播放器（默认解锁可拖） ---------- */
+  var pbar = document.getElementById('pbar');
+  var pinBtn = document.getElementById('pinBtn');
+  var dragging = true, ox = 0, oy = 0;
+  pinBtn.addEventListener('click', function(){
+    dragging = !dragging;
+    pinBtn.textContent = dragging ? '📌解锁' : '📌固定';
+    pbar.style.cursor = dragging ? 'move' : 'default';
+  });
+  pbar.addEventListener('mousedown', function(e){
+    if(!dragging) return;
+    var r = player.getBoundingClientRect();
+    ox = e.clientX - r.left; oy = e.clientY - r.top;
+    document.addEventListener('mousemove', move);
+    document.addEventListener('mouseup', up);
+    e.preventDefault();
+  });
+  function move(e){
+    var x = e.clientX - ox, y = e.clientY - oy;
+    x = Math.max(0, Math.min(window.innerWidth - player.offsetWidth, x));
+    y = Math.max(0, Math.min(window.innerHeight - player.offsetHeight, y));
+    player.style.left = x + 'px'; player.style.top = y + 'px';
+    player.style.right = 'auto'; player.style.bottom = 'auto';
+  }
+  function up(){ document.removeEventListener('mousemove', move); document.removeEventListener('mouseup', up); }
+  // 触屏拖动
+  pbar.addEventListener('touchstart', function(e){
+    if(!dragging) return;
+    var t = e.touches[0]; var r = player.getBoundingClientRect();
+    ox = t.clientX - r.left; oy = t.clientY - r.top;
+  }, {passive:true});
+  pbar.addEventListener('touchmove', function(e){
+    if(!dragging) return;
+    var t = e.touches[0];
+    var x = Math.max(0, Math.min(window.innerWidth - player.offsetWidth, t.clientX - ox));
+    var y = Math.max(0, Math.min(window.innerHeight - player.offsetHeight, t.clientY - oy));
+    player.style.left = x + 'px'; player.style.top = y + 'px';
+    player.style.right = 'auto'; player.style.bottom = 'auto';
+  }, {passive:true});
+
+  /* ---------- 字号 A+/A- ---------- */
+  var root = document.documentElement;
+  function setFS(pt){ root.style.setProperty('--fs', pt + 'pt'); }
+  // 在小四(12pt)基础上偏大，默认14pt；提供键盘快捷 A+/A-
+  document.addEventListener('keydown', function(e){
+    if(e.key === '=' || e.key === '+'){ var f = parseFloat(getComputedStyle(root).getPropertyValue('--fs')); setFS(Math.min(22, f+1)); }
+    if(e.key === '-'){ var f2 = parseFloat(getComputedStyle(root).getPropertyValue('--fs')); setFS(Math.max(11, f2-1)); }
+  });
+
+  /* ---------- 选择题交互 ---------- */
+  document.querySelectorAll('.quiz').forEach(function(q){
+    var ans = q.getAttribute('data-ans');
+    q.querySelectorAll('.opt').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        if(ans === 'OPEN'){
+          q.querySelector('.explain').classList.add('show');
+          return;
+        }
+        var v = btn.getAttribute('data-v');
+        if(ans.indexOf(v) !== -1){
+          btn.classList.add('correct');
+        } else {
+          btn.classList.add('wrong');
+          // 标出正确项
+          q.querySelectorAll('.opt').forEach(function(o){
+            if(ans.indexOf(o.getAttribute('data-v')) !== -1) o.classList.add('correct');
+          });
+        }
+        q.querySelectorAll('.opt').forEach(function(o){ o.classList.add('dim'); });
+        btn.classList.remove('dim');
+        q.querySelector('.explain').classList.add('show');
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
