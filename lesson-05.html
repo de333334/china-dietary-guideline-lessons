@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第5课 · 准则五：少盐少油，控糖限酒（晓晓老师讲解版）</title>
+<style>
+  :root{ --fs:12pt; --ink:#1f2a36; --line:#dfe6ee; --card:#fff; --accent:#2f6f8f; --red:#c0392b; --green:#2e8b57; --amber:#d98324; --soft:#f4f8fb; }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{ font-family:"SimSun","宋体",STSong,serif; font-size:var(--fs); line-height:1.9; color:var(--ink);
+        background:#eef3f7; padding:24px 18px 40px; }
+  .wrap{ max-width:980px; margin:0 auto; background:var(--card); border:1px solid var(--line);
+         border-radius:14px; padding:30px 34px 36px; box-shadow:0 6px 24px rgba(40,70,90,.08); }
+  h1{ font-size:1.55em; color:var(--accent); text-align:center; margin:.2em 0 .1em; }
+  h2{ font-size:1.22em; color:var(--accent); border-left:6px solid var(--accent); padding-left:12px; margin:1.4em 0 .6em; }
+  h3{ font-size:1.05em; color:#345; margin:.9em 0 .4em; }
+  p,li{ margin:.45em 0; }
+  .sub{ text-align:center; color:#678; font-size:.86em; margin-bottom:1em; }
+  table{ border-collapse:collapse; width:100%; margin:.6em 0; font-size:.95em; }
+  th,td{ border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
+  th{ background:var(--soft); color:#345; }
+  .case{ background:#fff8ec; border:1px dashed var(--amber); border-radius:10px; padding:14px 18px; margin:1em 0; }
+  .case b{ color:var(--amber); }
+  .mnemo{ background:#eaf5ee; border:1px solid #bfe3cd; border-radius:10px; padding:12px 18px; margin:.7em 0; }
+  .mnemo .k{ color:var(--green); font-weight:bold; }
+  .err{ border:2px solid var(--red); border-radius:10px; padding:12px 18px; margin:.7em 0; background:#fdf0ee; }
+  .err .t{ color:var(--red); font-weight:bold; }
+  .step{ background:var(--soft); border-radius:10px; padding:12px 18px; margin:.7em 0; }
+  .qa{ background:#f3f0fb; border-left:5px solid #7a5cc0; border-radius:8px; padding:10px 16px; margin:.7em 0; }
+  .qa .q{ font-weight:bold; color:#5a3fa0; }
+  .qa .a{ color:#333; }
+  .feyn{ background:#f6fbfd; border:1px solid #cfe6f2; border-radius:10px; padding:12px 18px; }
+  .feyn label{ display:block; margin:.35em 0; cursor:pointer; }
+  .feyn input{ transform:scale(1.25); margin-right:8px; vertical-align:middle; }
+  .fig{ text-align:center; margin:1em 0; }
+  .fig svg{ max-width:100%; height:auto; background:#fff; border:1px solid var(--line); border-radius:10px; }
+  .fig .cap{ font-size:.82em; color:#678; margin-top:6px; }
+  .quiz{ border:1px solid var(--line); border-radius:10px; padding:14px 18px; margin:1em 0; background:#fff; }
+  .quiz .qt{ font-weight:bold; margin-bottom:.5em; }
+  .opt{ display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fbfdfe;
+        border-radius:8px; padding:8px 12px; margin:6px 0; cursor:pointer; font-family:inherit; font-size:1em; color:var(--ink); }
+  .opt:hover{ border-color:var(--accent); }
+  .opt.correct{ background:#e7f7ec; border-color:var(--green); }
+  .opt.wrong{ background:#fdeaea; border-color:var(--red); }
+  .opt.dim{ opacity:.5; }
+  .explain{ display:none; margin-top:8px; padding:10px 14px; background:var(--soft); border-radius:8px; font-size:.94em; }
+  .explain.show{ display:block; }
+  .tag{ display:inline-block; background:var(--accent); color:#fff; border-radius:6px; padding:1px 9px; font-size:.78em; margin-right:6px; }
+  .next{ text-align:center; background:#eaf5ee; border:1px solid #bfe3cd; border-radius:10px; padding:16px; margin-top:1.6em; color:#2e6b45; font-size:1.02em; }
+  hr{ border:none; border-top:1px dashed var(--line); margin:1.6em 0; }
+
+  /* 浮动播放器 */
+  #player{ position:fixed; top:18px; right:18px; width:330px; background:rgba(255,255,255,.97);
+           border:1px solid var(--accent); border-radius:14px; box-shadow:0 8px 30px rgba(30,70,100,.28);
+           z-index:9999; overflow:hidden; font-family:inherit; }
+  #player .bar{ cursor:move; background:linear-gradient(135deg,#2f6f8f,#3f8fb0); color:#fff;
+                padding:8px 12px; font-size:.92em; display:flex; align-items:center; justify-content:space-between; }
+  #player .bar .pin{ cursor:pointer; user-select:none; background:rgba(255,255,255,.22); border-radius:6px; padding:0 7px; }
+  #player .body{ padding:10px 12px 12px; }
+  #subtitle{ min-height:3.4em; max-height:6.6em; overflow-y:auto; background:var(--soft); border-radius:8px;
+             padding:8px 10px; font-size:.98em; line-height:1.6; color:#234; margin-bottom:8px; }
+  #subtitle b{ color:var(--accent); }
+  .ctr{ display:flex; gap:6px; align-items:center; justify-content:center; margin-bottom:8px; }
+  .ctr button{ font-family:inherit; font-size:1.05em; border:1px solid var(--accent); background:#fff; color:var(--accent);
+               border-radius:8px; padding:5px 10px; cursor:pointer; }
+  .ctr button:hover{ background:var(--accent); color:#fff; }
+  .ctr .play{ font-size:1.2em; min-width:54px; }
+  #seek{ width:100%; }
+  .meta{ display:flex; gap:6px; align-items:center; margin-top:6px; font-size:.82em; color:#456; }
+  .meta select{ font-family:inherit; font-size:1em; flex:1; }
+  .meta button{ font-family:inherit; font-size:.95em; border:1px solid var(--accent); background:#fff; color:var(--accent);
+                border-radius:6px; padding:2px 9px; cursor:pointer; }
+  .meta button:hover{ background:var(--accent); color:#fff; }
+  .voice-note{ font-size:.76em; color:#a05; margin-top:6px; display:none; }
+  @media (max-width:640px){ #player{ width:92%; right:4%; left:4%; } .wrap{ padding:22px 16px; } }
+</style>
+</head>
+<body>
+
+<!-- 浮动播放器：可拖动；字幕在面板内，不遮挡正文/图 -->
+<div id="player">
+  <div class="bar" id="pbar">
+    <span>🎧 晓晓老师讲解</span>
+    <span class="pin" id="pinBtn" title="固定/解锁拖动">📌解锁</span>
+  </div>
+  <div class="body">
+    <div id="subtitle">点▶开始，晓晓老师逐句讲解。拖动面板可避让图文，用「上一句/下一句」或拖动进度条调位置。</div>
+    <div class="ctr">
+      <button id="prevBtn" title="上一句">⏮上一句</button>
+      <button class="play" id="playBtn" title="播放/暂停">▶播放</button>
+      <button id="nextBtn" title="下一句">下一句⏭</button>
+    </div>
+    <input type="range" id="seek" min="0" max="0" value="0" step="1">
+    <div class="meta">
+      <span id="pos">0/0</span>
+      <select id="rateSel" title="语速">
+        <option value="0.8">语速 0.8x</option>
+        <option value="1" selected>语速 1.0x</option>
+        <option value="1.2">语速 1.2x</option>
+        <option value="1.5">语速 1.5x</option>
+      </select>
+    </div>
+    <div class="meta">
+      <select id="voiceSel" title="语音"></select>
+    </div>
+    <div class="meta">
+      <span>字号</span>
+      <button id="fsMinus" title="缩小">A−</button>
+      <button id="fsPlus" title="放大">A＋</button>
+      <span id="fsLabel">小四(12pt)</span>
+    </div>
+    <div class="voice-note" id="voiceNote">未检测到「晓晓(XiaoxiaoNeural)」神经网络语音，已用其它中文语音替代。建议用 Edge/Win 打开以获得最佳晓晓音色。</div>
+  </div>
+</div>
+
+<div class="wrap">
+  <h1>第5课 · 准则五：少盐少油，控糖限酒</h1>
+  <div class="sub">《中国居民膳食指南（2022）》注册营养师考点串讲｜温故（准则一二三四）→ 新知 → 口诀 → 易错 → 解题 → 提问 → 改编题 → 费曼 → 预告</div>
+
+  <!-- 温故 -->
+  <h2>一、温故（上四课要点快速过）</h2>
+  <table>
+    <tr><th>考点</th><th>一句话核心</th><th>关键数字</th></tr>
+    <tr><td>平衡膳食宝塔</td><td>五层：谷薯→蔬果→畜禽鱼蛋奶→大豆坚果→油盐</td><td>盐&lt;5g、油25–30g、奶300–500g</td></tr>
+    <tr><td>准则一 食物多样</td><td>谷类为主、每天12种/周25种</td><td>谷类200–300g（全谷杂豆50–150g、薯类50–100g）</td></tr>
+    <tr><td>准则二 吃动平衡</td><td>能量天平、健康体重</td><td>BMI 18.5–23.9；腰围男≥90女≥85；6000步/周150分</td></tr>
+    <tr><td>准则三 蔬果奶类全谷大豆</td><td>餐餐有蔬菜、天天有水果、常吃奶类全谷</td><td>蔬菜≥300g（深色½）、水果200–350g、奶≥300ml、坚果≈10g</td></tr>
+    <tr><td>准则四 适量鱼禽蛋瘦肉</td><td>白肉优先、不弃蛋黄、少吃加工熏腌</td><td>120–200g/天；鱼≥2次/周；蛋300–350g/周</td></tr>
+  </table>
+  <p>今日目标：掌握了"吃什么、吃多少"，今天守好"怎么做得清淡、别让盐油糖酒拖后腿"这条底线。</p>
+
+  <!-- 导入 -->
+  <h2>二、导入（一个案例）</h2>
+  <div class="case">
+    <b>案例：</b>大三学生小盐"重口味"——外卖顿顿麻辣香锅、咸菜就白粥、奶茶一天一杯、宵夜炸鸡配啤酒。最近体检：血压 138/88（偏高）、甘油三酯高、有脂肪肝倾向。<br>
+    <b>老师提问：</b>小盐的吃法，踩了准则五的哪些"坑"？学完今天这一课，你能给他开出几条整改单吗？
+  </div>
+
+  <!-- 新知 -->
+  <h2>三、新知讲解：准则五 少盐少油，控糖限酒</h2>
+
+  <h3>1. 先记"三把尺"——核心数字（考试高频）</h3>
+  <div class="fig">
+    <svg viewBox="0 0 640 240" role="img" aria-label="准则五三把尺核心数字图">
+      <rect x="0" y="0" width="640" height="240" fill="#fff"/>
+      <text x="20" y="26" font-size="16" fill="#2f6f8f" font-family="SimSun">图1　准则五"三把尺"：盐、油、糖 + 反式脂肪 + 酒</text>
+      <rect x="30" y="48" width="180" height="150" rx="12" fill="#fdf0ee" stroke="#c0392b"/>
+      <text x="120" y="84" font-size="17" fill="#c0392b" font-weight="bold" text-anchor="middle" font-family="SimSun">食盐</text>
+      <text x="120" y="120" font-size="22" fill="#c0392b" font-weight="bold" text-anchor="middle" font-family="SimSun">&lt; 5 g/天</text>
+      <text x="120" y="150" font-size="11" fill="#456" text-anchor="middle" font-family="SimSun">2016版是&lt;6g</text>
+      <text x="120" y="172" font-size="11" fill="#456" text-anchor="middle" font-family="SimSun">≈2.5个2g盐勺</text>
+      <rect x="230" y="48" width="180" height="150" rx="12" fill="#fff3e0" stroke="#d98324"/>
+      <text x="320" y="84" font-size="17" fill="#d98324" font-weight="bold" text-anchor="middle" font-family="SimSun">烹调油</text>
+      <text x="320" y="120" font-size="20" fill="#d98324" font-weight="bold" text-anchor="middle" font-family="SimSun">25–30 g/天</text>
+      <text x="320" y="150" font-size="11" fill="#456" text-anchor="middle" font-family="SimSun">≈白瓷勺2.5–3勺</text>
+      <text x="320" y="172" font-size="11" fill="#456" text-anchor="middle" font-family="SimSun">不是越少越好</text>
+      <rect x="430" y="48" width="180" height="150" rx="12" fill="#eaf5ee" stroke="#2e8b57"/>
+      <text x="520" y="84" font-size="17" fill="#2e8b57" font-weight="bold" text-anchor="middle" font-family="SimSun">添加糖</text>
+      <text x="520" y="116" font-size="18" fill="#2e8b57" font-weight="bold" text-anchor="middle" font-family="SimSun">&lt; 50 g/天</text>
+      <text x="520" y="144" font-size="13" fill="#2e8b57" font-weight="bold" text-anchor="middle" font-family="SimSun">最好 &lt; 25 g</text>
+      <text x="520" y="172" font-size="11" fill="#456" text-anchor="middle" font-family="SimSun">反式脂肪 &lt; 2 g/天</text>
+      <text x="320" y="222" font-size="12" fill="#c0392b" text-anchor="middle" font-family="SimSun">酒精：成年人如饮酒，一天酒精量 &lt; 15 g；儿童青少年/孕妇/乳母/慢性病患者不应饮酒</text>
+    </svg>
+    <div class="cap">图1｜盐&lt;5g、油25–30g、添加糖&lt;50g（最好&lt;25g）、反式脂肪酸&lt;2g、酒精&lt;15g酒精/天。2022版盐从6g收紧到5g、酒精统一为15g。</div>
+  </div>
+
+  <h3>2. 五条核心推荐（官方原文）+ 考试六条拆分</h3>
+  <p><span class="tag">官方原文 5 条</span></p>
+  <ol>
+    <li>培养清淡的饮食习惯，少吃高盐和油炸食品。成年人每天摄入食盐不超过 5g，烹调油 25～30g。</li>
+    <li>控制添加糖的摄入量，每天不超过 50g，最好控制在 25g 以下。</li>
+    <li>反式脂肪酸每天摄入量不超过 2g。</li>
+    <li>不喝或少喝含糖饮料。</li>
+    <li>儿童青少年、孕妇、乳母以及慢性病患者不应饮酒。成年人如饮酒，一天饮用的酒精量不超过 15g。</li>
+  </ol>
+  <p><span class="tag">考试常用 6 条拆分</span></p>
+  <ol>
+    <li>食盐 &lt; 5g/天，烹调油 25–30g/天；</li>
+    <li>添加糖 &lt; 50g/天，最好 &lt; 25g；</li>
+    <li>反式脂肪酸 &lt; 2g/天；</li>
+    <li>不喝或少喝含糖饮料；</li>
+    <li>儿童青少年、孕妇、乳母、慢性病患者不应饮酒；</li>
+    <li>成年人如饮酒，一天酒精量 &lt; 15g。</li>
+  </ol>
+
+  <h3>3. 底层逻辑：为什么这样推荐？（关键事实·证据）</h3>
+  <ul>
+    <li><b>高盐</b>：升高血压，增加<b>脑卒中、胃癌、心血管疾病</b>风险；我国居民盐摄入（约10g/天）远超推荐。</li>
+    <li><b>高油/高能量</b>：导致<b>超重肥胖、血脂异常、脂肪肝</b>。</li>
+    <li><b>添加糖/含糖饮料</b>：增加<b>龋齿、肥胖、2型糖尿病、血脂异常</b>风险（游离糖快速升血糖、促脂肪合成）。</li>
+    <li><b>酒精</b>：无安全阈值，损害<b>肝脏</b>，增加多种癌症（口腔、食管、肝、结直肠等）风险。</li>
+  </ul>
+
+  <h3>4. 隐形盐——"不咸≠无盐"（重要易错）</h3>
+  <p>食盐 = 氯化钠（NaCl），钠占约 39%，换算：<b>1 g 钠 ≈ 2.5 g 食盐</b>。很多食物"吃着不咸，钠却很高"。</p>
+  <div class="fig">
+    <svg viewBox="0 0 640 250" role="img" aria-label="隐形盐食物排行榜条形图">
+      <rect x="0" y="0" width="640" height="250" fill="#fff"/>
+      <text x="20" y="26" font-size="16" fill="#2f6f8f" font-family="SimSun">图2　隐形盐排行榜（每 100g/份 约含"盐当量"，不咸也可能超标）</text>
+      <g font-family="SimSun" font-size="12" fill="#234">
+        <text x="20" y="58">酱油(10ml)</text><rect x="120" y="46" width="300" height="18" fill="#c0392b"/><text x="426" y="60">≈1.5–2g盐</text>
+        <text x="20" y="86">腐乳(1块)</text><rect x="120" y="74" width="200" height="18" fill="#d98324"/><text x="326" y="88">≈1g盐</text>
+        <text x="20" y="114">挂面(100g)</text><rect x="120" y="102" width="230" height="18" fill="#d98324"/><text x="356" y="116">≈2.3g盐</text>
+        <text x="20" y="142">咸菜/榨菜</text><rect x="120" y="130" width="260" height="18" fill="#c0392b"/><text x="386" y="144">高钠</text>
+        <text x="20" y="170">薯片(1小袋)</text><rect x="120" y="158" width="180" height="18" fill="#d98324"/><text x="306" y="172">≈0.5–1g盐</text>
+        <text x="20" y="198">火腿/培根</text><rect x="120" y="186" width="210" height="18" fill="#c0392b"/><text x="336" y="200">高钠</text>
+        <text x="20" y="226">加工肉/酱类</text><rect x="120" y="214" width="240" height="18" fill="#d98324"/><text x="366" y="228">隐形盐</text>
+      </g>
+    </svg>
+    <div class="cap">图2｜酱油、腐乳、挂面、咸菜、薯片、火腿培根都含"隐形盐"。控盐要会看营养标签的"钠"含量，不能只少放盐勺。</div>
+  </div>
+
+  <h3>5. 隐形糖——"不甜≠无糖""控糖≠戒主食"</h3>
+  <div class="fig">
+    <svg viewBox="0 0 640 210" role="img" aria-label="一瓶可乐含糖量超50g警戒线图">
+      <rect x="0" y="0" width="640" height="210" fill="#fff"/>
+      <text x="20" y="26" font-size="16" fill="#2f6f8f" font-family="SimSun">图3　一瓶 500ml 可乐 ≈ 53g 糖，已超"&lt;50g/天"红线</text>
+      <!-- 可乐瓶 -->
+      <rect x="60" y="50" width="56" height="120" rx="14" fill="#5a3a1a"/>
+      <rect x="74" y="40" width="28" height="14" rx="4" fill="#7a5230"/>
+      <text x="88" y="118" font-size="13" fill="#fff" text-anchor="middle" font-family="SimSun">可乐</text>
+      <text x="88" y="140" font-size="11" fill="#fff" text-anchor="middle" font-family="SimSun">500ml</text>
+      <!-- 糖堆 -->
+      <g fill="#2e8b57">
+        <circle cx="200" cy="150" r="8"/><circle cx="220" cy="150" r="8"/><circle cx="240" cy="150" r="8"/>
+        <circle cx="210" cy="134" r="8"/><circle cx="230" cy="134" r="8"/>
+        <circle cx="220" cy="118" r="8"/>
+      </g>
+      <text x="222" y="178" font-size="14" fill="#2e8b57" font-weight="bold" text-anchor="middle" font-family="SimSun">≈53g糖</text>
+      <!-- 红线 -->
+      <line x1="300" y1="60" x2="300" y2="170" stroke="#c0392b" stroke-width="3" stroke-dasharray="6 4"/>
+      <text x="306" y="70" font-size="12" fill="#c0392b" font-family="SimSun">添加糖&lt;50g/天 红线</text>
+      <text x="306" y="100" font-size="13" fill="#c0392b" font-weight="bold" font-family="SimSun">一瓶就超全天上限！</text>
+      <text x="306" y="128" font-size="12" fill="#456" font-family="SimSun">控的是"添加糖/游离糖"</text>
+      <text x="306" y="150" font-size="12" fill="#456" font-family="SimSun">不是主食里的碳水</text>
+    </svg>
+    <div class="cap">图3｜添加糖主要来自含糖饮料、糕点、蜂蜜、果汁；一瓶可乐≈53g糖已超全天上限。控糖控的是"添加糖"，不是主食碳水。</div>
+  </div>
+
+  <h3>6. 酒精换算——"15g是酒精量，不是酒的量"</h3>
+  <p>公式：<b>酒精量(g) = 酒量(mL) × 酒精度(%) × 0.8</b>（乙醇密度约 0.8 g/mL）。成年人一天酒精量 &lt; 15g，约为：</p>
+  <div class="fig">
+    <svg viewBox="0 0 640 200" role="img" aria-label="15g酒精相当于多少酒图">
+      <rect x="0" y="0" width="640" height="200" fill="#fff"/>
+      <text x="20" y="26" font-size="16" fill="#2f6f8f" font-family="SimSun">图4　15g 酒精 ≈ 这些酒（一天上限）</text>
+      <g font-family="SimSun" text-anchor="middle">
+        <rect x="50" y="46" width="120" height="90" rx="10" fill="#fdf0ee" stroke="#c0392b"/>
+        <text x="110" y="78" font-size="14" fill="#c0392b" font-weight="bold">啤酒</text>
+        <text x="110" y="106" font-size="14" fill="#234">≈450 mL</text>
+        <text x="110" y="126" font-size="11" fill="#456">4%酒精度</text>
+        <rect x="200" y="46" width="120" height="90" rx="10" fill="#fdf0ee" stroke="#c0392b"/>
+        <text x="260" y="78" font-size="14" fill="#c0392b" font-weight="bold">葡萄酒</text>
+        <text x="260" y="106" font-size="14" fill="#234">≈150 mL</text>
+        <text x="260" y="126" font-size="11" fill="#456">12%酒精度</text>
+        <rect x="350" y="46" width="120" height="90" rx="10" fill="#fdf0ee" stroke="#c0392b"/>
+        <text x="410" y="78" font-size="14" fill="#c0392b" font-weight="bold">白酒(38°)</text>
+        <text x="410" y="106" font-size="14" fill="#234">≈50 mL</text>
+        <text x="410" y="126" font-size="11" fill="#456">≈1两</text>
+        <rect x="500" y="46" width="120" height="90" rx="10" fill="#fdf0ee" stroke="#c0392b"/>
+        <text x="560" y="78" font-size="14" fill="#c0392b" font-weight="bold">白酒(52°)</text>
+        <text x="560" y="106" font-size="14" fill="#234">≈30 mL</text>
+        <text x="560" y="126" font-size="11" fill="#456">高度酒更少</text>
+      </g>
+      <text x="320" y="170" font-size="12" fill="#c0392b" text-anchor="middle" font-family="SimSun">四类人（儿童青少年/孕妇/乳母/慢性病）滴酒不沾；其余人最好也不喝</text>
+    </svg>
+    <div class="cap">图4｜酒精量=酒量×酒精度%×0.8；15g≈450mL啤酒/150mL葡萄酒/50mL 38°白酒。注意是"酒精量"不是"酒的量"。</div>
+  </div>
+
+  <h3>7. 减盐、减油、控糖"三件套"技巧（常考怎么做）</h3>
+  <div class="fig">
+    <svg viewBox="0 0 640 210" role="img" aria-label="减盐减油控糖三栏技巧图">
+      <rect x="0" y="0" width="640" height="210" fill="#fff"/>
+      <text x="20" y="26" font-size="16" fill="#2f6f8f" font-family="SimSun">图5　减盐·减油·控糖 实操技巧</text>
+      <rect x="24" y="44" width="184" height="150" rx="10" fill="#fdf0ee" stroke="#c0392b"/>
+      <text x="116" y="70" font-size="15" fill="#c0392b" font-weight="bold" text-anchor="middle" font-family="SimSun">减盐</text>
+      <g font-family="SimSun" font-size="11.5" fill="#234">
+        <text x="36" y="94">· 限盐勺/限盐罐量化</text>
+        <text x="36" y="114">· 葱姜蒜醋柠檬代盐</text>
+        <text x="36" y="134">· 出锅放盐更显咸</text>
+        <text x="36" y="154">· 少吃咸菜酱类</text>
+        <text x="36" y="174">· 看标签防隐形盐</text>
+      </g>
+      <rect x="228" y="44" width="184" height="150" rx="10" fill="#fff3e0" stroke="#d98324"/>
+      <text x="320" y="70" font-size="15" fill="#d98324" font-weight="bold" text-anchor="middle" font-family="SimSun">减油</text>
+      <g font-family="SimSun" font-size="11.5" fill="#234">
+        <text x="240" y="94">· 定量油壶25–30g</text>
+        <text x="240" y="114">· 蒸煮炖拌代替煎炸</text>
+        <text x="240" y="134">· 少吃肥肉油炸</text>
+        <text x="240" y="154">· 植物油轮换吃</text>
+        <text x="240" y="174">· 少点外卖多在家做</text>
+      </g>
+      <rect x="432" y="44" width="184" height="150" rx="10" fill="#eaf5ee" stroke="#2e8b57"/>
+      <text x="524" y="70" font-size="15" fill="#2e8b57" font-weight="bold" text-anchor="middle" font-family="SimSun">控糖</text>
+      <g font-family="SimSun" font-size="11.5" fill="#234">
+        <text x="444" y="94">· 不喝含糖饮料</text>
+        <text x="444" y="114">· 少吃糕点甜点</text>
+        <text x="444" y="134">· 看配料表(白砂糖</text>
+        <text x="444" y="152">  果葡糖浆靠前)</text>
+        <text x="444" y="174">· 水果优于果汁</text>
+      </g>
+    </svg>
+    <div class="cap">图5｜减盐（量化+替代+出锅放）、减油（定量+蒸煮炖拌）、控糖（不喝甜饮+看标签+水果代果汁）。</div>
+  </div>
+
+  <div class="fig">
+    <svg viewBox="0 0 640 220" role="img" aria-label="小盐整改前后对比图">
+      <rect x="0" y="0" width="640" height="220" fill="#fff"/>
+      <text x="20" y="26" font-size="16" fill="#2f6f8f" font-family="SimSun">图6　案例：小盐"重口味"整改前后</text>
+      <rect x="40" y="48" width="240" height="150" rx="12" fill="#fdf0ee" stroke="#c0392b"/>
+      <text x="160" y="76" font-size="15" fill="#c0392b" font-weight="bold" text-anchor="middle" font-family="SimSun">整改前 ✘</text>
+      <text x="60" y="104" font-size="13" fill="#234" font-family="SimSun">· 麻辣香锅+咸菜</text>
+      <text x="60" y="128" font-size="13" fill="#234" font-family="SimSun">· 奶茶一天一杯</text>
+      <text x="60" y="152" font-size="13" fill="#234" font-family="SimSun">· 炸鸡配啤酒</text>
+      <text x="60" y="176" font-size="13" fill="#c0392b" font-family="SimSun">· 血压/血脂/脂肪肝↑</text>
+      <line x1="290" y1="123" x2="350" y2="123" stroke="#2f6f8f" stroke-width="3"/>
+      <polygon points="350,123 338,117 338,129" fill="#2f6f8f"/>
+      <text x="320" y="112" font-size="11" fill="#2f6f8f" text-anchor="middle" font-family="SimSun">准则五</text>
+      <rect x="360" y="48" width="240" height="150" rx="12" fill="#eaf5ee" stroke="#2e8b57"/>
+      <text x="480" y="76" font-size="15" fill="#2e8b57" font-weight="bold" text-anchor="middle" font-family="SimSun">整改后 ✓</text>
+      <text x="380" y="104" font-size="13" fill="#234" font-family="SimSun">· 盐&lt;5g(含隐形盐)</text>
+      <text x="380" y="128" font-size="13" fill="#234" font-family="SimSun">· 油25–30g蒸煮</text>
+      <text x="380" y="152" font-size="13" fill="#234" font-family="SimSun">· 戒奶茶甜饮</text>
+      <text x="380" y="176" font-size="13" fill="#2e8b57" font-family="SimSun">· 限酒/最好不喝</text>
+    </svg>
+    <div class="cap">图6｜把"高盐高油高糖酒"调成"清淡量化、蒸煮为主、戒甜饮、限酒"。</div>
+  </div>
+
+  <!-- 口诀 -->
+  <h2>四、口诀（背下来就是分）</h2>
+  <div class="mnemo">
+    <p><span class="k">① 三把尺：</span>"盐五油三(25–30)糖五零(最好二五)，反式两克酒一五。"</p>
+    <p><span class="k">② 隐形盐：</span>"不咸也有盐，看钠不看咸；一瓶酱油半瓶盐，挂面薯片偷偷咸。"</p>
+    <p><span class="k">③ 酒精：</span>"十五克酒精是红线，四类人儿滴酒不沾（儿童青少年·孕妇·乳母·慢性病）。"</p>
+    <p><span class="k">④ 三件套：</span>"盐勺量化出锅放，葱姜蒜香代盐咸；蒸煮炖拌少油煎，甜饮料儿靠边站。"</p>
+  </div>
+
+  <!-- 易错 -->
+  <h2>五、易错点（6 个，考试最爱挖坑）</h2>
+  <div class="err"><span class="t">易错1：</span>盐的推荐量记成旧版 <b>6g</b> → 2022 版已收紧为 <b>&lt; 5g/天</b>。</div>
+  <div class="err"><span class="t">易错2：</span>酒精记成旧版"男 25g / 女 15g" → 2022 版<b>统一为 &lt; 15g 酒精/天</b>；且是"<b>酒精量</b>"不是"酒的量"。</div>
+  <div class="err"><span class="t">易错3：</span>禁酒人群只想到孕妇、乳母 → 还有<b>儿童青少年、慢性病患者</b>，共四类不应饮酒。</div>
+  <div class="err"><span class="t">易错4：</span>把"添加糖 &lt; 50g"与"最好 &lt; 25g"混为一谈 → 上限 50g，<b>理想目标 25g 以下</b>。</div>
+  <div class="err"><span class="t">易错5：</span>"不咸=无盐""不甜=无糖" → 隐形盐（酱油/挂面/薯片）、隐形糖（可乐/糕点）照样超标。</div>
+  <div class="err"><span class="t">易错6：</span>把"控糖"误当成"戒主食碳水" → 控的是<b>添加糖/游离糖</b>；烹调油<b>不是越少越好</b>（脂溶性维生素吸收需要适量脂肪）。</div>
+
+  <!-- 解题 -->
+  <h2>六、三步解题法</h2>
+  <div class="step">
+    <p><b>第一步·读题定位：</b>判断考"量（盐油糖酒数字）/ 隐形盐糖 / 酒精换算与禁酒人群 / 实操技巧"哪一类。</p>
+    <p><b>第二步·套数字原则：</b>盐&lt;5g、油25–30g、添加糖&lt;50g（最好&lt;25g）、反式&lt;2g、酒精&lt;15g；四类人禁酒；1g钠≈2.5g盐；酒精量=酒量×酒精度%×0.8。</p>
+    <p><b>第三步·辨陷阱：</b>看是否用旧数据（6g/男25女15）、是否把"酒量"当"酒精量"、是否忽略隐形盐糖、是否把"控糖"理解成戒主食。</p>
+  </div>
+
+  <!-- 提问 -->
+  <h2>七、课堂提问（师生互动，先想再对答案）</h2>
+  <div class="qa"><span class="q">问1：</span>小盐把每天食盐从 6g 减到 5g，是不是就达标了？<br><span class="a">答：还差一步。①是减到 5g 以内（&lt;5g），不是"等于5g就行"；②更要防<b>隐形盐</b>——咸菜、酱油、挂面、薯片里的钠也算进去，总量仍可能超。</span></div>
+  <div class="qa"><span class="q">问2：</span>小盐宵夜喝了 2 两（100mL）52° 白酒，酒精量多少？超标吗？<br><span class="a">答：100 × 52% × 0.8 = <b>41.6 g</b>，远超 15g 上限近 3 倍，明显超标。</span></div>
+  <div class="qa"><span class="q">问3：</span>"无糖可乐"能不能随便喝？<br><span class="a">答：无糖可乐虽不加蔗糖，但准则讲的是"不喝或少喝含糖饮料"；代糖长期大量摄入仍有争议，最稳妥还是<b>白水、淡茶</b>。</span></div>
+  <div class="qa"><span class="q">问4：</span>高血压患者只在做菜时少放盐勺就够了？<br><span class="a">答：不够。还要看<b>隐形盐</b>——酱油、咸菜、挂面、火腿培根的钠，以及学会看营养标签的"钠"含量。</span></div>
+
+  <!-- 改编题 -->
+  <h2>八、改编题（点选项看解析）</h2>
+
+  <div class="quiz" data-ans="B">
+    <div class="qt">1.（单选）根据《中国居民膳食指南（2022）》，成年人每天摄入食盐应不超过：</div>
+    <button class="opt" data-v="A">A. 6 g</button>
+    <button class="opt" data-v="B">B. 5 g</button>
+    <button class="opt" data-v="C">C. 10 g</button>
+    <button class="opt" data-v="D">D. 3 g</button>
+    <div class="explain">✅ 答案 B。2022 版将食盐推荐量从 2016 版的 &lt;6g 收紧为 &lt;5g/天。</div>
+  </div>
+
+  <div class="quiz" data-ans="B">
+    <div class="qt">2.（单选）关于添加糖的摄入，下列正确的是：</div>
+    <button class="opt" data-v="A">A. 每天不超过 50g 即可，无需再少</button>
+    <button class="opt" data-v="B">B. 每天不超过 50g，最好控制在 25g 以下</button>
+    <button class="opt" data-v="C">C. 每天不超过 100g</button>
+    <button class="opt" data-v="D">D. 添加糖无需限制</button>
+    <div class="explain">✅ 答案 B。添加糖 &lt;50g/天，最好 &lt;25g/天（上限与理想目标要区分）。</div>
+  </div>
+
+  <div class="quiz" data-ans="B">
+    <div class="qt">3.（单选）关于饮酒，符合 2022 版指南的是：</div>
+    <button class="opt" data-v="A">A. 男性每天酒精量不超过 25g、女性不超过 15g</button>
+    <button class="opt" data-v="B">B. 成年人如饮酒，一天酒精量不超过 15g</button>
+    <button class="opt" data-v="C">C. 孕妇可少量饮酒</button>
+    <button class="opt" data-v="D">D. 酒精量按"喝的酒的体积"计算</button>
+    <div class="explain">✅ 答案 B。2022 版统一为 &lt;15g 酒精/天（旧版男25女15已作废）；孕妇等四类不应饮酒；"酒精量"=酒量×酒精度%×0.8，不是酒的体积。</div>
+  </div>
+
+  <div class="quiz" data-ans="ABC">
+    <div class="qt">4.（多选）下列含"隐形盐"较高的食物包括：</div>
+    <button class="opt" data-v="A">A. 酱油、味精</button>
+    <button class="opt" data-v="B">B. 挂面、咸菜</button>
+    <button class="opt" data-v="C">C. 薯片、火腿培根</button>
+    <button class="opt" data-v="D">D. 新鲜苹果</button>
+    <button class="opt" data-v="E">E. 白开水</button>
+    <div class="explain">✅ 答案 A、B、C。这些含隐形盐（钠高）；新鲜苹果、白开水几乎无钠。</div>
+  </div>
+
+  <div class="quiz" data-ans="B">
+    <div class="qt">5.（单选）一瓶 500mL 可乐（含糖约 10.6g/100mL）的含糖量约为：</div>
+    <button class="opt" data-v="A">A. 约 20 g</button>
+    <button class="opt" data-v="B">B. 约 53 g</button>
+    <button class="opt" data-v="C">C. 约 5 g</button>
+    <button class="opt" data-v="D">D. 0 g（可乐不含糖）</button>
+    <div class="explain">✅ 答案 B。500 × 10.6% ≈ 53g，已超"添加糖&lt;50g/天"上限，一瓶就够全天额度。</div>
+  </div>
+
+  <div class="quiz" data-ans="OPEN">
+    <div class="qt">6.（简答·案例）大三学生小盐：外卖麻辣香锅+咸菜、奶茶一天一杯、炸鸡配啤酒，体检血压 138/88、甘油三酯高、脂肪肝倾向。请从准则五角度给 3 条整改建议。</div>
+    <button class="opt" data-v="show">点击查看参考答案</button>
+    <div class="explain">✅ 参考答案：①减盐到 &lt;5g/天并防隐形盐（少咸菜酱油、看标签）；②减油 25–30g/天，多用蒸煮炖拌、少煎炸外卖；③控糖限酒——戒奶茶等含糖饮料，最好不饮酒（若饮酒精&lt;15g/天）；④规律三餐、少宵夜。</div>
+  </div>
+
+  <!-- 费曼 -->
+  <h2>九、费曼自检（能讲清楚 = 真懂）</h2>
+  <div class="feyn">
+    <label><input type="checkbox"> 1. 我能说出准则五"三把尺"数字：盐、油、添加糖、反式脂肪、酒精各是多少。</label>
+    <label><input type="checkbox"> 2. 我能解释为什么盐从 6g 改 5g、酒精统一为 15g，以及禁酒的四类人。</label>
+    <label><input type="checkbox"> 3. 我能说出"隐形盐/隐形糖"各 3 个例子，并解释"1g钠≈2.5g盐"。</label>
+    <label><input type="checkbox"> 4. 我会用公式算酒精量（酒量×酒精度%×0.8），并说出 15g 约等于多少酒。</label>
+    <label><input type="checkbox"> 5. 我能讲出至少 3 个易错点（旧数据、酒量当酒精量、不咸无盐、控糖=戒主食等）。</label>
+    <label><input type="checkbox"> 6. 我能给"重口味"的小盐开出 3 条整改建议。</label>
+  </div>
+
+  <div class="next">📚 <b>下课预告 · 第6课 准则六：规律进餐，足量饮水</b><br>合理安排一日三餐、不漏餐、不过量；足量饮水 1500–1700mL/天（温和气候轻体力）；推荐喝白水，不喝或少喝含糖饮料。准备好你的"三餐时钟与水杯"！</div>
+
+  <hr>
+  <p style="font-size:.8em;color:#89a;">本课件依据《中国居民膳食指南（2022）》官方文本（dg.cnsoc.org）编写，关键数字与核心推荐以官方为准；钠-盐换算（1g钠≈2.5g盐）、酒精量公式（酒量×酒精度%×0.8）为营养学常用计算方法，用于解题演示。</p>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  /* ---------- 语音讲解脚本（逐句） ---------- */
+  var NARRATION = [
+    "同学们好，欢迎来到第5课。今天我们学习《中国居民膳食指南2022》的准则五：少盐少油，控糖限酒。",
+    "先温故一下。准则一讲食物多样，准则二讲吃动平衡、健康体重，准则三讲多吃蔬果奶类全谷大豆，准则四讲适量吃鱼禽蛋瘦肉、白肉优先不弃蛋黄。",
+    "今天我们要守好一条底线：怎么把饭做得清淡，别让盐、油、糖、酒拖了健康的后腿。",
+    "先来看一个案例。大三学生小盐重口味，外卖顿顿麻辣香锅、咸菜就白粥、奶茶一天一杯、宵夜炸鸡配啤酒。体检发现血压偏高、甘油三酯高、还有脂肪肝倾向。他的吃法踩了哪些坑？学完你就知道了。",
+    "第一，记三把尺。食盐每天不超过五克，这是二〇二二年版从旧版六克收紧来的。烹调油每天二十五到三十克，不是越少越好，因为脂溶性维生素吸收需要适量脂肪。",
+    "添加糖每天不超过五十克，最好控制在二十五克以下。反式脂肪酸每天不超过两克。酒精方面，成年人如饮酒，一天酒精量不超过十五克。",
+    "注意，盐、油、糖、酒精这四把尺，是最爱考的数字，一定要记准。",
+    "准则五有五条核心推荐。第一，培养清淡饮食习惯，少吃高盐和油炸食品，食盐不超过五克、油二十五到三十克。第二，添加糖不超过五十克，最好二十五克以下。",
+    "第三，反式脂肪酸每天不超过两克。第四，不喝或少喝含糖饮料。第五，儿童青少年、孕妇、乳母以及慢性病患者不应饮酒；成年人如饮酒，酒精量不超过十五克。考试常拆成六条来考，内容一致。",
+    "为什么要这么推荐？看证据。高盐升高血压，增加脑卒中、胃癌和心血管病风险，咱们居民平均每天吃盐约十克，远超推荐。高油高能量导致肥胖、血脂异常、脂肪肝。",
+    "添加糖和含糖饮料增加龋齿、肥胖、二型糖尿病和血脂异常。酒精没有安全阈值，伤肝还增加多种癌症风险。",
+    "重点来了，隐形盐。食盐就是氯化钠，钠大约占百分之三十九，所以一克钠约等于二点五克盐。很多食物吃着不咸，钠却很高。",
+    "像酱油、腐乳、挂面、咸菜、薯片、火腿培根，都是隐形盐大户。控盐不能只少放盐勺，还要会看营养标签上的钠含量。",
+    "再说隐形糖。不甜不等于无糖，控糖也不是戒主食。控的是添加糖和游离糖，主要来自含糖饮料、糕点、蜂蜜和果汁。",
+    "给大家算一笔账：一瓶五百毫升的可乐，含糖约五十三克，已经超过了每天五十克的上限。也就是说，一瓶甜饮料就抵掉了一整天的糖额度。",
+    "酒精怎么算？记住公式：酒精量等于酒的量，乘以酒精度百分比，再乘以零点八。成年人一天酒精量不到十五克，大约相当于四百五十毫升啤酒、一百五十毫升葡萄酒，或者五十毫升三十八度白酒。",
+    "老师较真一下：这里说的是酒精量，不是酒的量。而且儿童青少年、孕妇、乳母、慢性病患者这四类人，是不应该饮酒的，不是只有孕妇乳母。",
+    "实操三件套。减盐：用限盐勺量化、葱姜蒜醋柠檬代替盐、出锅再放盐更显咸、少吃咸菜酱类、看标签防隐形盐。减油：定量油壶、蒸煮炖拌代替煎炸、少吃肥肉油炸。控糖：不喝含糖饮料、少吃糕点、看配料表里白砂糖果葡糖浆、水果优于果汁。",
+    "来背口诀。三把尺：盐五油三糖五零最好二五，反式两克酒一五。隐形盐：不咸也有盐，看钠不看咸。酒精：十五克酒精是红线，四类人儿滴酒不沾。三件套：盐勺量化出锅放，葱姜蒜香代盐咸，蒸煮炖拌少油煎，甜饮料儿靠边站。",
+    "六易错点，考试最爱挖坑。第一，盐记成旧版六克，应是小于五克。第二，酒精记成旧版男二十五女十五，应是统一小于十五克酒精，而且是酒精量不是酒的量。",
+    "第三，禁酒人群只想到孕妇乳母，漏了儿童青少年和慢性病。第四，把添加糖小于五十和最好小于二十五混为一谈，上限五十、目标二十五。第五，以为不咸等于无盐、不甜等于无糖。第六，把控糖误当成戒主食碳水。",
+    "解题三步法。第一步，读题定位，判断考的是量、隐形盐糖、酒精换算还是实操技巧。第二步，套数字和公式。第三步，辨陷阱，看是不是用了旧数据、把酒量当酒精量、忽略隐形盐糖。",
+    "课堂提问。有人说，把盐从六克减到五克就达标了。对吗？不对，是减到五克以内，而且还要防隐形盐，咸菜酱油挂面薯片里的钠都算。",
+    "又问：小盐宵夜喝了二两五十二度白酒，酒精量多少？用公式：一百毫升乘百分之五十二乘零点八，等于四十一点六克，远超十五克上限近三倍，明显超标。",
+    "再问：无糖可乐能不能随便喝？无糖虽不加蔗糖，但最稳妥还是白水淡茶，代糖长期大量也有争议。",
+    "还问：高血压只少放盐勺够吗？不够，还要看隐形盐和营养标签的钠。",
+    "来做几道改编题。第一题，成人每天食盐不超过多少？A六克、B五克、C十克、D三克。答案是B，二〇二二年版小于五克。",
+    "第二题，添加糖正确的是？最好控制在二十五克以下，选B。第三题，饮酒符合二〇二二年版的是？统一小于十五克酒精，选B；孕妇等四类不应饮酒，酒精量按公式算不是酒的体积。",
+    "第四题多选，含隐形盐的是酱油味精、挂面咸菜、薯片火腿培根，选A、B、C。第五题，一瓶五百毫升可乐含糖约五十三克，选B，已超全天上限。",
+    "第六题案例，给重口味的小盐三条整改建议：减盐到五克以内并防隐形盐、减油二十五到三十克多用蒸煮、控糖限酒戒奶茶最好不饮酒、规律三餐少宵夜。",
+    "费曼自检：你能说出三把尺数字吗？能解释盐改五克、酒精统一十五克和四类禁酒人吗？能举三个隐形盐糖例子、会算酒精量吗？能讲三个易错点吗？能给小盐开三条整改建议吗？",
+    "都打勾了，说明你真懂了。下课预告：第6课准则六，规律进餐、足量饮水。合理安排三餐、足量饮水一千五到一千七百毫升、推荐白水、少喝含糖饮料。同学们，下节课见。"
+  ];
+
+  /* ---------- 播放器逻辑 ---------- */
+  var synth = window.speechSynthesis;
+  var player = document.getElementById('player');
+  var subtitle = document.getElementById('subtitle');
+  var playBtn = document.getElementById('playBtn');
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+  var seek = document.getElementById('seek');
+  var pos = document.getElementById('pos');
+  var rateSel = document.getElementById('rateSel');
+  var voiceSel = document.getElementById('voiceSel');
+  var voiceNote = document.getElementById('voiceNote');
+  var fsPlus = document.getElementById('fsPlus');
+  var fsMinus = document.getElementById('fsMinus');
+  var fsLabel = document.getElementById('fsLabel');
+
+  var idx = 0, playing = false, utter = null, xiaoVoice = null;
+
+  seek.max = NARRATION.length - 1;
+  pos.textContent = (idx+1) + '/' + NARRATION.length;
+
+  function pickVoice(){
+    if(!synth) return null;
+    var vs = synth.getVoices() || [];
+    var x = vs.filter(function(v){ return /Xiaoxiao/i.test(v.name) || /Xiaoxiao/i.test(v.voiceURI); })[0];
+    if(x){ return x; }
+    return vs.filter(function(v){ return /zh|Chinese|中文/i.test(v.lang + v.name); })[0] || null;
+  }
+
+  function refreshVoiceSelect(){
+    if(!synth) return;
+    var vs = synth.getVoices() || [];
+    var zh = vs.filter(function(v){ return /zh|Chinese|中文/i.test(v.lang + v.name); });
+    voiceSel.innerHTML = '';
+    zh.forEach(function(v, i){
+      var o = document.createElement('option');
+      o.value = i; o.textContent = v.name + (v.localService ? '（本地）' : '（云端）');
+      voiceSel.appendChild(o);
+    });
+    xiaoVoice = vs.filter(function(v){ return /Xiaoxiao/i.test(v.name) || /Xiaoxiao/i.test(v.voiceURI); })[0];
+    if(!xiaoVoice && zh.length){ voiceNote.style.display = 'block'; }
+  }
+
+  function currentVoice(){
+    if(!synth) return null;
+    var vs = synth.getVoices() || [];
+    var zh = vs.filter(function(v){ return /zh|Chinese|中文/i.test(v.lang + v.name); });
+    var i = parseInt(voiceSel.value, 10);
+    if(!isNaN(i) && zh[i]) return zh[i];
+    return xiaoVoice || pickVoice();
+  }
+
+  function speak(){
+    if(!synth){ return; }
+    synth.cancel();
+    utter = new SpeechSynthesisUtterance(NARRATION[idx]);
+    var v = currentVoice();
+    if(v){ utter.voice = v; utter.lang = v.lang; }
+    utter.rate = parseFloat(rateSel.value) || 1;
+    utter.onend = function(){ if(playing){ next(true); } };
+    subtitle.innerHTML = '<b>[' + (idx+1) + '/' + NARRATION.length + ']</b> ' + NARRATION[idx];
+    pos.textContent = (idx+1) + '/' + NARRATION.length;
+    seek.value = idx;
+  }
+
+  function play(){
+    if(!synth){ alert('当前浏览器不支持语音合成，请用 Edge / Chrome 打开。'); return; }
+    playing = true; playBtn.textContent = '⏸暂停';
+    speak();
+  }
+  function pause(){
+    playing = false; playBtn.textContent = '▶播放';
+    if(synth) synth.cancel();
+  }
+  function toggle(){ playing ? pause() : play(); }
+  function next(auto){
+    if(idx < NARRATION.length - 1){ idx++; if(auto || playing) speak(); else updateStatic(); }
+    else { if(playing){ pause(); } }
+  }
+  function prev(){
+    if(idx > 0){ idx--; if(playing) speak(); else updateStatic(); }
+  }
+  function updateStatic(){
+    subtitle.innerHTML = '<b>[' + (idx+1) + '/' + NARRATION.length + ']</b> ' + NARRATION[idx];
+    pos.textContent = (idx+1) + '/' + NARRATION.length;
+    seek.value = idx;
+  }
+
+  playBtn.addEventListener('click', toggle);
+  nextBtn.addEventListener('click', function(){ next(false); });
+  prevBtn.addEventListener('click', prev);
+  seek.addEventListener('input', function(){ idx = parseInt(seek.value,10); if(playing) speak(); else updateStatic(); });
+  rateSel.addEventListener('change', function(){ if(playing) speak(); });
+  voiceSel.addEventListener('change', function(){ if(playing) speak(); });
+
+  /* 字号 A+/A- （小四12pt 基准，可放大） */
+  var root = document.documentElement;
+  function curFS(){ return parseFloat(getComputedStyle(root).getPropertyValue('--fs')) || 12; }
+  function setFS(pt){
+    pt = Math.max(10, Math.min(22, pt));
+    root.style.setProperty('--fs', pt + 'pt');
+    fsLabel.textContent = pt + 'pt' + (pt === 12 ? '（小四）' : '');
+  }
+  fsPlus.addEventListener('click', function(){ setFS(curFS() + 1); });
+  fsMinus.addEventListener('click', function(){ setFS(curFS() - 1); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === '=' || e.key === '+'){ setFS(curFS() + 1); }
+    if(e.key === '-'){ setFS(curFS() - 1); }
+  });
+
+  if(synth){
+    refreshVoiceSelect();
+    if(typeof synth.onvoiceschanged !== 'undefined'){ synth.onvoiceschanged = refreshVoiceSelect; }
+  } else {
+    voiceNote.style.display = 'block';
+    voiceNote.textContent = '当前浏览器不支持语音合成（Web Speech API），请用 Edge / Chrome 打开以收听晓晓老师讲解。';
+  }
+
+  /* ---------- 拖动播放器（默认解锁可拖） ---------- */
+  var pbar = document.getElementById('pbar');
+  var pinBtn = document.getElementById('pinBtn');
+  var dragging = true, ox = 0, oy = 0;
+  pinBtn.addEventListener('click', function(){
+    dragging = !dragging;
+    pinBtn.textContent = dragging ? '📌解锁' : '📌固定';
+    pbar.style.cursor = dragging ? 'move' : 'default';
+  });
+  pbar.addEventListener('mousedown', function(e){
+    if(!dragging) return;
+    var r = player.getBoundingClientRect();
+    ox = e.clientX - r.left; oy = e.clientY - r.top;
+    document.addEventListener('mousemove', move);
+    document.addEventListener('mouseup', up);
+    e.preventDefault();
+  });
+  function move(e){
+    var x = e.clientX - ox, y = e.clientY - oy;
+    x = Math.max(0, Math.min(window.innerWidth - player.offsetWidth, x));
+    y = Math.max(0, Math.min(window.innerHeight - player.offsetHeight, y));
+    player.style.left = x + 'px'; player.style.top = y + 'px';
+    player.style.right = 'auto'; player.style.bottom = 'auto';
+  }
+  function up(){ document.removeEventListener('mousemove', move); document.removeEventListener('mouseup', up); }
+  pbar.addEventListener('touchstart', function(e){
+    if(!dragging) return;
+    var t = e.touches[0]; var r = player.getBoundingClientRect();
+    ox = t.clientX - r.left; oy = t.clientY - r.top;
+  }, {passive:true});
+  pbar.addEventListener('touchmove', function(e){
+    if(!dragging) return;
+    var t = e.touches[0];
+    var x = Math.max(0, Math.min(window.innerWidth - player.offsetWidth, t.clientX - ox));
+    var y = Math.max(0, Math.min(window.innerHeight - player.offsetHeight, t.clientY - oy));
+    player.style.left = x + 'px'; player.style.top = y + 'px';
+    player.style.right = 'auto'; player.style.bottom = 'auto';
+  }, {passive:true});
+
+  /* ---------- 选择题交互 ---------- */
+  document.querySelectorAll('.quiz').forEach(function(q){
+    var ans = q.getAttribute('data-ans');
+    q.querySelectorAll('.opt').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        if(ans === 'OPEN'){
+          q.querySelector('.explain').classList.add('show');
+          return;
+        }
+        var v = btn.getAttribute('data-v');
+        if(ans.indexOf(v) !== -1){
+          btn.classList.add('correct');
+        } else {
+          btn.classList.add('wrong');
+          q.querySelectorAll('.opt').forEach(function(o){
+            if(ans.indexOf(o.getAttribute('data-v')) !== -1) o.classList.add('correct');
+          });
+        }
+        q.querySelectorAll('.opt').forEach(function(o){ o.classList.add('dim'); });
+        btn.classList.remove('dim');
+        q.querySelector('.explain').classList.add('show');
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
