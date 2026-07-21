@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第7课 · 准则七 会烹会选，会看标签｜注册营养师考点互动课</title>
+<style>
+  :root{
+    --fs: 12pt;            /* 默认宋体小四号 */
+    --song: "宋体","SimSun",serif;
+    --ink:#1f2933; --sub:#52606d; --line:#e3e8ef;
+    --brand:#b3001b; --brand2:#c9a227; --ok:#1f7a3d; --warn:#b3001b;
+    --card:#fffdf7; --soft:#fbf6ea;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:var(--song); font-size:var(--fs); color:var(--ink);
+    line-height:1.95; margin:0; padding:0 0 90px;
+    background:linear-gradient(180deg,#fdfbf5,#f6f1e6);
+  }
+  .wrap{max-width:920px; margin:0 auto; padding:24px 22px 0;}
+  h1{font-size:1.7em; color:var(--brand); border-bottom:3px double var(--brand2); padding-bottom:10px; margin:8px 0 4px;}
+  h2{font-size:1.32em; color:var(--brand); margin:30px 0 8px; border-left:8px solid var(--brand2); padding-left:12px;}
+  h3{font-size:1.12em; color:#7a1020; margin:18px 0 6px;}
+  .lead{color:var(--sub); font-size:.98em; margin:2px 0 0;}
+  p{margin:8px 0;}
+  b,strong{color:#7a1020;}
+  .tag{display:inline-block; background:var(--brand); color:#fff; border-radius:6px; padding:1px 9px; font-size:.82em; margin-right:6px;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin:14px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  .note{background:var(--soft); border-left:5px solid var(--brand2); padding:10px 14px; border-radius:0 10px 10px 0; margin:12px 0;}
+  .review{background:#f3f7ff; border:1px solid #cfe0ff; border-radius:12px; padding:6px 18px 12px; margin:14px 0;}
+  table{border-collapse:collapse; width:100%; margin:12px 0; font-size:.95em;}
+  th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top;}
+  th{background:#f0e6d2; color:#5a3a00;}
+  tr:nth-child(even) td{background:#fcfaf3;}
+  .err{border:2px solid var(--warn); border-radius:12px; padding:12px 16px; margin:12px 0; background:#fff6f6; position:relative;}
+  .err:before{content:"⚠ 易错点"; position:absolute; top:-12px; left:14px; background:var(--warn); color:#fff; font-size:.8em; padding:1px 10px; border-radius:6px;}
+  .jue{background:#fff; border:2px dashed var(--brand2); border-radius:12px; padding:12px 16px; margin:12px 0;}
+  .jue .k{color:var(--brand); font-weight:bold;}
+  .quiz{border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; background:#fffdfa;}
+  .quiz h4{margin:0 0 8px; font-size:1.02em; color:#333;}
+  .opt{display:block; padding:6px 10px; margin:5px 0; border:1px solid var(--line); border-radius:8px; cursor:pointer;}
+  .opt:hover{background:#fbf3e2;}
+  .opt.cho{background:#fff0d6; border-color:var(--brand2);}
+  .opt.right{background:#e7f6ec; border-color:var(--ok);}
+  .opt.wrong{background:#fdeaea; border-color:var(--warn);}
+  .reveal{display:none; margin-top:8px; padding:9px 12px; background:#f4f8ff; border-left:4px solid #2b6cb0; border-radius:0 8px 8px 0; font-size:.95em;}
+  .reveal b{color:#2b6cb0;}
+  .btn{display:inline-block; background:var(--brand); color:#fff; border:none; border-radius:8px; padding:5px 14px; cursor:pointer; font-family:var(--song); font-size:.95em;}
+  .btn.ghost{background:#fff; color:var(--brand); border:1px solid var(--brand);}
+  svg{display:block; margin:10px auto; max-width:100%;}
+  .figcap{text-align:center; color:var(--sub); font-size:.86em; margin:-4px 0 6px;}
+  .feynman label{display:block; padding:6px 10px; margin:6px 0; border:1px solid var(--line); border-radius:8px; cursor:pointer; background:#fff;}
+  .feynman input{transform:scale(1.3); margin-right:8px;}
+  .spk.active{background:#fff6da; border-radius:6px; box-shadow:0 0 0 3px #ffe9a8;}
+  .fsctl{position:fixed; right:14px; top:14px; z-index:60; background:#fff; border:1px solid var(--line); border-radius:10px; padding:6px 8px; box-shadow:0 2px 8px rgba(0,0,0,.12);}
+  .fsctl button{font-family:var(--song); font-size:1em; border:1px solid var(--line); background:#fbfaf5; border-radius:6px; cursor:pointer; padding:2px 10px; margin:0 2px;}
+  .fsctl .lab{font-size:.82em; color:var(--sub); display:block; text-align:center;}
+  /* 浮动可拖动播放器 */
+  #player{position:fixed; left:18px; bottom:18px; width:340px; z-index:80;
+    background:#fffef9; border:2px solid var(--brand2); border-radius:14px; box-shadow:0 8px 26px rgba(0,0,0,.22); overflow:hidden;}
+  #phead{cursor:grab; background:linear-gradient(90deg,var(--brand),#d23b4f); color:#fff; padding:7px 12px; font-weight:bold; display:flex; justify-content:space-between; align-items:center; user-select:none;}
+  #phead .pin{font-size:.8em; cursor:pointer; background:rgba(255,255,255,.25); border-radius:6px; padding:1px 7px;}
+  #sub{height:62px; overflow-y:auto; padding:8px 12px; font-size:.92em; color:#333; background:#fffdf3; border-bottom:1px solid var(--line);}
+  #sub .cur{color:var(--brand); font-weight:bold;}
+  #pctrl{padding:9px 12px;}
+  .row{display:flex; align-items:center; gap:7px; margin:6px 0; flex-wrap:wrap;}
+  .row button{font-family:var(--song); font-size:1.05em; border:1px solid var(--line); background:#fbfaf5; border-radius:8px; cursor:pointer; padding:4px 11px;}
+  .row button:hover{background:#f3e9d2;}
+  #seek{width:100%;}
+  .mini{font-size:.82em; color:var(--sub);}
+  select,input[type=range]{font-family:var(--song);}
+  #hint{font-size:.8em; color:#9a6b00; padding:0 12px 8px; display:none;}
+  .footer{text-align:center; color:var(--sub); font-size:.85em; margin-top:30px; border-top:1px solid var(--line); padding-top:14px;}
+  @media(max-width:560px){#player{width:94vw; left:3vw;} .fsctl{top:8px; right:8px;}}
+</style>
+</head>
+<body>
+
+<div class="fsctl">
+  <span class="lab">字号（默认宋体小四）</span>
+  <button onclick="setFS(-1)">A−</button>
+  <button onclick="setFS(1)">A＋</button>
+</div>
+
+<div class="wrap">
+  <h1>第7课 · 准则七：会烹会选，会看标签</h1>
+  <p class="lead">注册营养师考点 · 依据《中国居民膳食指南(2022)》官方原文（中国营养学会 dg.cnsoc.org）· 高中生物课体量 · 费曼式精讲</p>
+
+  <!-- ===== 温故 ===== -->
+  <div class="review">
+    <h2 style="border:none;margin-top:6px;">📚 温故（第1–6课要点速记）</h2>
+    <table>
+      <tr><th>课</th><th>考点</th><th>必背数字 / 句式</th></tr>
+      <tr><td>第1课</td><td>平衡膳食宝塔2022</td><td>盐&lt;5g；油25–30g；奶300–500g；谷200–300g；蔬300–500g；果200–350g；动物120–200g；水1500–1700ml；6000步</td></tr>
+      <tr><td>第2课</td><td>准则二 吃动平衡</td><td>BMI中国标准：18.5 / 24 / 28；腰围男≥90 女≥85；每周≥150分钟；减重0.5–1kg/周</td></tr>
+      <tr><td>第3课</td><td>准则三 蔬果奶类全谷大豆</td><td>蔬菜≥300g且深色占½；水果200–350g；蔬果不互换；奶相当≥300ml液态奶；坚果≈10g</td></tr>
+      <tr><td>第4课</td><td>准则四 鱼禽蛋瘦肉</td><td>动物性总量120–200g/天；鱼300–500g/周(≈2次)；蛋300–350g/周(≈1个/天)；不弃蛋黄；加工肉IARC 1类、红肉2A类</td></tr>
+      <tr><td>第5课</td><td>准则五 少盐少油控糖限酒</td><td>盐&lt;5g；油25–30g；添加糖&lt;50g最好&lt;25g；反式脂肪&lt;2g；酒精&lt;15g；四类禁酒；1g钠≈2.5g盐</td></tr>
+      <tr><td>第6课</td><td>准则六 规律进餐足量饮水</td><td>三餐比 25–30 / 30–40 / 30–35；男1700女1500ml(温和低活动)；两餐间隔4–6h；含糖饮料四害(龋/肥/T2DM/血脂)</td></tr>
+    </table>
+    <p class="spk">同学们好，今天我们学第七课。前面六课我们已经把"吃什么、吃多少、怎么吃、喝什么"都讲清楚了。准则七——<b>会烹会选，会看标签</b>——是把前六课落到"超市货架"和"自家厨房"的关键一课：你会不会挑、会不会看、会不会做，决定前面学的营养知识到底能不能进到嘴里。</p>
+  </div>
+
+  <!-- ===== 导入 ===== -->
+  <h2>一、课堂导入：货架前的两瓶"牛奶"</h2>
+  <div class="card spk">
+    <p>妈妈让小明买"牛奶"，小明拿了瓶包装上写着"XX牛奶饮品"的瓶子，觉得便宜又甜。回家后营养师一看<b>配料表</b>：排第一位的居然是"水"，第二位是"白砂糖"。——这不是牛奶，是<b>甜饮料</b>。</p>
+    <p>同一天，奶奶炖排骨汤飘着油烟，油都冒烟了才下菜；而邻居王姨炒菜"先洗后切、大火快炒"，青菜又绿又脆。谁的菜更保营养？今天学完准则七，你就能像营养师一样，从货架到灶台全程把关。</p>
+  </div>
+
+  <!-- ===== 核心推荐 ===== -->
+  <h2>二、准则七 核心推荐（官方原文5条）</h2>
+  <div class="card">
+    <p class="spk"><b>核心推荐①：</b>在生命的各个阶段都应做好<b>健康膳食规划</b>。</p>
+    <p class="spk"><b>核心推荐②：</b>认识食物，选择<b>新鲜的、营养素密度高</b>的食物。</p>
+    <p class="spk"><b>核心推荐③：</b>学会阅读<b>食品标签</b>，合理选择预包装食品。</p>
+    <p class="spk"><b>核心推荐④：</b>学习<b>烹饪</b>、传承传统饮食，享受食物天然美味。</p>
+    <p class="spk"><b>核心推荐⑤：</b>在外就餐，不忘<b>适量与平衡</b>。</p>
+  </div>
+
+  <h3>底层逻辑（老师划重点）</h3>
+  <div class="note spk">
+    <p>准则七回答一个动作链：<b>规划 → 会选（挑新鲜、看标签）→ 会烹（少油盐、保营养）→ 会平衡（在外不失控）</b>。核心是两条主线：① <b>选对食物</b>（看营养素密度、看标签）；② <b>做对菜</b>（烹饪方式影响营养保留）。</p>
+    <p>关键事实（考试直接考）：配料表按用量<b>递减</b>排列；营养成分表强制"1+4"；NRV% 是"占一天需要量的百分比"；营养素密度高≠热量高，"空能量"食物(糖果、含糖饮料)要少选。</p>
+  </div>
+
+  <!-- ===== 图1 营养素密度 vs 空能量 ===== -->
+  <h3>图1 · 营养素密度 vs 空能量（跷跷板）</h3>
+  <svg viewBox="0 0 680 250" width="640" role="img" aria-label="营养素密度与空能量对比">
+    <line x1="90" y1="60" x2="590" y2="60" stroke="#999" stroke-width="3"/>
+    <g font-family="SimSun" text-anchor="middle" font-size="13">
+      <!-- 左盘：高营养素密度 下沉 -->
+      <line x1="200" y1="60" x2="200" y2="150" stroke="#bbb" stroke-width="2"/>
+      <rect x="120" y="150" width="160" height="56" rx="8" fill="#e7f6ec" stroke="#1f7a3d" stroke-width="2"/>
+      <text x="200" y="173" fill="#1f7a3d" font-size="14">高营养素密度</text>
+      <text x="200" y="194" fill="#1f7a3d">蔬菜·蛋·鱼·奶</text>
+      <text x="200" y="138" fill="#1f7a3d">营养多·能量少✓</text>
+      <!-- 右盘：空能量 翘起 -->
+      <line x1="480" y1="60" x2="480" y2="100" stroke="#bbb" stroke-width="2"/>
+      <rect x="400" y="100" width="160" height="48" rx="8" fill="#fdeaea" stroke="#b3001b" stroke-width="2"/>
+      <text x="480" y="120" fill="#b3001b" font-size="14">空能量</text>
+      <text x="480" y="138" fill="#b3001b">糖果·含糖饮料</text>
+      <text x="480" y="82" fill="#b3001b">能量高·营养少✗</text>
+      <circle cx="340" cy="60" r="8" fill="#7a1020"/>
+      <text x="340" y="220" font-size="13" fill="#555">跷跷板原理：同样"沉"的是营养，不是热量；空能量"轻飘飘"只供能。</text>
+    </g>
+  </svg>
+  <p class="figcap">图1 同样热量下，营养素密度高的食物提供更多维生素/矿物质/膳食纤维；空能量食物反之。</p>
+  <p class="spk">记法：把食物放上一杆"营养跷跷板"。<b>营养素密度高</b>的食物——同样热量里塞满了维生素、矿物质、膳食纤维（蔬菜、蛋、鱼、奶、全谷）——是"重营养"那头；<b>空能量</b>食物（糖果、含糖饮料、油炸面筋）只给能量、几乎不给营养，是"轻飘飘"那头。我们要多选前者、少选后者。</p>
+
+  <!-- ===== 图2 食品标签三件套 ===== -->
+  <h3>图2 · 食品标签"三件套"：配料表 / 营养成分表 / 营养声称</h3>
+  <svg viewBox="0 0 680 210" width="640" role="img" aria-label="食品标签三要素">
+    <g font-family="SimSun" font-size="13">
+      <rect x="20" y="40" width="190" height="130" rx="12" fill="#eaf2ff" stroke="#2b6cb0" stroke-width="2"/>
+      <text x="115" y="68" text-anchor="middle" font-size="16" fill="#2b6cb0">① 配料表</text>
+      <text x="115" y="96" text-anchor="middle">按用量递减排列</text>
+      <text x="115" y="118" text-anchor="middle">第一位=最多</text>
+      <text x="115" y="140" text-anchor="middle">≤2%可例外</text>
+      <rect x="245" y="40" width="190" height="130" rx="12" fill="#f3f7e8" stroke="#6b8e23" stroke-width="2"/>
+      <text x="340" y="68" text-anchor="middle" font-size="16" fill="#557a16">② 营养成分表</text>
+      <text x="340" y="96" text-anchor="middle">强制"1+4"</text>
+      <text x="340" y="118" text-anchor="middle">能量+蛋白+脂肪</text>
+      <text x="340" y="140" text-anchor="middle">+碳水+钠·NRV%</text>
+      <rect x="470" y="40" width="190" height="130" rx="12" fill="#fbeefc" stroke="#a64ca6" stroke-width="2"/>
+      <text x="565" y="68" text-anchor="middle" font-size="16" fill="#a64ca6">③ 营养声称</text>
+      <text x="565" y="96" text-anchor="middle">高钙·低脂·无糖</text>
+      <text x="565" y="118" text-anchor="middle">有国标门槛</text>
+      <text x="565" y="140" text-anchor="middle">不能随意写</text>
+    </g>
+  </svg>
+  <p class="figcap">图2 预包装食品标签=配料表+营养成分表+营养声称，三件都要会看。</p>
+  <p class="spk">拿到包装食品，先看"三件套"：<b>配料表</b>告诉你"里有什么、谁最多"；<b>营养成分表</b>告诉你"能量和营养有多少、占一天多少"；<b>营养声称</b>（高钙、低脂、无糖）是厂家的"自夸"，但有严格门槛，不能乱写。</p>
+
+  <!-- ===== 图3 配料表递减 ===== -->
+  <h3>图3 · 配料表"递减排列"：白砂糖排第一意味着什么</h3>
+  <svg viewBox="0 0 680 220" width="640" role="img" aria-label="配料表递减排列">
+    <g font-family="SimSun" font-size="14">
+      <text x="40" y="40" fill="#7a1020" font-size="16">某"XX咖啡饮品"配料表（节选）</text>
+      <rect x="40" y="60" width="600" height="36" rx="8" fill="#fdeaea" stroke="#b3001b" stroke-width="2"/>
+      <text x="56" y="84" fill="#b3001b">1. 水</text><text x="150" y="84">2. 白砂糖</text><text x="270" y="84">3. 植脂末</text><text x="400" y="84">4. 全脂乳粉</text><text x="540" y="84">5. 咖啡粉…</text>
+      <text x="40" y="128" fill="#1f7a3d" font-size="15">✅ 纯咖啡：配料="咖啡豆"（只有一种）</text>
+      <text x="40" y="160" fill="#52606d">要点：排第一=用量最多。白砂糖排第二→一款"甜水"，</text>
+      <text x="40" y="184" fill="#52606d">不是真牛奶/真咖啡；"水"排第一→这是饮料不是奶。</text>
+      <text x="40" y="210" font-size="12" fill="#888">注：加入量≤2%的配料可不按递减排列（如香精、色素）。</text>
+    </g>
+  </svg>
+  <p class="figcap">图3 配料表按用量从高到低排；靠前的成分含量最大，一眼识破"伪健康食品"。</p>
+  <p class="spk">配料表按"<b>用料量递减</b>"排列：越靠前，加得越多。所以——<b>"水"排第一，说明这是饮料不是奶；"白砂糖"排很前，说明糖很多</b>。想买纯咖啡就看配料是不是只有"咖啡豆"。小字提醒：加入量≤2%的配料（如香精、色素）可以例外不递减。</p>
+
+  <!-- ===== 图4 营养成分表 1+4 + NRV% ===== -->
+  <h3>图4 · 营养成分表"1+4" 与 NRV%（以某饼干为例）</h3>
+  <svg viewBox="0 0 680 250" width="640" role="img" aria-label="营养成分表示意">
+    <g font-family="SimSun" font-size="13">
+      <rect x="120" y="30" width="440" height="170" rx="10" fill="#fff" stroke="#888" stroke-width="2"/>
+      <rect x="120" y="30" width="440" height="30" fill="#f0e6d2"/>
+      <text x="150" y="50" font-weight="bold">项目</text>
+      <text x="360" y="50" font-weight="bold">每100g</text>
+      <text x="500" y="50" font-weight="bold">NRV%</text>
+      <line x1="120" y1="60" x2="560" y2="60" stroke="#bbb"/>
+      <text x="150" y="80">能量</text><text x="360" y="80">2000 kJ</text><text x="500" y="80">24%</text>
+      <text x="150" y="104">蛋白质</text><text x="360" y="104">8.0 g</text><text x="500" y="104">13%</text>
+      <text x="150" y="128">脂肪</text><text x="360" y="128">22.0 g</text><text x="500" y="128">37%</text>
+      <text x="150" y="152">碳水化合物</text><text x="360" y="152">65.0 g</text><text x="500" y="152">22%</text>
+      <text x="150" y="176">钠</text><text x="360" y="176">400 mg</text><text x="500" y="176">20%</text>
+      <text x="40" y="225" fill="#52606d" font-size="12">"1+4"＝能量+蛋白质+脂肪+碳水化合物+钠（法定强制）。</text>
+      <text x="40" y="244" fill="#52606d" font-size="12">NRV%＝吃100g该食品满足你一天所需该营养的百分数（能量以2000kcal为基准）。</text>
+    </g>
+  </svg>
+  <p class="figcap">图4 营养成分表三列：项目 / 每100g含量 / NRV%。NRV%帮你看清"一份占一天多少"。</p>
+  <p class="spk">营养成分表有三列：<b>项目、每100g(或100ml/份)含量、NRV%</b>。法定强制"1+4"=<b>能量 + 蛋白质 + 脂肪 + 碳水化合物 + 钠</b>。NRV% 的意思是：吃下这100g食品，摄入的该营养素占你<b>一整天需要量</b>的百分比（能量基准取2000kcal）。比如脂肪 NRV% 37%，意思是吃100g就占了你一天脂肪额度的37%。</p>
+
+  <!-- ===== 图5 营养声称门槛 ===== -->
+  <h3>图5 · 营养声称的"硬门槛"（GB 28050）</h3>
+  <svg viewBox="0 0 680 250" width="640" role="img" aria-label="营养声称门槛">
+    <g font-family="SimSun" font-size="14">
+      <rect x="40" y="30" width="600" height="36" rx="8" fill="#f3f7e8" stroke="#6b8e23" stroke-width="2"/>
+      <text x="56" y="54" fill="#557a16">无糖：糖 ≤ 0.5 g/100g(固)或100ml(液)</text>
+      <rect x="40" y="74" width="600" height="36" rx="8" fill="#f3f7e8" stroke="#6b8e23" stroke-width="2"/>
+      <text x="56" y="98" fill="#557a16">低糖：糖 ≤ 5 g/100g(固)或100ml(液)</text>
+      <rect x="40" y="118" width="600" height="36" rx="8" fill="#f3f7e8" stroke="#6b8e23" stroke-width="2"/>
+      <text x="56" y="142" fill="#557a16">低脂：固体脂肪 ≤ 3 g/100g；液体 ≤ 1.5 g/100ml</text>
+      <rect x="40" y="162" width="600" height="36" rx="8" fill="#f3f7e8" stroke="#6b8e23" stroke-width="2"/>
+      <text x="56" y="186" fill="#557a16">"0反式脂肪"：反式脂肪酸 &lt; 0.3 g/100g</text>
+      <rect x="40" y="206" width="600" height="30" rx="8" fill="#fbeefc" stroke="#a64ca6" stroke-width="2"/>
+      <text x="56" y="227" fill="#a64ca6">高钙：固体钙 ≥ 240 mg/100g 或液体 ≥ 120 mg/100ml</text>
+    </g>
+  </svg>
+  <p class="figcap">图5 "无糖"不是零糖、"0反式"不是零反式；所有声称都有量化门槛。</p>
+  <p class="spk">营养声称不是厂家随便写的，国标(GB 28050)有硬门槛：<b>"无糖"=糖≤0.5g/100g</b>（不是完全没有糖）；<b>"低糖"≤5g</b>；<b>"低脂"固体≤3g、液体≤1.5g</b>；<b>"0反式脂肪"=反式脂肪酸&lt;0.3g/100g</b>；<b>"高钙"固体≥240mg/100g或液体≥120mg/100ml</b>。所以"无糖"也可能含一点糖，别被字眼骗了。</p>
+
+  <!-- ===== 图6 烹饪四要诀 + 在外就餐 ===== -->
+  <h3>图6 · 烹饪四要诀 + 在外就餐"适量与平衡"</h3>
+  <svg viewBox="0 0 680 240" width="640" role="img" aria-label="烹饪要诀与在外就餐">
+    <g font-family="SimSun" font-size="13">
+      <rect x="30" y="30" width="290" height="150" rx="12" fill="#fff7e6" stroke="#c9a227" stroke-width="2"/>
+      <text x="175" y="54" text-anchor="middle" font-size="15" fill="#9a7b00">🍳 在家会烹·四要诀</text>
+      <text x="48" y="82">① 先洗后切（别先切后洗）</text>
+      <text x="48" y="108">② 急火快炒、现做现吃</text>
+      <text x="48" y="134">③ 多用蒸煮炖炒凉拌</text>
+      <text x="48" y="160">④ 油温未冒烟就下锅</text>
+      <rect x="350" y="30" width="300" height="150" rx="12" fill="#eaf2ff" stroke="#2b6cb0" stroke-width="2"/>
+      <text x="500" y="54" text-anchor="middle" font-size="15" fill="#2b6cb0">🍽 在外就餐</text>
+      <text x="368" y="82">适量点餐、不铺张</text>
+      <text x="368" y="108">荤素搭配、少油盐糖</text>
+      <text x="368" y="134">公筷分餐(接准则八)</text>
+      <text x="368" y="160">剩菜打包、不浪费</text>
+      <text x="30" y="210" fill="#52606d" font-size="12">目的：减少维生素C、B族和矿物质流失，保留天然美味，少产生有害物质。</text>
+    </g>
+  </svg>
+  <p class="figcap">图6 会烹=保营养、少油盐；在外就餐=适量+平衡，不撑不浪费。</p>
+  <p class="spk">烹饪有"四要诀"：<b>先洗后切</b>（先切后洗会让水溶性维生素随水冲走）；<b>急火快炒、现做现吃</b>（长时间加热破坏维C和B族）；<b>多用蒸、煮、炖、炒、凉拌</b>，少用煎、炸、烤；<b>油别等冒烟再下锅</b>（多不饱和脂肪酸烟点低，冒烟说明温度过高，会产生有害物）。在外就餐则牢记"适量与平衡"：按需点餐、荤素搭配、少油盐糖、剩菜打包。</p>
+
+  <!-- ===== 口诀 ===== -->
+  <h2>三、四套口诀（背下来，考场上秒答）</h2>
+  <div class="jue">
+    <p class="spk"><span class="k">① 标签口诀：</span>配料递减第一多，1+4表看 NRV%；声称有槛别轻信，无糖也有半克多。</p>
+    <p class="spk"><span class="k">② 选食口诀：</span>新鲜当季营养素密度高，空能量(糖饮油炸)往后靠；生命各阶段规划好。</p>
+    <p class="spk"><span class="k">③ 烹饪口诀：</span>先洗后切、急火快炒；蒸煮炖拌、少煎炸烤；油未冒烟就下锅，天然美味营养保。</p>
+    <p class="spk"><span class="k">④ 综合口诀：</span>会选会看会烹饪，在外就餐要适度；标签递减1+4，空能量里少迈步。</p>
+  </div>
+
+  <!-- ===== 易错点 ===== -->
+  <h2>四、六大易错点（红框警告，考试专坑）</h2>
+  <div class="err spk"><p><b>1. "1+4" vs 准则七多列：</b>法定强制"1+4"=<b>能量+蛋白质+脂肪+碳水化合物+钠</b>。准则七原文还点名"饱和脂肪、糖"，那是<b>建议关注项</b>（GB 28050-2025 新规将于2027年升级为"1+6"强制）。别把指南列举的"集合"当成当下全部强制项。</p></div>
+  <div class="err spk"><p><b>2. 配料表递减的例外：</b>基本原则是"用量递减、第一位最多"，但<b>加入量≤2%的配料可不递减</b>。另外"水排第一"说明是饮料不是奶类——靠配料首位判断食品真实属性。</p></div>
+  <div class="err spk"><p><b>3. NRV% 的含义：</b>NRV% 是"该营养素占<b>你一天需要量</b>的百分比"，不是"占这个食品的比例"。能量基准取 <b>2000 kcal</b>。看到 NRV% 37% 就知吃一份占了日额度37%。</p></div>
+  <div class="err spk"><p><b>4. "无糖""0反式"≠零：</b><b>无糖=糖≤0.5g/100g</b>，"0反式脂肪"=<b>反式脂肪酸&lt;0.3g/100g</b>。声称有量化门槛，仍可能含微量，不能理解为完全不含。</p></div>
+  <div class="err spk"><p><b>5. 营养素密度≠营养绝对量高：</b>它是"<b>单位能量下的营养素多少</b>"。一块肥肉营养绝对量不低，但能量也高，密度未必高；空能量食物(糖果、含糖饮料)高能量、低微量营养素，要少选。</p></div>
+  <div class="err spk"><p><b>6. 烹饪两误区：</b>① <b>先切后洗</b>（错）→ 应<b>先洗后切</b>，否则水溶性维生素流失；② <b>等油冒烟再下锅</b>（错）→ 应<b>油温未冒烟就下锅</b>，避免产生有害物质。</p></div>
+
+  <!-- ===== 三步解题法 ===== -->
+  <h2>五、三步解题法（遇到准则七题，照做不慌）</h2>
+  <div class="card spk">
+    <p><b>第一步·审题定位：</b>看清问的是"营养标签(配料/成分表/NRV%/声称) / 营养素密度与空能量 / 合理烹饪 / 在外就餐"哪一类，锁定考点。</p>
+    <p><b>第二步·调取数据：</b>对应硬数据——配料递减(≤2%例外)；"1+4"；NRV%基准2000kcal；声称门槛(无糖≤0.5、低糖≤5、低脂固≤3液≤1.5、0反式&lt;0.3)；烹饪四要诀。</p>
+    <p><b>第三步·辨析陷阱：</b>检查选项是否把"建议关注"当"强制"、把NRV%误解为"占食品比例"、"无糖"当"零糖"、"先切后洗"/"油冒烟下锅"当正确做法——踩中易错点6条之一，基本就是错项。</p>
+  </div>
+
+  <!-- ===== 课堂提问 ===== -->
+  <h2>六、课堂提问（费曼互动：先自己答，再听解析）</h2>
+  <div class="card spk">
+    <p><b>老师问①：</b>某"核桃牛奶饮品"配料表第一位是"水"，第二位是"白砂糖"——它到底是奶还是饮料？为什么？</p>
+    <p><b>老师问②：</b>包装写"无糖"，是不是就一点糖都没有？可以吃很多吗？</p>
+    <p><b>老师问③：</b>想多保留青菜里的维生素C，应该"先切后洗、小火慢炖"还是"先洗后切、大火快炒"？为什么？</p>
+    <p><b>老师问④：</b>朋友聚餐，怎样用准则七做到"在外就餐不忘适量与平衡"？</p>
+  </div>
+  <div class="note spk"><p>参考答案：① 这是<b>饮料不是奶</b>——"水"排第一说明主体是水，"白砂糖"排前说明糖多，乳成分靠后；真牛奶配料应是"生牛乳"。② <b>不是零糖</b>，"无糖"指糖≤0.5g/100g，仍可能含微量，且整体能量未必低。③ 应<b>先洗后切、大火快炒</b>——先切后洗会冲走水溶性维生素，慢炖久热破坏维C。④ 按需点餐不铺张、荤素搭配少油盐糖、公筷分餐、剩菜打包不浪费。</p></div>
+
+  <!-- ===== 改编题 ===== -->
+  <h2>七、改编题（6道，点"对答案"看解析）</h2>
+
+  <div class="quiz">
+    <h4 class="spk">1. 预包装食品配料表中，各配料的排列顺序依据是：</h4>
+    <div class="opt" data-ans="B">A. 按营养价值从高到低</div>
+    <div class="opt" data-ans="B">B. 按加入量从多到少（递减）</div>
+    <div class="opt" data-ans="B">C. 按笔画多少</div>
+    <div class="opt" data-ans="B">D. 随机排列</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：B。</b>配料表按"用料量递减"排列，越靠前加得越多（≤2%的配料可例外不递减）。A混淆了"营养"与"用量"。</div>
+  </div>
+
+  <div class="quiz">
+    <h4 class="spk">2. 我国预包装食品营养标签<b>强制</b>标示的"1+4"是指：</h4>
+    <div class="opt" data-ans="C">A. 能量+蛋白+脂肪+碳水+糖</div>
+    <div class="opt" data-ans="C">B. 能量+蛋白+脂肪+碳水+钙</div>
+    <div class="opt" data-ans="C">C. 能量+蛋白质+脂肪+碳水化合物+钠</div>
+    <div class="opt" data-ans="C">D. 能量+蛋白+饱和脂肪+碳水+钠</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：C。</b>法定强制"1+4"=能量+蛋白质+脂肪+碳水化合物+钠。糖、饱和脂肪目前属建议关注项（2027新国标起"1+6"才强制）。</div>
+  </div>
+
+  <div class="quiz">
+    <h4 class="spk">3. 营养成分表中"NRV%"的正确含义是：</h4>
+    <div class="opt" data-ans="B">A. 该营养素占这份食品总量的百分比</div>
+    <div class="opt" data-ans="B">B. 吃下该份食品满足一天所需该营养素的百分比</div>
+    <div class="opt" data-ans="B">C. 该食品的营养评分</div>
+    <div class="opt" data-ans="B">D. 该食品的热量占比</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：B。</b>NRV%=营养素参考值百分比，表示吃100g(一份)该食品满足一天需要量的百分比；能量基准取2000kcal。</div>
+  </div>
+
+  <div class="quiz">
+    <h4 class="spk">4. 关于"无糖"食品声称（GB 28050），下列说法正确的是：</h4>
+    <div class="opt" data-ans="B">A. 表示食品中完全不含糖</div>
+    <div class="opt" data-ans="B">B. 指糖含量 ≤ 0.5 g/100g（固体）或 100ml（液体）</div>
+    <div class="opt" data-ans="B">C. 指糖含量 ≤ 5 g/100g</div>
+    <div class="opt" data-ans="B">D. 无糖食品能量一定很低</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：B。</b>"无糖"门槛是糖≤0.5g/100g(固/液)；≠完全无糖；能量是否低还要看脂肪等。C是"低糖"门槛。</div>
+  </div>
+
+  <div class="quiz">
+    <h4 class="spk">5. 关于合理烹调以保留营养素，下列做法<b>错误</b>的是：</h4>
+    <div class="opt" data-ans="A">A. 蔬菜先切后洗、等油冒烟再下锅</div>
+    <div class="opt" data-ans="A">B. 先洗后切、急火快炒</div>
+    <div class="opt" data-ans="A">C. 多用蒸、煮、炖、凉拌</div>
+    <div class="opt" data-ans="A">D. 现做现吃，不长时间存放</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：A。</b>正确做法是先洗后切（避免水溶性维生素流失）、油温未冒烟就下锅；先切后洗和等油冒烟下锅都会损失营养/产有害物。</div>
+  </div>
+
+  <div class="quiz">
+    <h4 class="spk">6. 关于"营养素密度"，下列说法正确的是：</h4>
+    <div class="opt" data-ans="B">A. 营养素密度高的食物一定热量也高</div>
+    <div class="opt" data-ans="B">B. 指食物中某种营养素含量与其能量的比值，高者营养多而能量相对少</div>
+    <div class="opt" data-ans="B">C. 糖果、含糖饮料属于高营养素密度食物</div>
+    <div class="opt" data-ans="B">D. 营养素密度只看蛋白质含量</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：B。</b>营养素密度=营养素含量/能量；高者含较多微量营养素而能量相对低（蔬菜、蛋、鱼等）。糖果、含糖饮料是"空能量"，密度低。</div>
+  </div>
+
+  <!-- ===== 费曼自检 ===== -->
+  <h2>八、费曼自检（逐条打勾，能讲出来才算会）</h2>
+  <div class="card feynman spk">
+    <label><input type="checkbox"> ① 我能脱口说出准则七的5条核心推荐。</label>
+    <label><input type="checkbox"> ② 我能解释"营养素密度"是什么，并举出1个空能量食物例子。</label>
+    <label><input type="checkbox"> ③ 我能说出"1+4"、配料表递减原则、NRV%的含义。</label>
+    <label><input type="checkbox"> ④ 我能背出营养声称门槛：无糖≤0.5、低糖≤5、低脂固≤3液≤1.5、0反式&lt;0.3。</label>
+    <label><input type="checkbox"> ⑤ 我能默写出烹饪四要诀（先洗后切/急火快炒/蒸煮炖拌/油未冒烟）。</label>
+    <label><input type="checkbox"> ⑥ 我能用一句口诀提醒自己"会选、会看、会烹、在外平衡"。</label>
+  </div>
+
+  <!-- ===== 下节预告 ===== -->
+  <div class="note spk">
+    <p><b>📌 下节预告（第8课 · 准则八：公筷分餐，杜绝浪费）：</b>选择新鲜卫生的食物，不食用野生动物；食物制备生熟分开，熟食二次加热要热透；讲究卫生，从分餐公筷做起；珍惜食物，按需备餐，提倡分餐不浪费；做可持续食物系统发展的践行者。这是我们"平衡膳食八准则"的最后一课，把"卫生、分餐、不浪费"收好尾。</p>
+  </div>
+
+  <div class="footer">第7课 · 准则七 会烹会选，会看标签 ｜ 依据《中国居民膳食指南(2022)》官方原文 ｜ 本页为独立一课，永久保留不更新 ｜ 注册营养师考点系列</div>
+</div>
+
+<!-- 浮动可拖动播放器 -->
+<div id="player">
+  <div id="phead">🔊 晓晓老师讲解 <span class="pin" id="pin" onclick="togglePin()">📌固定</span></div>
+  <div id="sub"><span class="cur">点"播放"开始听讲，或拖动画面到不挡位置。</span></div>
+  <div id="pctrl">
+    <div class="row">
+      <button onclick="prevSen()">⏮ 上一句</button>
+      <button id="playBtn" onclick="togglePlay()">▶ 播放</button>
+      <button onclick="nextSen()">下一句 ⏭</button>
+    </div>
+    <div class="row">
+      <input type="range" id="seek" min="0" max="0" value="0" oninput="seekTo(this.value)">
+    </div>
+    <div class="row mini"><span id="pos">第 0 / 0 句</span></div>
+    <div class="row">
+      <span class="mini">语速</span>
+      <input type="range" id="rate" min="0.5" max="2" step="0.1" value="1" oninput="setRate(this.value)">
+      <span class="mini" id="rateLab">1.0×</span>
+    </div>
+    <div class="row">
+      <span class="mini">语音</span>
+      <select id="voice" onchange="changeVoice()"></select>
+    </div>
+  </div>
+  <div id="hint">未检测到晓晓神经网络语音：当前浏览器将使用其他中文语音；在 Windows 的 Edge 浏览器中可调用"Microsoft Xiaoxiao Online"神经网络语音，效果最佳。</div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var spk = Array.prototype.slice.call(document.querySelectorAll('.spk'));
+  var total = spk.length;
+  var idx = -1, playing = false, pinned = false, curVoice = null;
+  var rate = 1, timer = null;
+
+  var sub = document.getElementById('sub');
+  var seek = document.getElementById('seek');
+  var pos = document.getElementById('pos');
+  var playBtn = document.getElementById('playBtn');
+  var voiceSel = document.getElementById('voice');
+
+  seek.max = total - 1;
+
+  function clean(el){ return (el.textContent || '').replace(/\s+/g,' ').trim(); }
+
+  function highlight(i){
+    spk.forEach(function(e){ e.classList.remove('active'); });
+    if(i>=0 && i<total){
+      spk[i].classList.add('active');
+      try{ spk[i].scrollIntoView({block:'center', behavior:'smooth'}); }catch(e){}
+    }
+  }
+
+  function showSub(i){
+    if(i<0||i>=total){ sub.innerHTML = '<span class="cur">已到结尾。</span>'; return; }
+    sub.innerHTML = '<span class="cur">'+ clean(spk[i]) +'</span>';
+    sub.scrollTop = sub.scrollHeight;
+    pos.textContent = '第 ' + (i+1) + ' / ' + total + ' 句';
+    seek.value = i;
+  }
+
+  function speak(i){
+    if(i<0||i>=total) return;
+    if(!('speechSynthesis' in window)){ showSub(i); return; }
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(clean(spk[i]));
+    u.lang = 'zh-CN'; u.rate = rate;
+    if(curVoice) u.voice = curVoice;
+    u.onend = function(){
+      if(idx === i && playing){
+        if(i+1 < total){ idx = i+1; highlight(idx); showSub(idx); speak(idx); }
+        else { playing = false; playBtn.textContent = '▶ 播放'; }
+      }
+    };
+    u.onerror = function(){ if(idx===i && playing){ playing=false; playBtn.textContent='▶ 播放'; } };
+    window.speechSynthesis.speak(u);
+  }
+
+  window.togglePlay = function(){
+    if(!('speechSynthesis' in window)){ alert('当前环境不支持语音朗读，请直接阅读正文。'); return; }
+    if(playing){ playing=false; window.speechSynthesis.cancel(); playBtn.textContent='▶ 播放'; return; }
+    if(idx<0) idx=0;
+    playing=true; playBtn.textContent='⏸ 暂停';
+    highlight(idx); showSub(idx); speak(idx);
+  };
+  window.nextSen = function(){ if(idx<total-1){ idx++; playing=false; playBtn.textContent='▶ 播放'; highlight(idx); showSub(idx); if('speechSynthesis'in window) window.speechSynthesis.cancel(); } };
+  window.prevSen = function(){ if(idx>0){ idx--; playing=false; playBtn.textContent='▶ 播放'; highlight(idx); showSub(idx); if('speechSynthesis'in window) window.speechSynthesis.cancel(); } };
+  window.seekTo = function(v){ idx=parseInt(v,10); playing=false; playBtn.textContent='▶ 播放'; highlight(idx); showSub(idx); if('speechSynthesis'in window) window.speechSynthesis.cancel(); };
+  window.setRate = function(v){ rate=parseFloat(v); document.getElementById('rateLab').textContent=rate.toFixed(1)+'×'; if(playing && idx>=0){ speak(idx); } };
+  window.changeVoice = function(){ var v=voiceSel.value; curVoice = voices.filter(function(x){return x.name===v;})[0] || null; };
+
+  // 字号
+  var fsStep = [10,11,12,14,16,18,20]; var fsI = 2; // 默认12pt=小四
+  window.setFS = function(d){ fsI = Math.max(0, Math.min(fsStep.length-1, fsI+d)); document.documentElement.style.setProperty('--fs', fsStep[fsI]+'pt'); };
+
+  // 语音列表
+  var voices = [];
+  function loadVoices(){
+    voices = window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
+    voiceSel.innerHTML = '';
+    var zh = voices.filter(function(v){ return /zh|chinese|中文|普通话/i.test(v.lang+v.name); });
+    if(zh.length===0) zh = voices;
+    zh.forEach(function(v){ var o=document.createElement('option'); o.value=v.name; o.textContent=v.name; voiceSel.appendChild(o); });
+    // 默认晓晓
+    var xiao = voices.filter(function(v){ return /xiaoxiao|晓晓/i.test(v.name); })[0];
+    if(xiao){ curVoice = xiao; voiceSel.value = xiao.name; document.getElementById('hint').style.display='none'; }
+    else if(zh.length){ curVoice = zh[0]; voiceSel.value = zh[0].name; document.getElementById('hint').style.display='block'; }
+  }
+  if('speechSynthesis' in window){
+    loadVoices();
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+  } else { document.getElementById('hint').style.display='block'; }
+
+  // 拖动播放器
+  var player = document.getElementById('player');
+  var head = document.getElementById('phead');
+  var drag=false, ox=0, oy=0;
+  head.addEventListener('mousedown', function(e){ if(pinned) return; drag=true; var r=player.getBoundingClientRect(); ox=e.clientX-r.left; oy=e.clientY-r.top; head.style.cursor='grabbing'; e.preventDefault(); });
+  window.addEventListener('mousemove', function(e){ if(!drag) return; var x=e.clientX-ox, y=e.clientY-oy; x=Math.max(0, Math.min(window.innerWidth-player.offsetWidth, x)); y=Math.max(0, Math.min(window.innerHeight-player.offsetHeight, y)); player.style.left=x+'px'; player.style.top=y+'px'; player.style.bottom='auto'; player.style.right='auto'; });
+  window.addEventListener('mouseup', function(){ drag=false; head.style.cursor='grab'; });
+  // 触摸拖动
+  head.addEventListener('touchstart', function(e){ if(pinned) return; drag=true; var r=player.getBoundingClientRect(); var t=e.touches[0]; ox=t.clientX-r.left; oy=t.clientY-r.top; e.preventDefault(); }, {passive:false});
+  window.addEventListener('touchmove', function(e){ if(!drag) return; var t=e.touches[0]; var x=t.clientX-ox, y=t.clientY-oy; x=Math.max(0, Math.min(window.innerWidth-player.offsetWidth, x)); y=Math.max(0, Math.min(window.innerHeight-player.offsetHeight, y)); player.style.left=x+'px'; player.style.top=y+'px'; player.style.bottom='auto'; player.style.right='auto'; }, {passive:false});
+  window.addEventListener('touchend', function(){ drag=false; });
+
+  window.togglePin = function(){ pinned=!pinned; document.getElementById('pin').textContent = pinned?'📌已固定':'📌固定'; };
+
+  // 选择题
+  window.reveal = function(btn){
+    var q = btn.parentNode;
+    var ans = q.querySelector('.opt[data-ans]').getAttribute('data-ans');
+    var opts = q.querySelectorAll('.opt');
+    opts.forEach(function(o){
+      o.classList.add('cho');
+      var l = o.textContent.trim().charAt(0);
+      if(l===ans) o.classList.add('right');
+    });
+    var rev = q.querySelector('.reveal');
+    rev.style.display='block';
+    btn.disabled = true;
+  };
+  // 选项点击高亮
+  document.querySelectorAll('.opt').forEach(function(o){
+    o.addEventListener('click', function(){
+      var sibs = o.parentNode.querySelectorAll('.opt');
+      sibs.forEach(function(s){ s.classList.remove('cho'); });
+      o.classList.add('cho');
+    });
+  });
+
+  showSub(-1);
+  console.log('LESSON7_OK sentences='+total);
+})();
+</script>
+</body>
+</html>
