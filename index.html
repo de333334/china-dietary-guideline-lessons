@@ -3,33 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>中国膳食指南2022 · 注册营养师考点互动课（每日一课）</title>
+<title>注册营养师 · 中国膳食指南2022 考点互动课（八准则全集）</title>
 <style>
-  body{font-family:"宋体","SimSun",serif;max-width:900px;margin:0 auto;padding:30px 22px 60px;background:linear-gradient(180deg,#fdfbf5,#f6f1e6);color:#1f2933;line-height:1.9;}
-  h1{color:#b3001b;border-bottom:3px double #c9a227;padding-bottom:10px;}
-  .sub{color:#52606d;}
-  .card{display:block;text-decoration:none;background:#fffdf7;border:1px solid #e3e8ef;border-left:6px solid #b3001b;border-radius:12px;padding:14px 18px;margin:14px 0;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:.15s;}
-  .card:hover{background:#fff6da;transform:translateX(4px);}
-  .card b{color:#7a1020;font-size:1.08em;}
-  .card span{color:#52606d;font-size:.92em;}
-  .new{background:#b3001b;color:#fff;font-size:.75em;border-radius:6px;padding:1px 8px;margin-left:8px;}
-  .note{background:#f3f7ff;border:1px solid #cfe0ff;border-radius:10px;padding:10px 14px;color:#334;font-size:.92em;}
-  footer{margin-top:30px;border-top:1px solid #e3e8ef;padding-top:14px;color:#888;font-size:.85em;text-align:center;}
+  :root{ --brand:#b3001b; --brand2:#c9a227; --ink:#1f2933; --song:"宋体","SimSun",serif; }
+  *{box-sizing:border-box;}
+  body{font-family:var(--song); color:var(--ink); line-height:1.9; margin:0; background:linear-gradient(180deg,#fdfbf5,#f6f1e6);}
+  .wrap{max-width:960px; margin:0 auto; padding:30px 22px 60px;}
+  h1{color:var(--brand); border-bottom:3px double var(--brand2); padding-bottom:10px;}
+  .lead{color:#52606d;}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; margin-top:20px;}
+  .card{background:#fffdf7; border:1px solid #e3e8ef; border-left:6px solid var(--brand2); border-radius:12px; padding:16px 18px; text-decoration:none; color:inherit; display:block; box-shadow:0 1px 3px rgba(0,0,0,.04); transition:.15s;}
+  .card:hover{transform:translateY(-3px); box-shadow:0 6px 16px rgba(0,0,0,.1); border-left-color:var(--brand);}
+  .card .n{display:inline-block; background:var(--brand); color:#fff; border-radius:6px; padding:1px 10px; font-size:.85em; margin-bottom:6px;}
+  .card h3{margin:6px 0 6px; color:#7a1020; font-size:1.05em;}
+  .card p{margin:4px 0 0; color:#52606d; font-size:.9em;}
+  .tip{background:#f3f7ff; border:1px solid #cfe0ff; border-radius:12px; padding:12px 18px; margin-top:24px; font-size:.92em;}
+  .footer{text-align:center; color:#9aa5b1; font-size:.85em; margin-top:30px; border-top:1px solid #e3e8ef; padding-top:14px;}
+  a{color:var(--brand);}
 </style>
 </head>
 <body>
-  <h1>中国膳食指南2022 · 注册营养师考点互动课</h1>
-  <p class="sub">依据《中国居民膳食指南(2022)》官方原文（中国营养学会）· 费曼式精讲 · 每课带晓晓神经网络语音讲解、可拖动播放器、逐句上下句、SVG案例图、易错点与改编题。</p>
-  <div class="note">📌 说明：本页是课程目录，会随新课增加滚动更新；<b>每一课都是独立永久网页，发布后不再修改</b>。建议把每课的链接收藏起来复习。</div>
+<div class="wrap">
+  <h1>📖 注册营养师 ·《中国膳食指南(2022)》考点互动课</h1>
+  <p class="lead">按"平衡膳食八准则"逐课编排，每课一节高中生物课体量：语音讲解（晓晓老师）+ 案例图 + 口诀 + 易错点 + 改编题 + 费曼自检。每课一个独立网页，永久保留不更新。</p>
 
-  <a class="card" href="lesson-01.html"><b>第1课 · 平衡膳食宝塔2022</b><br><span>五层结构与推荐摄入量 · 准则一 食物多样合理搭配</span></a>
-  <a class="card" href="lesson-02.html"><b>第2课 · 准则二 吃动平衡，健康体重</b><br><span>能量平衡 / BMI中国标准 / 腰围 / 运动处方</span></a>
-  <a class="card" href="lesson-03.html"><b>第3课 · 准则三 多吃蔬果、奶类、全谷、大豆</b><br><span>蔬果不互换 / 深色占½ / 奶相当量 / 全谷大豆坚果</span></a>
-  <a class="card" href="lesson-04.html"><b>第4课 · 准则四 适量吃鱼、禽、蛋、瘦肉</b><br><span>动物性总量 / 周配额 / 白肉红肉 / 不弃蛋黄 / 加工肉IARC</span></a>
-  <a class="card" href="lesson-05.html"><b>第5课 · 准则五 少盐少油，控糖限酒</b><br><span>三把尺 / 隐形盐糖 / 酒精换算 / 四类禁酒</span></a>
-  <a class="card" href="lesson-06.html"><b>第6课 · 准则六 规律进餐，足量饮水</b><br><span>三餐能量比 / 男1700女1500ml / 缺水信号 / 含糖饮料四害</span></a>
-  <a class="card" href="lesson-07.html"><b>第7课 · 准则七 会烹会选，会看标签</b><span class="new">最新</span><br><span>营养素密度/空能量 · 配料递减 · 1+4与NRV% · 营养声称门槛 · 烹饪四要诀</span></a>
+  <div class="grid">
+    <a class="card" href="lesson-01.html"><span class="n">第1课</span><h3>平衡膳食宝塔2022（五层结构）</h3><p>盐&lt;5g·油25–30g·奶300–500g·谷200–300g·蔬300–500g·水1500–1700ml·6000步</p></a>
+    <a class="card" href="lesson-02.html"><span class="n">第2课</span><h3>准则二 吃动平衡，健康体重</h3><p>BMI中国标准18.5/24/28·腰围男≥90女≥85·每周≥150分钟·减重0.5–1kg/周</p></a>
+    <a class="card" href="lesson-03.html"><span class="n">第3课</span><h3>准则三 多吃蔬果奶类全谷大豆</h3><p>蔬菜≥300g深色½·水果200–350g·蔬果不互换·奶≥300ml·坚果≈10g</p></a>
+    <a class="card" href="lesson-04.html"><span class="n">第4课</span><h3>准则四 适量吃鱼禽蛋瘦肉</h3><p>动物性120–200g/天·鱼300–500g/周·蛋300–350g/周·不弃蛋黄·加工肉IARC</p></a>
+    <a class="card" href="lesson-05.html"><span class="n">第5课</span><h3>准则五 少盐少油控糖限酒</h3><p>盐&lt;5g·油25–30g·糖&lt;50最好&lt;25·反式&lt;2·酒精&lt;15g·四类禁酒</p></a>
+    <a class="card" href="lesson-06.html"><span class="n">第6课</span><h3>准则六 规律进餐足量饮水</h3><p>三餐比25–30/30–40/30–35·男1700女1500ml·两餐间隔4–6h</p></a>
+    <a class="card" href="lesson-07.html"><span class="n">第7课</span><h3>准则七 会烹会选会看标签</h3><p>配料递减·强制"1+4"·NRV%·无糖≤0.5·先洗后切·油未冒烟</p></a>
+    <a class="card" href="lesson-08.html"><span class="n">第8课</span><h3>准则八 公筷分餐，杜绝浪费</h3><p>中心温度≥70℃·生熟全分开·分餐公筷·反浪费法2021.4.29·冰箱非保险箱</p></a>
+  </div>
 
-  <footer>课程目录 · 每日更新一课 · 各课网页永久保留不覆盖 ｜ 注册营养师考点系列</footer>
+  <div class="tip">
+    💡 <b>怎么用：</b>点开任意一课，右下角浮动播放器可<b>拖动到不挡位置</b>，用<b>上一句/下一句</b>和进度条自由定位；左下角可切<b>晓晓神经网络语音</b>与语速；右上角 <b>A− / A＋</b> 调字号（默认宋体小四）。每完成一课记得打勾"费曼自检"。
+  </div>
+
+  <div class="footer">注册营养师考点系列 · 依据《中国居民膳食指南(2022)》官方原文（中国营养学会 dg.cnsoc.org）· 每日一课，永久网页</div>
+</div>
 </body>
 </html>
