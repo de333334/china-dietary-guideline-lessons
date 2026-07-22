@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第8课 · 准则八 公筷分餐，杜绝浪费｜注册营养师考点互动课</title>
+<style>
+  :root{
+    --fs: 12pt;            /* 默认宋体小四号 */
+    --song: "宋体","SimSun",serif;
+    --ink:#1f2933; --sub:#52606d; --line:#e3e8ef;
+    --brand:#b3001b; --brand2:#c9a227; --ok:#1f7a3d; --warn:#b3001b;
+    --card:#fffdf7; --soft:#fbf6ea;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:var(--song); font-size:var(--fs); color:var(--ink);
+    line-height:1.95; margin:0; padding:0 0 90px;
+    background:linear-gradient(180deg,#fdfbf5,#f6f1e6);
+  }
+  .wrap{max-width:920px; margin:0 auto; padding:24px 22px 0;}
+  h1{font-size:1.7em; color:var(--brand); border-bottom:3px double var(--brand2); padding-bottom:10px; margin:8px 0 4px;}
+  h2{font-size:1.32em; color:var(--brand); margin:30px 0 8px; border-left:8px solid var(--brand2); padding-left:12px;}
+  h3{font-size:1.12em; color:#7a1020; margin:18px 0 6px;}
+  .lead{color:var(--sub); font-size:.98em; margin:2px 0 0;}
+  p{margin:8px 0;}
+  b,strong{color:#7a1020;}
+  .tag{display:inline-block; background:var(--brand); color:#fff; border-radius:6px; padding:1px 9px; font-size:.82em; margin-right:6px;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin:14px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  .note{background:var(--soft); border-left:5px solid var(--brand2); padding:10px 14px; border-radius:0 10px 10px 0; margin:12px 0;}
+  .review{background:#f3f7ff; border:1px solid #cfe0ff; border-radius:12px; padding:6px 18px 12px; margin:14px 0;}
+  table{border-collapse:collapse; width:100%; margin:12px 0; font-size:.95em;}
+  th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top;}
+  th{background:#f0e6d2; color:#5a3a00;}
+  tr:nth-child(even) td{background:#fcfaf3;}
+  .err{border:2px solid var(--warn); border-radius:12px; padding:12px 16px; margin:12px 0; background:#fff6f6; position:relative;}
+  .err:before{content:"⚠ 易错点"; position:absolute; top:-12px; left:14px; background:var(--warn); color:#fff; font-size:.8em; padding:1px 10px; border-radius:6px;}
+  .jue{background:#fff; border:2px dashed var(--brand2); border-radius:12px; padding:12px 16px; margin:12px 0;}
+  .jue .k{color:var(--brand); font-weight:bold;}
+  .quiz{border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; background:#fffdfa;}
+  .quiz h4{margin:0 0 8px; font-size:1.02em; color:#333;}
+  .opt{display:block; padding:6px 10px; margin:5px 0; border:1px solid var(--line); border-radius:8px; cursor:pointer;}
+  .opt:hover{background:#fbf3e2;}
+  .opt.cho{background:#fff0d6; border-color:var(--brand2);}
+  .opt.right{background:#e7f6ec; border-color:var(--ok);}
+  .opt.wrong{background:#fdeaea; border-color:var(--warn);}
+  .reveal{display:none; margin-top:8px; padding:9px 12px; background:#f4f8ff; border-left:4px solid #2b6cb0; border-radius:0 8px 8px 0; font-size:.95em;}
+  .reveal b{color:#2b6cb0;}
+  .btn{display:inline-block; background:var(--brand); color:#fff; border:none; border-radius:8px; padding:5px 14px; cursor:pointer; font-family:var(--song); font-size:.95em;}
+  .btn.ghost{background:#fff; color:var(--brand); border:1px solid var(--brand);}
+  svg{display:block; margin:10px auto; max-width:100%;}
+  .figcap{text-align:center; color:var(--sub); font-size:.86em; margin:-4px 0 6px;}
+  .feynman label{display:block; padding:6px 10px; margin:6px 0; border:1px solid var(--line); border-radius:8px; cursor:pointer; background:#fff;}
+  .feynman input{transform:scale(1.3); margin-right:8px;}
+  .spk.active{background:#fff6da; border-radius:6px; box-shadow:0 0 0 3px #ffe9a8;}
+  .fsctl{position:fixed; right:14px; top:14px; z-index:60; background:#fff; border:1px solid var(--line); border-radius:10px; padding:6px 8px; box-shadow:0 2px 8px rgba(0,0,0,.12);}
+  .fsctl button{font-family:var(--song); font-size:1em; border:1px solid var(--line); background:#fbfaf5; border-radius:6px; cursor:pointer; padding:2px 10px; margin:0 2px;}
+  .fsctl .lab{font-size:.82em; color:var(--sub); display:block; text-align:center;}
+  /* 浮动可拖动播放器 */
+  #player{position:fixed; left:18px; bottom:18px; width:340px; z-index:80;
+    background:#fffef9; border:2px solid var(--brand2); border-radius:14px; box-shadow:0 8px 26px rgba(0,0,0,.22); overflow:hidden;}
+  #phead{cursor:grab; background:linear-gradient(90deg,var(--brand),#d23b4f); color:#fff; padding:7px 12px; font-weight:bold; display:flex; justify-content:space-between; align-items:center; user-select:none;}
+  #phead .pin{font-size:.8em; cursor:pointer; background:rgba(255,255,255,.25); border-radius:6px; padding:1px 7px;}
+  #sub{height:62px; overflow-y:auto; padding:8px 12px; font-size:.92em; color:#333; background:#fffdf3; border-bottom:1px solid var(--line);}
+  #sub .cur{color:var(--brand); font-weight:bold;}
+  #pctrl{padding:9px 12px;}
+  .row{display:flex; align-items:center; gap:7px; margin:6px 0; flex-wrap:wrap;}
+  .row button{font-family:var(--song); font-size:1.05em; border:1px solid var(--line); background:#fbfaf5; border-radius:8px; cursor:pointer; padding:4px 11px;}
+  .row button:hover{background:#f3e9d2;}
+  #seek{width:100%;}
+  .mini{font-size:.82em; color:var(--sub);}
+  select,input[type=range]{font-family:var(--song);}
+  #hint{font-size:.8em; color:#9a6b00; padding:0 12px 8px; display:none;}
+  .footer{text-align:center; color:var(--sub); font-size:.85em; margin-top:30px; border-top:1px solid var(--line); padding-top:14px;}
+  @media(max-width:560px){#player{width:94vw; left:3vw;} .fsctl{top:8px; right:8px;}}
+</style>
+</head>
+<body>
+
+<div class="fsctl">
+  <span class="lab">字号（默认宋体小四）</span>
+  <button onclick="setFS(-1)">A−</button>
+  <button onclick="setFS(1)">A＋</button>
+</div>
+
+<div class="wrap">
+  <h1>第8课 · 准则八：公筷分餐，杜绝浪费</h1>
+  <p class="lead">注册营养师考点 · 依据《中国居民膳食指南(2022)》官方原文（中国营养学会 dg.cnsoc.org）· 高中生物课体量 · 费曼式精讲 · 八准则收官</p>
+
+  <!-- ===== 温故 ===== -->
+  <div class="review">
+    <h2 style="border:none;margin-top:6px;">📚 温故（第1–7课要点速记）</h2>
+    <table>
+      <tr><th>课</th><th>考点</th><th>必背数字 / 句式</th></tr>
+      <tr><td>第1课</td><td>平衡膳食宝塔2022</td><td>盐&lt;5g；油25–30g；奶300–500g；谷200–300g；蔬300–500g；果200–350g；动物120–200g；水1500–1700ml；6000步</td></tr>
+      <tr><td>第2课</td><td>准则二 吃动平衡</td><td>BMI中国标准：18.5 / 24 / 28；腰围男≥90 女≥85；每周≥150分钟；减重0.5–1kg/周</td></tr>
+      <tr><td>第3课</td><td>准则三 蔬果奶类全谷大豆</td><td>蔬菜≥300g且深色占½；水果200–350g；蔬果不互换；奶相当≥300ml液态奶；坚果≈10g</td></tr>
+      <tr><td>第4课</td><td>准则四 鱼禽蛋瘦肉</td><td>动物性总量120–200g/天；鱼300–500g/周(≈2次)；蛋300–350g/周(≈1个/天)；不弃蛋黄；加工肉IARC 1类、红肉2A类</td></tr>
+      <tr><td>第5课</td><td>准则五 少盐少油控糖限酒</td><td>盐&lt;5g；油25–30g；添加糖&lt;50g最好&lt;25g；反式脂肪&lt;2g；酒精&lt;15g；四类禁酒；1g钠≈2.5g盐</td></tr>
+      <tr><td>第6课</td><td>准则六 规律进餐足量饮水</td><td>三餐比 25–30 / 30–40 / 30–35；男1700女1500ml(温和低活动)；两餐间隔4–6h；含糖饮料四害(龋/肥/T2DM/血脂)</td></tr>
+      <tr><td>第7课</td><td>准则七 会烹会选会看标签</td><td>配料递减(≤2%例外)；强制"1+4"(能量+蛋白+脂肪+碳水+钠)；NRV%基准2000kcal；无糖≤0.5、低糖≤5、低脂固≤3液≤1.5、0反式&lt;0.3；先洗后切、油未冒烟</td></tr>
+    </table>
+    <p class="spk">同学们好，今天是我们"平衡膳食八准则"的<b>收官一课</b>——准则八 <b>公筷分餐，杜绝浪费</b>。前面七课解决了"吃什么、吃多少、怎么选、怎么做"，但食物从菜场到嘴里，还有两道关：① 干不干净、会不会交叉感染（食品安全与卫生）；② 有没有糟蹋粮食（珍惜食物）。这一课，就是把"卫生、分餐、不浪费"这三件事说透。</p>
+  </div>
+
+  <!-- ===== 导入 ===== -->
+  <h2>一、课堂导入：老王家的年夜饭"公筷盲区"</h2>
+  <div class="card spk">
+    <p>去年除夕，老王一家十口围坐一桌，每人面前摆了公筷，可热闹起来谁还记得？叔叔用自己筷子给侄子夹了块排骨，奶奶把尝过的勺子又伸进汤锅……一周后，侄子查出<b>幽门螺杆菌(HP)阳性</b>，奶奶也上了火。</p>
+    <p>营养师一句话点醒全家：<b>"一桌好菜，也经不起'口水交叉'。"</b> 同时，满桌剩菜倒了三盆——这又是另一笔账。今天学完准则八，你就明白：<b>公筷分餐防的是病从口入，按需备餐守的是粮食良心</b>。</p>
+  </div>
+
+  <!-- ===== 核心推荐 ===== -->
+  <h2>二、准则八 核心推荐（官方原文5条）</h2>
+  <div class="card">
+    <p class="spk"><b>核心推荐①：</b>选择<b>新鲜卫生</b>的食物，<b>不食用野生动物</b>。</p>
+    <p class="spk"><b>核心推荐②：</b>食物制备<b>生熟分开</b>，熟食<b>二次加热要热透</b>。</p>
+    <p class="spk"><b>核心推荐③：</b>讲究卫生，从<b>分餐公筷</b>做起。</p>
+    <p class="spk"><b>核心推荐④：</b><b>珍惜食物</b>，按需备餐，提倡分餐不浪费。</p>
+    <p class="spk"><b>核心推荐⑤：</b>做<b>可持续食物系统</b>发展的践行者。</p>
+  </div>
+
+  <h3>底层逻辑（老师划重点）</h3>
+  <div class="note spk">
+    <p>准则八回答的是一个动作链：<b>选干净(新鲜/不食野味) → 处理安全(生熟分开/热透) → 就餐卫生(分餐公筷) → 珍惜不浪费(按需备餐/可持续)</b>。核心有两条主线：① <b>食品安全三道防线</b>——清洁、分开、热透；② <b>分餐防交叉 + 反浪费</b>。</p>
+    <p>关键事实（考试直接考）：熟食二次加热要"热透"=食物<b>中心温度≥70℃</b>；<b>冰箱不是保险箱</b>（冷藏仅抑制、冷冻不杀菌）；不食野味既是健康底线也是法律红线；<b>《反食品浪费法》2021年4月29日施行</b>。</p>
+  </div>
+
+  <!-- ===== 图1 公筷分餐 ===== -->
+  <h3>图1 · 公筷分餐："两筷制"示意</h3>
+  <svg viewBox="0 0 680 250" width="640" role="img" aria-label="公筷分餐两筷制">
+    <g font-family="SimSun" font-size="13">
+      <circle cx="200" cy="130" r="95" fill="#fdf3e7" stroke="#c9a227" stroke-width="3"/>
+      <circle cx="200" cy="130" r="58" fill="#fff" stroke="#bbb" stroke-width="2"/>
+      <text x="200" y="135" text-anchor="middle" fill="#888">共享菜盘</text>
+      <!-- 公筷（长·金） -->
+      <line x1="150" y1="60" x2="185" y2="95" stroke="#c9a227" stroke-width="4" stroke-linecap="round"/>
+      <text x="105" y="50" fill="#9a7b00" font-weight="bold">公筷（夹菜，不入口）</text>
+      <!-- 私筷（白） -->
+      <line x1="250" y1="60" x2="215" y2="95" stroke="#888" stroke-width="4" stroke-linecap="round"/>
+      <text x="262" y="50" fill="#555" font-weight="bold">私筷（送入口，不夹共享菜）</text>
+      <rect x="380" y="40" width="270" height="60" rx="10" fill="#e7f6ec" stroke="#1f7a3d" stroke-width="2"/>
+      <text x="515" y="66" text-anchor="middle" fill="#1f7a3d" font-size="15">✅ 公筷取菜→放盘，私筷进食</text>
+      <text x="515" y="88" text-anchor="middle" fill="#1f7a3d">既团聚又阻断口水交叉感染</text>
+      <rect x="380" y="120" width="270" height="60" rx="10" fill="#fdeaea" stroke="#b3001b" stroke-width="2"/>
+      <text x="515" y="146" text-anchor="middle" fill="#b3001b" font-size="15">❌ 私筷夹共享菜 / 互相夹菜</text>
+      <text x="515" y="168" text-anchor="middle" fill="#b3001b">唾液交叉→幽门螺杆菌等传播</text>
+      <text x="40" y="240" fill="#52606d" font-size="12">分餐≠不一起吃饭：用公筷/公勺取菜、各人私筷进食即可。</text>
+    </g>
+  </svg>
+  <p class="figcap">图1 公筷分餐=公筷夹菜、私筷进食，阻断经口传播的交叉感染。</p>
+  <p class="spk">"公筷分餐"不是说一家人不能同桌吃饭，而是<b>用公筷/公勺把菜夹到自己的碗里，再用私筷送进嘴里</b>。关键在"两双筷、不混用"。这样既不扫了团圆的兴，又把经唾液传播的病菌挡在嘴外——<b>幽门螺杆菌、甲肝、伤寒、痢疾、手足口病</b>等都能因此减少传播。</p>
+
+  <!-- ===== 图2 生熟分开 ===== -->
+  <h3>图2 · 生熟分开：红绿两色"全工具"分开</h3>
+  <svg viewBox="0 0 680 230" width="640" role="img" aria-label="生熟分开工具">
+    <g font-family="SimSun" font-size="13">
+      <rect x="30" y="40" width="290" height="150" rx="12" fill="#fdeaea" stroke="#b3001b" stroke-width="2"/>
+      <text x="175" y="66" text-anchor="middle" font-size="16" fill="#b3001b">🔴 生食（红区）</text>
+      <rect x="60" y="84" width="110" height="40" rx="6" fill="#e7b7b7" stroke="#b3001b"/>
+      <text x="115" y="109" text-anchor="middle" fill="#7a1020">生肉砧板</text>
+      <rect x="190" y="84" width="100" height="14" rx="4" fill="#e7b7b7"/>
+      <text x="240" y="95" fill="#7a1020">生刀</text>
+      <text x="60" y="148">生鸡蛋/生肉</text>
+      <text x="60" y="172">含致病菌风险高</text>
+      <rect x="360" y="40" width="290" height="150" rx="12" fill="#e7f6ec" stroke="#1f7a3d" stroke-width="2"/>
+      <text x="505" y="66" text-anchor="middle" font-size="16" fill="#1f7a3d">🟢 熟食（绿区）</text>
+      <rect x="390" y="84" width="110" height="40" rx="6" fill="#b7e0c4" stroke="#1f7a3d"/>
+      <text x="445" y="109" text-anchor="middle" fill="#0d5a28">熟食砧板</text>
+      <rect x="520" y="84" width="100" height="14" rx="4" fill="#b7e0c4"/>
+      <text x="570" y="95" fill="#0d5a28">熟食刀</text>
+      <text x="390" y="148">熟菜/直接入口</text>
+      <text x="390" y="172">容器、抹布也要分开</text>
+      <text x="30" y="218" fill="#52606d" font-size="12">要点：刀、砧板、容器、抹布全分开；处理生食后务必洗手再碰熟食。</text>
+    </g>
+  </svg>
+  <p class="figcap">图2 "生熟分开"不仅是分开切，刀、板、容器、抹布全要分，处理完生食要洗手。</p>
+  <p class="spk">生肉、生蛋表面常带沙门氏菌、弯曲菌等，如果和直接入口的熟食共用一块砧板、一把刀，细菌就"搭便车"污染熟食——这叫<b>交叉污染</b>。所以要做到<b>"红绿两色"全分开</b>：生食的刀、砧板、容器、抹布都单独一套；处理完生食，<b>先洗手</b>再碰熟食。只"分开切"远远不够。</p>
+
+  <!-- ===== 图3 二次加热热透 ===== -->
+  <h3>图3 · 二次加热要"热透"：中心温度≥70℃</h3>
+  <svg viewBox="0 0 680 230" width="640" role="img" aria-label="二次加热热透温度">
+    <g font-family="SimSun" font-size="13">
+      <rect x="70" y="60" width="200" height="110" rx="14" fill="#f0e6d2" stroke="#9a7b00" stroke-width="2"/>
+      <text x="120" y="100" fill="#7a1020" font-size="15">剩菜</text>
+      <text x="120" y="124" fill="#7a1020" font-size="15">（隔顿）</text>
+      <circle cx="220" cy="115" r="8" fill="#b3001b"/>
+      <text x="220" y="138" text-anchor="middle" fill="#b3001b" font-size="12">中心</text>
+      <!-- 温度计 -->
+      <rect x="320" y="50" width="20" height="120" rx="10" fill="#fff" stroke="#888" stroke-width="2"/>
+      <rect x="324" y="95" width="12" height="73" rx="6" fill="#e23b3b"/>
+      <text x="360" y="108" fill="#b3001b" font-size="20" font-weight="bold">≥70℃</text>
+      <text x="360" y="132" fill="#b3001b">中心温度达标</text>
+      <text x="360" y="154" fill="#52606d" font-size="12">才叫"热透"</text>
+      <rect x="470" y="60" width="180" height="100" rx="10" fill="#fdeaea" stroke="#b3001b" stroke-width="2"/>
+      <text x="560" y="92" text-anchor="middle" fill="#b3001b">❌ 表面热了</text>
+      <text x="560" y="116" text-anchor="middle" fill="#b3001b">里面还是凉的</text>
+      <text x="560" y="140" text-anchor="middle" fill="#b3001b">细菌没杀净</text>
+      <text x="70" y="210" fill="#52606d" font-size="12">"热一下"≠"热透"：必须中心都达到70℃以上，微波/回锅要翻搅均匀。</text>
+    </g>
+  </svg>
+  <p class="figcap">图3 二次加热的"热透"指食物中心温度≥70℃，彻底杀灭可能滋生的致病微生物。</p>
+  <p class="spk">隔顿剩菜再吃，一定要<b>"热透"</b>——这里的"透"是指食物<b>中心温度也达到70℃以上</b>，而不只是表面烫手。中心凉着，里面的致病菌（如金黄色葡萄球菌、蜡样芽孢杆菌）没被杀净，吃了照样拉肚子。微波炉加热记得中途翻搅，让里外都热透。</p>
+
+  <!-- ===== 图4 不食野味 ===== -->
+  <h3>图4 · 不食用野生动物：健康 + 法律双红线</h3>
+  <svg viewBox="0 0 680 240" width="640" role="img" aria-label="不食用野生动物">
+    <g font-family="SimSun" font-size="13">
+      <circle cx="110" cy="120" r="70" fill="#fdeaea" stroke="#b3001b" stroke-width="3"/>
+      <text x="110" y="112" text-anchor="middle" font-size="28" fill="#b3001b">🚫</text>
+      <text x="110" y="142" text-anchor="middle" fill="#b3001b" font-size="15">禁食野味</text>
+      <rect x="210" y="40" width="430" height="36" rx="8" fill="#fff" stroke="#b3001b" stroke-width="2"/>
+      <text x="225" y="64" fill="#7a1020">风险① 病毒：蝙蝠/啮齿类可能携带冠状病毒等</text>
+      <rect x="210" y="84" width="430" height="36" rx="8" fill="#fff" stroke="#b3001b" stroke-width="2"/>
+      <text x="225" y="108" fill="#7a1020">风险② 寄生虫：弓形虫、裂头蚴等</text>
+      <rect x="210" y="128" width="430" height="36" rx="8" fill="#fff" stroke="#b3001b" stroke-width="2"/>
+      <text x="225" y="152" fill="#7a1020">风险③ 细菌：沙门氏菌、致病性大肠杆菌</text>
+      <rect x="210" y="172" width="430" height="50" rx="8" fill="#eef3ff" stroke="#2b6cb0" stroke-width="2"/>
+      <text x="225" y="196" fill="#2b6cb0">法律依据：2020.2 全国人大常委会决定·全面禁食非法野味</text>
+      <text x="225" y="214" fill="#2b6cb0">《野生动物保护法》· 禁食既护健康也护生态</text>
+    </g>
+  </svg>
+  <p class="figcap">图4 野生动物可能携带病毒、寄生虫、细菌，且受法律严禁，健康与法律双红线。</p>
+  <p class="spk">不少野生动物是病毒、寄生虫、细菌的"天然宿主"，不经检疫就上餐桌，风险极高（还记得SARS、新冠与野生动物交易的关联吗）。所以准则八第一条就强调<b>"不食用野生动物"</b>——这不只是饮食偏好，更有法律红线：<b>2020年2月全国人大常委会通过决定，全面禁止非法野生动物交易、革除滥食陋习</b>，另有《野生动物保护法》护航。家养畜禽有检疫，才是安全来源。</p>
+
+  <!-- ===== 图5 反浪费 ===== -->
+  <h3>图5 · 珍惜食物：按需备餐 + 光盘 + 法律</h3>
+  <svg viewBox="0 0 680 240" width="640" role="img" aria-label="珍惜食物反浪费">
+    <g font-family="SimSun" font-size="13">
+      <rect x="30" y="40" width="190" height="150" rx="12" fill="#e7f6ec" stroke="#1f7a3d" stroke-width="2"/>
+      <text x="125" y="70" text-anchor="middle" font-size="15" fill="#1f7a3d">🍽 光盘</text>
+      <text x="125" y="100" text-anchor="middle">餐后盘光</text>
+      <text x="125" y="124" text-anchor="middle">不剩不倒</text>
+      <text x="125" y="148" text-anchor="middle" fill="#1f7a3d">✅ 珍惜</text>
+      <rect x="245" y="40" width="190" height="150" rx="12" fill="#fdeaea" stroke="#b3001b" stroke-width="2"/>
+      <text x="340" y="70" text-anchor="middle" font-size="15" fill="#b3001b">🗑 浪费</text>
+      <text x="340" y="100" text-anchor="middle">满盘剩菜</text>
+      <text x="340" y="124" text-anchor="middle">倒掉糟蹋</text>
+      <text x="340" y="148" text-anchor="middle" fill="#b3001b">❌ 可惜</text>
+      <rect x="460" y="40" width="200" height="150" rx="12" fill="#eef3ff" stroke="#2b6cb0" stroke-width="2"/>
+      <text x="560" y="66" text-anchor="middle" font-size="14" fill="#2b6cb0">按需备餐4步</text>
+      <text x="475" y="92">计划→采购</text>
+      <text x="475" y="116">烹饪→光盘</text>
+      <text x="475" y="140" fill="#2b6cb0">小份菜·剩菜打包</text>
+      <text x="475" y="170" fill="#2b6cb0" font-size="12">《反食品浪费法》</text>
+      <text x="475" y="188" fill="#2b6cb0" font-size="12">2021.4.29 施行</text>
+    </g>
+  </svg>
+  <p class="figcap">图5 珍惜食物=按需备餐、光盘行动、剩菜打包；反食品浪费法2021年4月29日施行。</p>
+  <p class="spk">"杜绝浪费"落到行动上是<b>按需备餐</b>：先想好吃多少、再买多少、做多少，吃多少盛多少。餐厅点餐选"小份菜"、剩菜打包带走。这不只是美德——<b>《中华人民共和国反食品浪费法》已于2021年4月29日施行</b>，制止浪费已上升为法律要求。分餐制本身也有助于"光盘"：各人吃各人盘里的，不会为面子多点一桌。</p>
+
+  <!-- ===== 图6 三道防线 + 冰箱不是保险箱 ===== -->
+  <h3>图6 · 食物安全"三道防线" + 冰箱不是保险箱</h3>
+  <svg viewBox="0 0 680 240" width="640" role="img" aria-label="食品安全三道防线与冰箱">
+    <g font-family="SimSun" font-size="13">
+      <path d="M50 60 L110 30 L170 60 L170 110 L110 140 L50 110 Z" fill="#e7f6ec" stroke="#1f7a3d" stroke-width="2"/>
+      <text x="110" y="62" text-anchor="middle" font-size="15" fill="#1f7a3d">清洁</text>
+      <text x="110" y="84" text-anchor="middle" fill="#0d5a28">洗净双手</text>
+      <text x="110" y="104" text-anchor="middle" fill="#0d5a28">食材新鲜</text>
+      <path d="M250 60 L310 30 L370 60 L370 110 L310 140 L250 110 Z" fill="#eaf2ff" stroke="#2b6cb0" stroke-width="2"/>
+      <text x="310" y="62" text-anchor="middle" font-size="15" fill="#2b6cb0">分开</text>
+      <text x="310" y="84" text-anchor="middle" fill="#1b4f8a">生熟分具</text>
+      <text x="310" y="104" text-anchor="middle" fill="#1b4f8a">防交叉</text>
+      <path d="M450 60 L510 30 L570 60 L570 110 L510 140 L450 110 Z" fill="#fff3e0" stroke="#c9a227" stroke-width="2"/>
+      <text x="510" y="62" text-anchor="middle" font-size="15" fill="#9a7b00">热透</text>
+      <text x="510" y="84" text-anchor="middle" fill="#7a1020">中心≥70℃</text>
+      <text x="510" y="104" text-anchor="middle" fill="#7a1020">杀菌</text>
+      <rect x="40" y="160" width="600" height="62" rx="10" fill="#fdeaea" stroke="#b3001b" stroke-width="2"/>
+      <text x="56" y="186" fill="#b3001b" font-size="15">❄ 冰箱不是保险箱：冷藏(0–4℃)只抑制多数细菌，冷冻不杀菌只抑制；</text>
+      <text x="56" y="210" fill="#b3001b">李斯特菌在4℃仍能生长，久放仍会变质——剩菜别"无限期"存。</text>
+    </g>
+  </svg>
+  <p class="figcap">图6 食品安全三道防线（清洁/分开/热透）；冰箱仅抑制微生物、不杀菌，久放仍变质。</p>
+  <p class="spk">把前面三点串起来，就是<b>食品安全三道防线</b>：第一道<b>清洁</b>（勤洗手、食材新鲜卫生）；第二道<b>分开</b>（生熟工具分开、防交叉）；第三道<b>热透</b>（加热到中心≥70℃杀菌）。最后补一句常考的提醒：<b>冰箱不是保险箱</b>——冷藏0–4℃只是让多数细菌"睡着"，冷冻也只是"冻住"不杀菌；像<b>李斯特菌</b>在4℃冷藏里还能慢慢长。所以剩菜别在冰箱里无限期存放，该热透的热透、该扔的别心疼。</p>
+
+  <!-- ===== 口诀 ===== -->
+  <h2>三、四套口诀（背下来，考场上秒答）</h2>
+  <div class="jue">
+    <p class="spk"><span class="k">① 四条推荐口诀：</span>新鲜野味不能要，生熟分开热透好；分餐公筷防传染，按需备餐不浪费。</p>
+    <p class="spk"><span class="k">② 生熟分开口诀：</span>生红熟绿分两色，刀板容器莫混搁；处理生食先洗手，交叉污染从此绝。</p>
+    <p class="spk"><span class="k">③ 热透口诀：</span>隔顿剩菜再回锅，中心温度七十多；表面烫手不算数，里外热透才稳妥。</p>
+    <p class="spk"><span class="k">④ 综合口诀：</span>选鲜拒野味，生熟分开备；公筷分餐吃，光盘不浪费；热透七十余，冰箱非保险。</p>
+  </div>
+
+  <!-- ===== 易错点 ===== -->
+  <h2>四、六大易错点（红框警告，考试专坑）</h2>
+  <div class="err spk"><p><b>1. "热透"≠"热一下"：</b>必须食物<b>中心温度≥70℃</b>，里外都热。只把表面烫热、中间还凉，致病菌没杀净，仍然不安全。微波炉加热要中途翻搅。</p></div>
+  <div class="err spk"><p><b>2. 生熟分开≠"分开切就行"：</b>要<b>刀、砧板、容器、抹布</b>全分开，且处理完生食后<b>洗手</b>再碰熟食。只换个切法，交叉污染照样发生。</p></div>
+  <div class="err spk"><p><b>3. 分餐公筷≠不一起吃饭：</b>是"公筷/公勺取菜、各人私筷进食"，既团聚又阻断唾液交叉。别误以为分餐就是"各吃各的、不团圆"。</p></div>
+  <div class="err spk"><p><b>4. "冰箱不是保险箱"：</b>冷藏(0–4℃)<b>仅抑制</b>多数细菌，冷冻<b>不杀菌</b>只抑制；<b>李斯特菌在4℃仍能生长</b>。久放仍会变质，剩菜要限期、要热透。</p></div>
+  <div class="err spk"><p><b>5. 不食野味是"健康+法律"双红线：</b>不仅是饮食偏好——<b>2020.2 全国人大常委会决定全面禁食非法野味</b>，《反食品浪费法》<b>2021.4.29 施行</b>。别当成"个人爱好"选择题。</p></div>
+  <div class="err spk"><p><b>6. 分餐不是"西化"、不是新花样：</b>分餐制在中国古已有之（汉代画像、先秦分食），宋代后才逐渐流行合餐。恢复分餐是回归卫生传统，并非照搬外来习惯。</p></div>
+
+  <!-- ===== 三步解题法 ===== -->
+  <h2>五、三步解题法（遇到准则八题，照做不慌）</h2>
+  <div class="card spk">
+    <p><b>第一步·审题定位：</b>看清问的是"食品安全/生熟分开 / 二次加热热透 / 分餐公筷 / 反浪费 / 可持续"哪一类，锁定考点。</p>
+    <p><b>第二步·调取数据：</b>对应硬数据——中心温度<b>≥70℃</b>；生熟分开要分<b>全工具</b>；反食品浪费法<b>2021.4.29</b>；冰箱<b>非保险箱</b>(李斯特菌4℃可长)；不食野味有法律红线。</p>
+    <p><b>第三步·辨析陷阱：</b>检查选项是否把"热一下"当"热透"、把"分开切"当"全分开"、把分餐当"不共餐"、把冰箱当"无菌"、把野味当"纯偏好"——踩中易错点6条之一，基本就是错项。</p>
+  </div>
+
+  <!-- ===== 课堂提问 ===== -->
+  <h2>六、课堂提问（费曼互动：先自己答，再听解析）</h2>
+  <div class="card spk">
+    <p><b>老师问①：</b>年夜饭一桌人共吃一盘菜，还用自己筷子给别人夹菜——有什么健康风险？该怎么改？</p>
+    <p><b>老师问②：</b>昨天剩的红烧肉，今天微波炉"转一下热了"就吃，这样安全吗？为什么？</p>
+    <p><b>老师问③：</b>家里生肉和熟食用了同一块砧板、同一把刀，会有什么问题？怎么规范？</p>
+    <p><b>老师问④：</b>《反食品浪费法》是哪天施行的？分餐和"光盘"有什么关系？</p>
+  </div>
+  <div class="note spk"><p>参考答案：① 唾液经筷子交叉，易传播<b>幽门螺杆菌、甲肝、伤寒、痢疾</b>等；改法是<b>公筷公勺取菜、私筷进食</b>。② <b>不安全</b>——"转一下"只热表面，中心可能仍凉，致病菌未杀净；应热到<b>中心≥70℃</b>、翻搅均匀。③ 生食致病菌（沙门氏菌等）会污染熟食，造成<b>交叉污染</b>；规范是<b>刀、板、容器、抹布全分开</b>，处理生食后洗手。④ 施行于<b>2021年4月29日</b>；分餐按各人食量取餐，减少为"面子"多点造成的剩菜，利于光盘。</p></div>
+
+  <!-- ===== 改编题 ===== -->
+  <h2>七、改编题（6道，点"对答案"看解析）</h2>
+
+  <div class="quiz">
+    <h4 class="spk">1. 关于"分餐公筷"，下列做法正确的是：</h4>
+    <div class="opt" data-ans="B">A. 分餐就是不能和家人同桌吃饭</div>
+    <div class="opt" data-ans="B">B. 用公筷/公勺取菜、各人私筷进食，预防经口传播疾病</div>
+    <div class="opt" data-ans="B">C. 只有在外就餐才需要公筷，家里不用</div>
+    <div class="opt" data-ans="B">D. 公筷分餐是西方习惯，中国人不需要</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：B。</b>分餐公筷=公筷夹菜、私筷进食，阻断唾液交叉（幽门螺杆菌、甲肝等）。A把分餐误解为"不共餐"；家里同样需要；分餐是中国古制而非西化。</div>
+  </div>
+
+  <div class="quiz">
+    <h4 class="spk">2. 关于熟食"二次加热要热透"，下列说法正确的是：</h4>
+    <div class="opt" data-ans="B">A. 微波炉转一下、表面热了就行</div>
+    <div class="opt" data-ans="B">B. 应使食物中心温度达到70℃以上，彻底杀灭致病微生物</div>
+    <div class="opt" data-ans="B">C. 剩菜放冰箱就不会坏，不用再加热</div>
+    <div class="opt" data-ans="B">D. 只要把汤煮沸1分钟表面即可</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：B。</b>"热透"指中心温度≥70℃、里外都热；表面热≠中心热，细菌未杀净。冰箱非保险箱，剩菜仍要热透再吃。</div>
+  </div>
+
+  <div class="quiz">
+    <h4 class="spk">3. 关于"生熟分开"，最全面、规范的做法是：</h4>
+    <div class="opt" data-ans="B">A. 只要把生熟分开切就行</div>
+    <div class="opt" data-ans="B">B. 处理生食与熟食的刀具、砧板、容器、抹布分开，处理生食后洗手</div>
+    <div class="opt" data-ans="B">C. 生熟放同一冰箱的不同层即可</div>
+    <div class="opt" data-ans="B">D. 只要每人用各自的筷子就安全</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：B。</b>生熟分开是"全工具分开"（刀、板、容器、抹布）+ 处理生食后洗手，才能防交叉污染。A只做到一半；C同箱仍可能滴漏交叉；D是分餐范畴，不解决生熟交叉。</div>
+  </div>
+
+  <div class="quiz">
+    <h4 class="spk">4. 关于冰箱与食品安全，下列说法正确的是：</h4>
+    <div class="opt" data-ans="B">A. 冰箱能杀灭细菌，食物放进去就无菌</div>
+    <div class="opt" data-ans="B">B. 冷藏(0–4℃)仅抑制多数细菌，冷冻不杀菌只抑制；久放仍可能变质</div>
+    <div class="opt" data-ans="B">C. 冻肉放在冷冻室永远不会坏</div>
+    <div class="opt" data-ans="B">D. 冰箱内部绝对无菌</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：B。</b>冰箱"非保险箱"：冷藏抑制、冷冻抑制不杀菌；李斯特菌在4℃仍能生长。久放仍变质，剩菜要限期并热透。</div>
+  </div>
+
+  <div class="quiz">
+    <h4 class="spk">5. 《中华人民共和国反食品浪费法》的施行时间是：</h4>
+    <div class="opt" data-ans="B">A. 2020年2月</div>
+    <div class="opt" data-ans="B">B. 2021年4月29日</div>
+    <div class="opt" data-ans="B">C. 2022年5月20日（膳食指南发布日）</div>
+    <div class="opt" data-ans="B">D. 2019年</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：B。</b>《反食品浪费法》于2021年4月29日第十三届全国人大常委会第二十八次会议通过并施行。A是全面禁食野味决定时间；C是膳食指南2022发布日，别混。</div>
+  </div>
+
+  <div class="quiz">
+    <h4 class="spk">6. 关于"不食用野生动物"，下列说法<b>错误</b>的是：</h4>
+    <div class="opt" data-ans="C">A. 野生动物可能携带病毒、寄生虫、细菌，存在健康风险</div>
+    <div class="opt" data-ans="C">B. 2020年全国人大常委会决定全面禁止非法野生动物交易、革除滥食陋习</div>
+    <div class="opt" data-ans="C">C. 不食野味仅是个人饮食偏好，没有法律约束</div>
+    <div class="opt" data-ans="C">D. 禁食野味有利于保护生态和公共卫生安全</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：C。</b>不食野味既是健康底线也是法律红线（2020.2人大决定+野生动物保护法），并非"纯个人偏好"。A、B、D均为正确表述，故C错误，是本题答案。</div>
+  </div>
+
+  <!-- ===== 费曼自检 ===== -->
+  <h2>八、费曼自检（逐条打勾，能讲出来才算会）</h2>
+  <div class="card feynman spk">
+    <label><input type="checkbox"> ① 我能脱口说出准则八的5条核心推荐。</label>
+    <label><input type="checkbox"> ② 我能解释"二次加热要热透"的含义（中心温度≥70℃）。</label>
+    <label><input type="checkbox"> ③ 我能说出"生熟分开"要分开哪些工具/环节（刀板容器抹布+洗手）。</label>
+    <label><input type="checkbox"> ④ 我能说明公筷分餐防的是什么传播、且不等于不共餐。</label>
+    <label><input type="checkbox"> ⑤ 我能说出反食品浪费法施行日期(2021.4.29)和"冰箱不是保险箱"(李斯特菌)。</label>
+    <label><input type="checkbox"> ⑥ 我能用一句口诀概括准则八（选鲜拒野味…光盘不浪费…）。</label>
+  </div>
+
+  <!-- ===== 下节预告 ===== -->
+  <div class="note spk">
+    <p><b>📌 下节预告（第9课 · 特定人群膳食指南①：孕期与哺乳期）：</b>八准则讲完了，第9课起转入"特定人群"。先讲<b>备孕/孕期/哺乳期</b>：叶酸(孕前3月补)、铁(防贫血)、碘(胎儿脑发育)、钙、DHA、孕期增重范围、哺乳充足泌乳。这也是注册营养师考试的高频大题区，别错过。</p>
+  </div>
+
+  <div class="footer">第8课 · 准则八 公筷分餐，杜绝浪费 ｜ 依据《中国居民膳食指南(2022)》官方原文 ｜ 本页为独立一课，永久保留不更新 ｜ 注册营养师考点系列（八准则收官）</div>
+</div>
+
+<!-- 浮动可拖动播放器 -->
+<div id="player">
+  <div id="phead">🔊 晓晓老师讲解 <span class="pin" id="pin" onclick="togglePin()">📌固定</span></div>
+  <div id="sub"><span class="cur">点"播放"开始听讲，或拖动画面到不挡位置。</span></div>
+  <div id="pctrl">
+    <div class="row">
+      <button onclick="prevSen()">⏮ 上一句</button>
+      <button id="playBtn" onclick="togglePlay()">▶ 播放</button>
+      <button onclick="nextSen()">下一句 ⏭</button>
+    </div>
+    <div class="row">
+      <input type="range" id="seek" min="0" max="0" value="0" oninput="seekTo(this.value)">
+    </div>
+    <div class="row mini"><span id="pos">第 0 / 0 句</span></div>
+    <div class="row">
+      <span class="mini">语速</span>
+      <input type="range" id="rate" min="0.5" max="2" step="0.1" value="1" oninput="setRate(this.value)">
+      <span class="mini" id="rateLab">1.0×</span>
+    </div>
+    <div class="row">
+      <span class="mini">语音</span>
+      <select id="voice" onchange="changeVoice()"></select>
+    </div>
+  </div>
+  <div id="hint">未检测到晓晓神经网络语音：当前浏览器将使用其他中文语音；在 Windows 的 Edge 浏览器中可调用"Microsoft Xiaoxiao Online"神经网络语音，效果最佳。</div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var spk = Array.prototype.slice.call(document.querySelectorAll('.spk'));
+  var total = spk.length;
+  var idx = -1, playing = false, pinned = false, curVoice = null;
+  var rate = 1, timer = null;
+
+  var sub = document.getElementById('sub');
+  var seek = document.getElementById('seek');
+  var pos = document.getElementById('pos');
+  var playBtn = document.getElementById('playBtn');
+  var voiceSel = document.getElementById('voice');
+
+  seek.max = total - 1;
+
+  function clean(el){ return (el.textContent || '').replace(/\s+/g,' ').trim(); }
+
+  function highlight(i){
+    spk.forEach(function(e){ e.classList.remove('active'); });
+    if(i>=0 && i<total){
+      spk[i].classList.add('active');
+      try{ spk[i].scrollIntoView({block:'center', behavior:'smooth'}); }catch(e){}
+    }
+  }
+
+  function showSub(i){
+    if(i<0||i>=total){ sub.innerHTML = '<span class="cur">已到结尾。</span>'; return; }
+    sub.innerHTML = '<span class="cur">'+ clean(spk[i]) +'</span>';
+    sub.scrollTop = sub.scrollHeight;
+    pos.textContent = '第 ' + (i+1) + ' / ' + total + ' 句';
+    seek.value = i;
+  }
+
+  function speak(i){
+    if(i<0||i>=total) return;
+    if(!('speechSynthesis' in window)){ showSub(i); return; }
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(clean(spk[i]));
+    u.lang = 'zh-CN'; u.rate = rate;
+    if(curVoice) u.voice = curVoice;
+    u.onend = function(){
+      if(idx === i && playing){
+        if(i+1 < total){ idx = i+1; highlight(idx); showSub(idx); speak(idx); }
+        else { playing = false; playBtn.textContent = '▶ 播放'; }
+      }
+    };
+    u.onerror = function(){ if(idx===i && playing){ playing=false; playBtn.textContent='▶ 播放'; } };
+    window.speechSynthesis.speak(u);
+  }
+
+  window.togglePlay = function(){
+    if(!('speechSynthesis' in window)){ alert('当前环境不支持语音朗读，请直接阅读正文。'); return; }
+    if(playing){ playing=false; window.speechSynthesis.cancel(); playBtn.textContent='▶ 播放'; return; }
+    if(idx<0) idx=0;
+    playing=true; playBtn.textContent='⏸ 暂停';
+    highlight(idx); showSub(idx); speak(idx);
+  };
+  window.nextSen = function(){ if(idx<total-1){ idx++; playing=false; playBtn.textContent='▶ 播放'; highlight(idx); showSub(idx); if('speechSynthesis'in window) window.speechSynthesis.cancel(); } };
+  window.prevSen = function(){ if(idx>0){ idx--; playing=false; playBtn.textContent='▶ 播放'; highlight(idx); showSub(idx); if('speechSynthesis'in window) window.speechSynthesis.cancel(); } };
+  window.seekTo = function(v){ idx=parseInt(v,10); playing=false; playBtn.textContent='▶ 播放'; highlight(idx); showSub(idx); if('speechSynthesis'in window) window.speechSynthesis.cancel(); };
+  window.setRate = function(v){ rate=parseFloat(v); document.getElementById('rateLab').textContent=rate.toFixed(1)+'×'; if(playing && idx>=0){ speak(idx); } };
+  window.changeVoice = function(){ var v=voiceSel.value; curVoice = voices.filter(function(x){return x.name===v;})[0] || null; };
+
+  // 字号
+  var fsStep = [10,11,12,14,16,18,20]; var fsI = 2; // 默认12pt=小四
+  window.setFS = function(d){ fsI = Math.max(0, Math.min(fsStep.length-1, fsI+d)); document.documentElement.style.setProperty('--fs', fsStep[fsI]+'pt'); };
+
+  // 语音列表
+  var voices = [];
+  function loadVoices(){
+    voices = window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
+    voiceSel.innerHTML = '';
+    var zh = voices.filter(function(v){ return /zh|chinese|中文|普通话/i.test(v.lang+v.name); });
+    if(zh.length===0) zh = voices;
+    zh.forEach(function(v){ var o=document.createElement('option'); o.value=v.name; o.textContent=v.name; voiceSel.appendChild(o); });
+    // 默认晓晓
+    var xiao = voices.filter(function(v){ return /xiaoxiao|晓晓/i.test(v.name); })[0];
+    if(xiao){ curVoice = xiao; voiceSel.value = xiao.name; document.getElementById('hint').style.display='none'; }
+    else if(zh.length){ curVoice = zh[0]; voiceSel.value = zh[0].name; document.getElementById('hint').style.display='block'; }
+  }
+  if('speechSynthesis' in window){
+    loadVoices();
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+  } else { document.getElementById('hint').style.display='block'; }
+
+  // 拖动播放器
+  var player = document.getElementById('player');
+  var head = document.getElementById('phead');
+  var drag=false, ox=0, oy=0;
+  head.addEventListener('mousedown', function(e){ if(pinned) return; drag=true; var r=player.getBoundingClientRect(); ox=e.clientX-r.left; oy=e.clientY-r.top; head.style.cursor='grabbing'; e.preventDefault(); });
+  window.addEventListener('mousemove', function(e){ if(!drag) return; var x=e.clientX-ox, y=e.clientY-oy; x=Math.max(0, Math.min(window.innerWidth-player.offsetWidth, x)); y=Math.max(0, Math.min(window.innerHeight-player.offsetHeight, y)); player.style.left=x+'px'; player.style.top=y+'px'; player.style.bottom='auto'; player.style.right='auto'; });
+  window.addEventListener('mouseup', function(){ drag=false; head.style.cursor='grab'; });
+  // 触摸拖动
+  head.addEventListener('touchstart', function(e){ if(pinned) return; drag=true; var r=player.getBoundingClientRect(); var t=e.touches[0]; ox=t.clientX-r.left; oy=t.clientY-r.top; e.preventDefault(); }, {passive:false});
+  window.addEventListener('touchmove', function(e){ if(!drag) return; var t=e.touches[0]; var x=t.clientX-ox, y=t.clientY-oy; x=Math.max(0, Math.min(window.innerWidth-player.offsetWidth, x)); y=Math.max(0, Math.min(window.innerHeight-player.offsetHeight, y)); player.style.left=x+'px'; player.style.top=y+'px'; player.style.bottom='auto'; player.style.right='auto'; }, {passive:false});
+  window.addEventListener('touchend', function(){ drag=false; });
+
+  window.togglePin = function(){ pinned=!pinned; document.getElementById('pin').textContent = pinned?'📌已固定':'📌固定'; };
+
+  // 选择题
+  window.reveal = function(btn){
+    var q = btn.parentNode;
+    var ans = q.querySelector('.opt[data-ans]').getAttribute('data-ans');
+    var opts = q.querySelectorAll('.opt');
+    opts.forEach(function(o){
+      o.classList.add('cho');
+      var l = o.textContent.trim().charAt(0);
+      if(l===ans) o.classList.add('right');
+    });
+    var rev = q.querySelector('.reveal');
+    rev.style.display='block';
+    btn.disabled = true;
+  };
+  // 选项点击高亮
+  document.querySelectorAll('.opt').forEach(function(o){
+    o.addEventListener('click', function(){
+      var sibs = o.parentNode.querySelectorAll('.opt');
+      sibs.forEach(function(s){ s.classList.remove('cho'); });
+      o.classList.add('cho');
+    });
+  });
+
+  showSub(-1);
+  console.log('LESSON8_OK sentences='+total);
+})();
+</script>
+</body>
+</html>
