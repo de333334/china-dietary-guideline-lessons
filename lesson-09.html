@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第9课 · 特定人群① 备孕/孕期/哺乳期｜注册营养师考点互动课</title>
+<style>
+  :root{
+    --fs: 12pt;            /* 默认宋体小四号 */
+    --song: "宋体","SimSun",serif;
+    --ink:#1f2933; --sub:#52606d; --line:#e3e8ef;
+    --brand:#b3001b; --brand2:#c9a227; --ok:#1f7a3d; --warn:#b3001b;
+    --card:#fffdf7; --soft:#fbf6ea;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:var(--song); font-size:var(--fs); color:var(--ink);
+    line-height:1.95; margin:0; padding:0 0 90px;
+    background:linear-gradient(180deg,#fdfbf5,#f6f1e6);
+  }
+  .wrap{max-width:920px; margin:0 auto; padding:24px 22px 0;}
+  h1{font-size:1.7em; color:var(--brand); border-bottom:3px double var(--brand2); padding-bottom:10px; margin:8px 0 4px;}
+  h2{font-size:1.32em; color:var(--brand); margin:30px 0 8px; border-left:8px solid var(--brand2); padding-left:12px;}
+  h3{font-size:1.12em; color:#7a1020; margin:18px 0 6px;}
+  .lead{color:var(--sub); font-size:.98em; margin:2px 0 0;}
+  p{margin:8px 0;}
+  b,strong{color:#7a1020;}
+  .tag{display:inline-block; background:var(--brand); color:#fff; border-radius:6px; padding:1px 9px; font-size:.82em; margin-right:6px;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin:14px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  .note{background:var(--soft); border-left:5px solid var(--brand2); padding:10px 14px; border-radius:0 10px 10px 0; margin:12px 0;}
+  .review{background:#f3f7ff; border:1px solid #cfe0ff; border-radius:12px; padding:6px 18px 12px; margin:14px 0;}
+  table{border-collapse:collapse; width:100%; margin:12px 0; font-size:.95em;}
+  th,td{border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top;}
+  th{background:#f0e6d2; color:#5a3a00;}
+  tr:nth-child(even) td{background:#fcfaf3;}
+  .err{border:2px solid var(--warn); border-radius:12px; padding:12px 16px; margin:12px 0; background:#fff6f6; position:relative;}
+  .err:before{content:"⚠ 易错点"; position:absolute; top:-12px; left:14px; background:var(--warn); color:#fff; font-size:.8em; padding:1px 10px; border-radius:6px;}
+  .jue{background:#fff; border:2px dashed var(--brand2); border-radius:12px; padding:12px 16px; margin:12px 0;}
+  .jue .k{color:var(--brand); font-weight:bold;}
+  .quiz{border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:14px 0; background:#fffdfa;}
+  .quiz h4{margin:0 0 8px; font-size:1.02em; color:#333;}
+  .opt{display:block; padding:6px 10px; margin:5px 0; border:1px solid var(--line); border-radius:8px; cursor:pointer;}
+  .opt:hover{background:#fbf3e2;}
+  .opt.cho{background:#fff0d6; border-color:var(--brand2);}
+  .opt.right{background:#e7f6ec; border-color:var(--ok);}
+  .opt.wrong{background:#fdeaea; border-color:var(--warn);}
+  .reveal{display:none; margin-top:8px; padding:9px 12px; background:#f4f8ff; border-left:4px solid #2b6cb0; border-radius:0 8px 8px 0; font-size:.95em;}
+  .reveal b{color:#2b6cb0;}
+  .btn{display:inline-block; background:var(--brand); color:#fff; border:none; border-radius:8px; padding:5px 14px; cursor:pointer; font-family:var(--song); font-size:.95em;}
+  .btn.ghost{background:#fff; color:var(--brand); border:1px solid var(--brand);}
+  svg{display:block; margin:10px auto; max-width:100%;}
+  .figcap{text-align:center; color:var(--sub); font-size:.86em; margin:-4px 0 6px;}
+  .feynman label{display:block; padding:6px 10px; margin:6px 0; border:1px solid var(--line); border-radius:8px; cursor:pointer; background:#fff;}
+  .feynman input{transform:scale(1.3); margin-right:8px;}
+  .spk.active{background:#fff6da; border-radius:6px; box-shadow:0 0 0 3px #ffe9a8;}
+  .fsctl{position:fixed; right:14px; top:14px; z-index:60; background:#fff; border:1px solid var(--line); border-radius:10px; padding:6px 8px; box-shadow:0 2px 8px rgba(0,0,0,.12);}
+  .fsctl button{font-family:var(--song); font-size:1em; border:1px solid var(--line); background:#fbfaf5; border-radius:6px; cursor:pointer; padding:2px 10px; margin:0 2px;}
+  .fsctl .lab{font-size:.82em; color:var(--sub); display:block; text-align:center;}
+  /* 浮动可拖动播放器 */
+  #player{position:fixed; left:18px; bottom:18px; width:340px; z-index:80;
+    background:#fffef9; border:2px solid var(--brand2); border-radius:14px; box-shadow:0 8px 26px rgba(0,0,0,.22); overflow:hidden;}
+  #phead{cursor:grab; background:linear-gradient(90deg,var(--brand),#d23b4f); color:#fff; padding:7px 12px; font-weight:bold; display:flex; justify-content:space-between; align-items:center; user-select:none;}
+  #phead .pin{font-size:.8em; cursor:pointer; background:rgba(255,255,255,.25); border-radius:6px; padding:1px 7px;}
+  #sub{height:62px; overflow-y:auto; padding:8px 12px; font-size:.92em; color:#333; background:#fffdf3; border-bottom:1px solid var(--line);}
+  #sub .cur{color:var(--brand); font-weight:bold;}
+  #pctrl{padding:9px 12px;}
+  .row{display:flex; align-items:center; gap:7px; margin:6px 0; flex-wrap:wrap;}
+  .row button{font-family:var(--song); font-size:1.05em; border:1px solid var(--line); background:#fbfaf5; border-radius:8px; cursor:pointer; padding:4px 11px;}
+  .row button:hover{background:#f3e9d2;}
+  #seek{width:100%;}
+  .mini{font-size:.82em; color:var(--sub);}
+  select,input[type=range]{font-family:var(--song);}
+  #hint{font-size:.8em; color:#9a6b00; padding:0 12px 8px; display:none;}
+  .footer{text-align:center; color:var(--sub); font-size:.85em; margin-top:30px; border-top:1px solid var(--line); padding-top:14px;}
+  @media(max-width:560px){#player{width:94vw; left:3vw;} .fsctl{top:8px; right:8px;}}
+</style>
+</head>
+<body>
+
+<div class="fsctl">
+  <span class="lab">字号（默认宋体小四）</span>
+  <button onclick="setFS(-1)">A−</button>
+  <button onclick="setFS(1)">A＋</button>
+</div>
+
+<div class="wrap">
+  <h1>第9课 · 特定人群①：备孕 / 孕期 / 哺乳期</h1>
+  <p class="lead">注册营养师考点 · 依据《中国居民膳食指南(2022)》+《中国孕妇、乳母膳食指南(2022)》官方原文（中国营养学会 dg.cnsoc.org）· 高中生物课体量 · 费曼式精讲</p>
+
+  <!-- ===== 温故 ===== -->
+  <div class="review">
+    <h2 style="border:none;margin-top:6px;">📚 温故（第1–8课要点速记）</h2>
+    <table>
+      <tr><th>课</th><th>考点</th><th>必背数字 / 句式</th></tr>
+      <tr><td>第1课</td><td>平衡膳食宝塔2022</td><td>盐&lt;5g；油25–30g；奶300–500g；谷200–300g；蔬300–500g；果200–350g；动物120–200g；水1500–1700ml；6000步</td></tr>
+      <tr><td>第2课</td><td>准则二 吃动平衡</td><td>BMI中国标准：18.5 / 24 / 28；腰围男≥90 女≥85；每周≥150分钟；减重0.5–1kg/周</td></tr>
+      <tr><td>第3课</td><td>准则三 蔬果奶类全谷大豆</td><td>蔬菜≥300g且深色占½；水果200–350g；蔬果不互换；奶相当≥300ml液态奶；坚果≈10g</td></tr>
+      <tr><td>第4课</td><td>准则四 鱼禽蛋瘦肉</td><td>动物性总量120–200g/天；鱼300–500g/周(≈2次)；蛋≈1个/天；不弃蛋黄；加工肉IARC 1类、红肉2A类</td></tr>
+      <tr><td>第5课</td><td>准则五 少盐少油控糖限酒</td><td>盐&lt;5g；油25–30g；添加糖&lt;50g最好&lt;25g；反式脂肪&lt;2g；酒精&lt;15g；四类禁酒；1g钠≈2.5g盐</td></tr>
+      <tr><td>第6课</td><td>准则六 规律进餐足量饮水</td><td>三餐比 25–30 / 30–40 / 30–35；男1700女1500ml(温和低活动)；两餐间隔4–6h；含糖饮料四害(龋/肥/T2DM/血脂)</td></tr>
+      <tr><td>第7课</td><td>准则七 会烹会选会看标签</td><td>配料递减(≤2%例外)；强制"1+4"(能量+蛋白+脂肪+碳水+钠)；NRV%基准2000kcal；无糖≤0.5、低糖≤5、低脂固≤3液≤1.5、0反式&lt;0.3；先洗后切、油未冒烟</td></tr>
+      <tr><td>第8课</td><td>准则八 公筷分餐杜绝浪费</td><td>5条推荐；中心≥70℃；生熟全分开；反浪费法2021.4.29；冰箱非保险箱(李斯特菌4℃可长)</td></tr>
+    </table>
+    <p class="spk">同学们好，八准则我们已经讲完，从今天起转入<b>"特定人群膳食指南"</b>系列。第一课（今天，第9课）就讲和每个家庭都最相关的——<b>备孕、孕期、哺乳期</b>。前面八课解决"一般人怎么吃"，这一课解决"一个女人要当妈妈了，怎么吃才对俩人（甚至三代）都好"。底层逻辑一句话：<b>生命早期1000天机遇窗口，从备孕那一刻就拉开了序幕</b>。</p>
+  </div>
+
+  <!-- ===== 导入 ===== -->
+  <h2>一、课堂导入：小敏的"三段式"营养咨询</h2>
+  <div class="card spk">
+    <p>小敏，28岁，身高1.65m、体重45kg（BMI≈16.5，<b>偏瘦</b>）。她计划半年后怀孕，平时靠节食减肥，今天来问营养师三件事：</p>
+    <p>① <b>备孕</b>："我太瘦，能直接怀吗？"——先把体重调到正常，并提前3个月补叶酸。② <b>孕早期</b>："一吃就吐，啥都不想吃"——孕吐严重要少餐多餐，<b>必须保证碳水化合物</b>，不然会酮症。③ <b>哺乳期</b>："喂奶会不会把我营养抽干？"——乳母每天泌乳约750ml，得多补钙、碘、优质蛋白。</p>
+    <p>你看，同一个女人，<b>备孕、孕期、哺乳期三个阶段，营养任务完全不同</b>。今天就把这三段一次讲透。</p>
+  </div>
+
+  <!-- ===== 核心推荐 ===== -->
+  <h2>二、核心推荐（官方原文）</h2>
+  <h3>（一）备孕和孕期妇女膳食指南(2022) · 6条核心推荐</h3>
+  <div class="card">
+    <p class="spk"><b>核心推荐①：</b>调整<b>孕前体重</b>至正常范围，保证孕期体重<b>适宜增长</b>。</p>
+    <p class="spk"><b>核心推荐②：</b>常吃含<b>铁</b>丰富的食物，选用<b>碘盐</b>，合理补充<b>叶酸和维生素D</b>。</p>
+    <p class="spk"><b>核心推荐③：</b><b>孕吐严重</b>者，可<b>少量多餐</b>，保证摄入含<b>必需量碳水化合物</b>的食物。</p>
+    <p class="spk"><b>核心推荐④：</b><b>孕中晚期</b>适量增加<b>奶、鱼、禽、蛋、瘦肉</b>的摄入。</p>
+    <p class="spk"><b>核心推荐⑤：</b>经常<b>户外活动</b>，<b>禁烟酒</b>，保持健康生活方式。</p>
+    <p class="spk"><b>核心推荐⑥：</b>愉快孕育新生命，积极准备<b>母乳喂养</b>。</p>
+  </div>
+
+  <h3>（二）哺乳期妇女膳食指南(2022) · 5条核心推荐</h3>
+  <div class="card">
+    <p class="spk"><b>核心推荐①：</b>产褥期食物多样不过量，坚持整个哺乳期<b>营养均衡</b>。</p>
+    <p class="spk"><b>核心推荐②：</b>适量增加富含<b>优质蛋白质及维生素A</b>的动物性食物和海产品，选用碘盐，合理补充维生素D。</p>
+    <p class="spk"><b>核心推荐③：</b><b>家庭支持</b>，愉悦心情，充足睡眠，坚持<b>母乳喂养</b>。</p>
+    <p class="spk"><b>核心推荐④：</b>增加<b>身体活动</b>，促进产后恢复<b>健康体重</b>。</p>
+    <p class="spk"><b>核心推荐⑤：</b>多喝<b>汤和水</b>，限制浓茶和咖啡，<b>忌烟酒</b>。</p>
+  </div>
+
+  <h3>底层逻辑（老师划重点）</h3>
+  <div class="note spk">
+    <p>备孕/孕期回答的是"<b>起跑线</b>"：体重达标 → 关键微量营养素（叶酸/铁/碘/维D）备足 → 孕吐期保碳维持血糖 → 中晚期加料供胎儿猛长。哺乳期回答的是"<b>接力棒</b>"：母亲把营养变成乳汁（约750ml/天），自己还要恢复体重、不缺钙碘。</p>
+    <p><b>高频硬数据（考试直接考）</b>：叶酸 <b>400μg/天（0.4mg）孕前3月起</b>；孕期铁RNI <b>24mg（中）/29mg（晚）</b>；乳母钙 <b>1000mg/天（+200）</b>、碘 <b>240μg/天（+120）</b>、蛋白质 <b>+25g/天</b>、饮水 <b>2100ml</b>、泌乳 <b>约750ml/天</b>。</p>
+  </div>
+
+  <!-- ===== 图1 孕前BMI与增重 ===== -->
+  <h3>图1 · 孕前BMI四分类 & 孕期适宜增重范围</h3>
+  <svg viewBox="0 0 680 280" width="640" role="img" aria-label="孕前BMI与孕期增重">
+    <g font-family="SimSun" font-size="13">
+      <rect x="30" y="40" width="150" height="180" rx="10" fill="#eaf2ff" stroke="#2b6cb0" stroke-width="2"/>
+      <text x="105" y="66" text-anchor="middle" font-size="14" fill="#2b6cb0">低体重</text>
+      <text x="105" y="88" text-anchor="middle">BMI&lt;18.5</text>
+      <text x="105" y="118" text-anchor="middle" font-size="15" fill="#7a1020">增重</text>
+      <text x="105" y="140" text-anchor="middle" font-size="15" fill="#7a1020">12.5–18 kg</text>
+      <text x="105" y="200" text-anchor="middle" font-size="12" fill="#52606d">小敏在此区</text>
+      <rect x="195" y="40" width="150" height="180" rx="10" fill="#e7f6ec" stroke="#1f7a3d" stroke-width="2"/>
+      <text x="270" y="66" text-anchor="middle" font-size="14" fill="#1f7a3d">正常</text>
+      <text x="270" y="88" text-anchor="middle">18.5–23.9</text>
+      <text x="270" y="118" text-anchor="middle" font-size="15" fill="#7a1020">增重</text>
+      <text x="270" y="140" text-anchor="middle" font-size="15" fill="#7a1020">11.5–16 kg</text>
+      <text x="270" y="200" text-anchor="middle" font-size="12" fill="#52606d">平均约12kg</text>
+      <rect x="360" y="40" width="150" height="180" rx="10" fill="#fff3e0" stroke="#c9a227" stroke-width="2"/>
+      <text x="435" y="66" text-anchor="middle" font-size="14" fill="#9a7b00">超重</text>
+      <text x="435" y="88" text-anchor="middle">24–27.9</text>
+      <text x="435" y="118" text-anchor="middle" font-size="15" fill="#7a1020">增重</text>
+      <text x="435" y="140" text-anchor="middle" font-size="15" fill="#7a1020">7–11.5 kg</text>
+      <text x="435" y="200" text-anchor="middle" font-size="12" fill="#52606d">控体重增重少</text>
+      <rect x="525" y="40" width="150" height="180" rx="10" fill="#fdeaea" stroke="#b3001b" stroke-width="2"/>
+      <text x="600" y="66" text-anchor="middle" font-size="14" fill="#b3001b">肥胖</text>
+      <text x="600" y="88" text-anchor="middle">≥28</text>
+      <text x="600" y="118" text-anchor="middle" font-size="15" fill="#7a1020">增重</text>
+      <text x="600" y="140" text-anchor="middle" font-size="15" fill="#7a1020">5–9 kg</text>
+      <text x="600" y="200" text-anchor="middle" font-size="12" fill="#52606d">增重最少</text>
+      <text x="340" y="258" text-anchor="middle" fill="#52606d" font-size="12">孕前体重正常最适合孕育；增重按孕前BMI定上限，不是越重越好。</text>
+    </g>
+  </svg>
+  <p class="figcap">图1 孕前BMI四分类对应不同孕期增重范围；小敏偏瘦(BMI16.5)属低体重，需先增重到正常再孕。</p>
+  <p class="spk">孕期增重不是"越重越好"，而是<b>按孕前BMI量身定制</b>：低体重(BMI&lt;18.5)增重12.5–18kg；正常(18.5–23.9)增重11.5–16kg（平均约12kg）；超重(24–27.9)增重7–11.5kg；肥胖(≥28)增重5–9kg。小敏BMI只有16.5，属于<b>低体重</b>，营养师会先让她加餐1–2次、每天加奶100–200ml、坚果10–20g，把体重拉到正常再怀孕——因为孕前消瘦会增加<b>小于胎龄儿</b>风险。</p>
+
+  <!-- ===== 图2 叶酸时间线 ===== -->
+  <h3>图2 · 叶酸时间线：孕前3个月开始，400μg/天</h3>
+  <svg viewBox="0 0 680 200" width="640" role="img" aria-label="叶酸补充时间线">
+    <g font-family="SimSun" font-size="13">
+      <line x1="60" y1="100" x2="620" y2="100" stroke="#9a7b00" stroke-width="3"/>
+      <circle cx="110" cy="100" r="10" fill="#c9a227"/>
+      <text x="110" y="135" text-anchor="middle">孕前3个月</text>
+      <text x="110" y="155" text-anchor="middle" fill="#7a1020" font-size="14">开始补叶酸</text>
+      <circle cx="290" cy="100" r="10" fill="#1f7a3d"/>
+      <text x="290" y="135" text-anchor="middle">怀孕</text>
+      <text x="290" y="155" text-anchor="middle" fill="#7a1020" font-size="14">继续服</text>
+      <circle cx="470" cy="100" r="10" fill="#b3001b"/>
+      <text x="470" y="135" text-anchor="middle">孕早期/全程</text>
+      <text x="470" y="155" text-anchor="middle" fill="#7a1020" font-size="14">400μg/天</text>
+      <rect x="540" y="78" width="120" height="44" rx="10" fill="#fff6da" stroke="#c9a227" stroke-width="2"/>
+      <text x="600" y="96" text-anchor="middle" fill="#7a1020" font-size="15">防神经管缺陷</text>
+      <text x="600" y="114" text-anchor="middle" fill="#7a1020" font-size="12">脊柱裂/无脑儿</text>
+      <text x="340" y="180" text-anchor="middle" fill="#52606d" font-size="12">天然叶酸遇热易分解、利用率低，必须用补充剂（0.4mg/天），不能只靠吃菜。</text>
+    </g>
+  </svg>
+  <p class="figcap">图2 叶酸从孕前3个月开始每天400μg，持续至孕早期（全程更佳），预防胎儿神经管缺陷。</p>
+  <p class="spk">叶酸是今天第一个"送分又送命"的考点。<b>必须从孕前3个月开始</b>，每天口服<b>400μg（0.4mg）</b>，一直服到孕早期（全程服用更佳），才能有效预防胎儿<b>神经管缺陷</b>（脊柱裂、无脑儿）。为什么不能靠食补？因为天然叶酸在动物肝脏、蛋类、豆类、绿叶菜里，<b>遇热易分解、生物利用率低</b>；而补充剂里的叶酸稳定性好、吸收率高。所以"我天天吃菠菜就够了"是错的。</p>
+
+  <!-- ===== 图3 铁碘维D三件套 ===== -->
+  <h3>图3 · 铁 · 碘 · 维生素D 三件套</h3>
+  <svg viewBox="0 0 680 230" width="640" role="img" aria-label="铁碘维D三件套">
+    <g font-family="SimSun" font-size="13">
+      <circle cx="120" cy="115" r="78" fill="#fdeaea" stroke="#b3001b" stroke-width="3"/>
+      <text x="120" y="100" text-anchor="middle" font-size="18" fill="#b3001b">铁</text>
+      <text x="120" y="124" text-anchor="middle">瘦肉50–100g/天</text>
+      <text x="120" y="146" text-anchor="middle">每周血/肝20–50g</text>
+      <text x="120" y="170" text-anchor="middle" font-size="12" fill="#52606d">孕中24/晚29mg</text>
+      <circle cx="340" cy="115" r="78" fill="#eaf2ff" stroke="#2b6cb0" stroke-width="3"/>
+      <text x="340" y="100" text-anchor="middle" font-size="18" fill="#2b6cb0">碘</text>
+      <text x="340" y="124" text-anchor="middle">碘盐烹调</text>
+      <text x="340" y="146" text-anchor="middle">每周海产品1–2次</text>
+      <text x="340" y="170" text-anchor="middle" font-size="12" fill="#52606d">胎儿脑发育</text>
+      <circle cx="560" cy="115" r="78" fill="#fff3e0" stroke="#c9a227" stroke-width="3"/>
+      <text x="560" y="100" text-anchor="middle" font-size="18" fill="#9a7b00">维D</text>
+      <text x="560" y="124" text-anchor="middle">晒太阳10–20分/天</text>
+      <text x="560" y="146" text-anchor="middle">肝/蛋黄/奶油</text>
+      <text x="560" y="170" text-anchor="middle" font-size="12" fill="#52606d">促钙吸收</text>
+      <text x="340" y="218" text-anchor="middle" fill="#52606d" font-size="12">铁防贫血、碘防呆小、维D助钙——备孕孕期"三件套"缺一不可。</text>
+    </g>
+  </svg>
+  <p class="figcap">图3 铁（瘦肉+血肝）、碘（碘盐+海产品）、维D（日晒+肝蛋奶油）是备孕孕期关键微量营养素三件套。</p>
+  <p class="spk">第二条推荐里的"铁、碘、维D"是考试三连击：① <b>铁</b>——动物血、肝脏、红肉含铁高、吸收好；每天瘦肉50–100g、每周动物血或肝脏20–50g就能满足；孕中期铁RNI升到24mg、孕晚期29mg，缺了会<b>贫血</b>。② <b>碘</b>——用碘盐，每周吃1–2次海产品；碘关系<b>胎儿脑发育</b>，缺碘可致克汀病（呆小症）。③ <b>维生素D</b>——每天晒10–20分钟太阳，吃肝、蛋黄、奶油；它帮钙吸收。这三样，备孕就得备齐。</p>
+
+  <!-- ===== 图4 孕中晚期加料 ===== -->
+  <h3>图4 · 孕中晚期"加料"：奶 + 鱼 + 禽 + 蛋 + 瘦肉</h3>
+  <svg viewBox="0 0 680 220" width="640" role="img" aria-label="孕中晚期加料">
+    <g font-family="SimSun" font-size="13">
+      <rect x="30" y="50" width="115" height="120" rx="10" fill="#e7f6ec" stroke="#1f7a3d" stroke-width="2"/>
+      <text x="87" y="92" text-anchor="middle" font-size="16" fill="#1f7a3d">🥛 奶</text>
+      <text x="87" y="116" text-anchor="middle">钙+蛋白</text>
+      <text x="87" y="138" text-anchor="middle" font-size="12" fill="#52606d">骨骼猛长</text>
+      <rect x="160" y="50" width="115" height="120" rx="10" fill="#eaf2ff" stroke="#2b6cb0" stroke-width="2"/>
+      <text x="217" y="92" text-anchor="middle" font-size="16" fill="#2b6cb0">🐟 鱼</text>
+      <text x="217" y="116" text-anchor="middle">DHA+碘</text>
+      <text x="217" y="138" text-anchor="middle" font-size="12" fill="#52606d">脑眼发育</text>
+      <rect x="290" y="50" width="115" height="120" rx="10" fill="#fff3e0" stroke="#c9a227" stroke-width="2"/>
+      <text x="347" y="92" text-anchor="middle" font-size="16" fill="#9a7b00">🍗 禽</text>
+      <text x="347" y="116" text-anchor="middle">优质蛋白</text>
+      <text x="347" y="138" text-anchor="middle" font-size="12" fill="#52606d">低脂好吸收</text>
+      <rect x="420" y="50" width="115" height="120" rx="10" fill="#fdeaea" stroke="#b3001b" stroke-width="2"/>
+      <text x="477" y="92" text-anchor="middle" font-size="16" fill="#b3001b">🥚 蛋</text>
+      <text x="477" y="116" text-anchor="middle">全营养</text>
+      <text x="477" y="138" text-anchor="middle" font-size="12" fill="#52606d">不弃蛋黄</text>
+      <rect x="550" y="50" width="115" height="120" rx="10" fill="#f3f7ff" stroke="#5a3a00" stroke-width="2"/>
+      <text x="607" y="92" text-anchor="middle" font-size="16" fill="#5a3a00">🥩 瘦肉</text>
+      <text x="607" y="116" text-anchor="middle">铁+蛋白</text>
+      <text x="607" y="138" text-anchor="middle" font-size="12" fill="#52606d">防贫血</text>
+      <text x="340" y="200" text-anchor="middle" fill="#52606d" font-size="12">孕中晚期胎儿猛长，在一般人群基础上适量增加这五类——"质量优先"，不是翻倍吃。</text>
+    </g>
+  </svg>
+  <p class="figcap">图4 孕中晚期在均衡膳食基础上适量增加奶、鱼、禽、蛋、瘦肉，满足胎儿脑骨肌快速发育。</p>
+  <p class="spk">第四条推荐针对<b>孕中晚期</b>：胎儿进入脑、骨骼、肌肉猛长期，要在一般人群膳食基础上<b>适量增加</b>奶、鱼、禽、蛋、瘦肉。这里有几个隐藏考点：奶补钙、鱼补DHA和碘（利脑眼）、蛋是"全营养"别弃蛋黄、瘦肉补铁防贫血。注意是"<b>适量增加</b>"，不是"一人吃两人份"翻倍吃——这是常考的易错点。</p>
+
+  <!-- ===== 图5 哺乳期一天食物 ===== -->
+  <h3>图5 · 哺乳期一天食物建议量</h3>
+  <svg viewBox="0 0 680 260" width="640" role="img" aria-label="哺乳期一天食物建议量">
+    <g font-family="SimSun" font-size="12.5">
+      <text x="20" y="34" fill="#7a1020" font-size="14">乳母一天吃什么（官方建议量）</text>
+      <rect x="30" y="48" width="180" height="22" fill="#e7f6ec"/><text x="36" y="64">谷类 225–275g（全谷≥1/3）</text>
+      <rect x="30" y="76" width="200" height="22" fill="#e7f6ec"/><text x="36" y="92">蔬菜 400–500g（深色占2/3）</text>
+      <rect x="30" y="104" width="150" height="22" fill="#e7f6ec"/><text x="36" y="120">水果 200–350g</text>
+      <rect x="30" y="132" width="170" height="22" fill="#eaf2ff"/><text x="36" y="148">鱼禽蛋肉 175–225g</text>
+      <rect x="30" y="160" width="150" height="22" fill="#eaf2ff"/><text x="36" y="176">奶 300–500ml</text>
+      <rect x="30" y="188" width="120" height="22" fill="#fff3e0"/><text x="36" y="204">大豆25g+坚果10g</text>
+      <rect x="30" y="216" width="120" height="22" fill="#fdeaea"/><text x="36" y="232">油25g 盐&lt;5g</text>
+      <rect x="30" y="244" width="150" height="0" fill="#fff"/>
+      <circle cx="500" cy="90" r="46" fill="#eaf2ff" stroke="#2b6cb0" stroke-width="2"/>
+      <text x="500" y="86" text-anchor="middle" fill="#2b6cb0" font-size="16">钙</text>
+      <text x="500" y="106" text-anchor="middle" fill="#7a1020" font-size="14">1000mg</text>
+      <circle cx="500" cy="170" r="46" fill="#fdeaea" stroke="#b3001b" stroke-width="2"/>
+      <text x="500" y="166" text-anchor="middle" fill="#b3001b" font-size="16">碘</text>
+      <text x="500" y="186" text-anchor="middle" fill="#7a1020" font-size="14">240μg</text>
+      <rect x="560" y="60" width="110" height="150" rx="10" fill="#f3f7ff" stroke="#5a3a00" stroke-width="2"/>
+      <text x="615" y="92" text-anchor="middle" font-size="13">蛋白+25g/d</text>
+      <text x="615" y="116" text-anchor="middle" font-size="13">泌乳~750ml</text>
+      <text x="615" y="140" text-anchor="middle" font-size="13">饮水2100ml</text>
+      <text x="615" y="164" text-anchor="middle" font-size="13">纯母乳6月</text>
+      <text x="615" y="190" text-anchor="middle" font-size="12" fill="#52606d">维A+海产</text>
+    </g>
+  </svg>
+  <p class="figcap">图5 哺乳期一天食物建议量：谷类225–275g、蔬菜400–500g、鱼禽蛋肉175–225g、奶300–500ml；关键补钙1000mg、碘240μg。</p>
+  <p class="spk">哺乳期妈妈的"一日食谱"官方给了硬指标：谷类225–275g（全谷物杂豆≥1/3）、蔬菜400–500g（绿叶红黄等深色占2/3）、水果200–350g、鱼禽蛋肉175–225g、奶300–500ml、大豆25g+坚果10g、油25g、盐&lt;5g、<b>饮水2100ml</b>。四个"加量"考点记牢：<b>钙1000mg/天（+200）</b>、<b>碘240μg/天（+120）</b>、蛋白质<b>比孕前多25g</b>、每天泌乳<b>约750ml</b>。钙靠喝奶+维D+晒太阳；碘靠碘盐+海产品。</p>
+
+  <!-- ===== 图6 泌乳与接力 ===== -->
+  <h3>图6 · 泌乳接力：乳汁营养来自妈妈，质量靠"补给"</h3>
+  <svg viewBox="0 0 680 220" width="640" role="img" aria-label="泌乳与妈妈补给">
+    <g font-family="SimSun" font-size="13">
+      <path d="M60 110 C120 40,180 40,240 110 C180 180,120 180,60 110 Z" fill="#fff" stroke="#b3001b" stroke-width="2"/>
+      <text x="150" y="106" text-anchor="middle" font-size="26" fill="#b3001b">🤱</text>
+      <text x="150" y="140" text-anchor="middle" font-size="14" fill="#7a1020">泌乳~750ml/天</text>
+      <rect x="270" y="40" width="190" height="60" rx="10" fill="#eaf2ff" stroke="#2b6cb0" stroke-width="2"/>
+      <text x="365" y="66" text-anchor="middle" fill="#2b6cb0" font-size="15">乳汁质量靠妈妈补给</text>
+      <text x="365" y="88" text-anchor="middle" fill="#7a1020">钙1000·碘240·蛋白+25·维A</text>
+      <rect x="270" y="115" width="190" height="60" rx="10" fill="#e7f6ec" stroke="#1f7a3d" stroke-width="2"/>
+      <text x="365" y="140" text-anchor="middle" fill="#1f7a3d" font-size="15">6月龄内纯母乳</text>
+      <text x="365" y="162" text-anchor="middle" fill="#0d5a28">满足婴儿全部需要</text>
+      <rect x="485" y="40" width="180" height="135" rx="10" fill="#fff3e0" stroke="#c9a227" stroke-width="2"/>
+      <text x="575" y="66" text-anchor="middle" font-size="14" fill="#9a7b00">⚠ 纠正误区</text>
+      <text x="495" y="92">喝汤不直接增产奶量</text>
+      <text x="495" y="114">浓油汤只增能量</text>
+      <text x="495" y="136">决定质量的是</text>
+      <text x="495" y="158">优质蛋白·钙·碘·维A</text>
+      <text x="340" y="210" text-anchor="middle" fill="#52606d" font-size="12">纯母乳喂养至6月龄，之后加辅食继续母乳到2岁；"喝汤下奶"是误区。</text>
+    </g>
+  </svg>
+  <p class="figcap">图6 每天泌乳约750ml，乳汁质量取决于妈妈摄入的优质蛋白/钙/碘/维A；纯母乳至6月龄，喝汤不直接增产奶。</p>
+  <p class="spk">最后这条常考又常被长辈误导：<b>喝汤/喝水不会直接增加泌乳量</b>，但泌乳本身需要水分摄入，所以每餐要有带汤食物、别喝多油浓汤。真正决定乳汁质量的是<b>优质蛋白质、钙、碘、维生素A</b>。6月龄内纯母乳就能满足婴儿全部能量、营养素和水的需要；添加辅食后仍应继续母乳喂养到2岁。所以"多喝猪蹄汤奶水才多"要纠正——汤里多是水和脂肪，营养远不如肉本身。</p>
+
+  <!-- ===== 口诀 ===== -->
+  <h2>三、四套口诀（背下来，考场上秒答）</h2>
+  <div class="jue">
+    <p class="spk"><span class="k">① 备孕口诀：</span>体重达标十八五，叶酸三月提前补；铁碘维D三件套，健康起跑不迷路。</p>
+    <p class="spk"><span class="k">② 孕期口诀：</span>早孕吐了别慌张，碳水保命酮症防；中晚加奶鱼禽蛋，户外禁酒母婴康。</p>
+    <p class="spk"><span class="k">③ 哺乳口诀：</span>产褥多样不过量，优质蛋白维A上；钙千碘二四汤水足，愉悦睡眠母乳长。</p>
+    <p class="spk"><span class="k">④ 综合口诀：</span>生命早期一千天，备孕起步莫等闲；叶酸铁碘维D足，孕吐保碳中晚添；哺乳钙千碘二百四，纯母乳到六个月满。</p>
+  </div>
+
+  <!-- ===== 易错点 ===== -->
+  <h2>四、六大易错点（红框警告，考试专坑）</h2>
+  <div class="err spk"><p><b>1. 叶酸不是"怀孕后才吃"：</b>必须从<b>孕前3个月</b>开始每天400μg，服至孕早期（全程更佳），才能预防神经管缺陷。"怀上了再吃"往往已错过神经管闭合关键期。</p></div>
+  <div class="err spk"><p><b>2. "天然叶酸够"是误区：</b>食物中的叶酸遇热易分解、生物利用率低，必须用<b>叶酸补充剂（0.4mg/天）</b>，不能只靠绿叶菜、动物肝。</p></div>
+  <div class="err spk"><p><b>3. 孕吐≠绝食：</b>孕吐严重也要<b>少量多餐、保证碳水化合物</b>（谷薯类），否则饥饿性<b>酮症</b>经胎盘损害胎儿脑发育。每天至少约130g碳水化合物。</p></div>
+  <div class="err spk"><p><b>4. 孕期增重不是"越重越好"：</b>按孕前BMI定上限（肥胖仅增5–9kg）；增重过多增加巨大儿、妊娠糖尿病、难产风险。</p></div>
+  <div class="err spk"><p><b>5. "喝汤下奶"要纠正：</b>汤/水<b>不直接增加泌乳量</b>，只满足水分；决定乳汁质量的是<b>优质蛋白、钙、碘、维A</b>。浓油汤反而能量过剩。</p></div>
+  <div class="err spk"><p><b>6. "一人吃两人份"是错的：</b>孕期是"质量优先、中晚期适量加"；乳母也只加25g蛋白、约500kcal能量，并非胡吃海塞。过量反而弊大于利。</p></div>
+
+  <!-- ===== 三步解题法 ===== -->
+  <h2>五、三步解题法（遇到特定人群题，照做不慌）</h2>
+  <div class="card spk">
+    <p><b>第一步·定位阶段：</b>问的是备孕 / 孕早 / 孕中晚 / 哺乳期哪一段，考点不同（叶酸时机 vs 碳水保命 vs 加奶鱼禽蛋 vs 钙碘蛋白）。</p>
+    <p><b>第二步·调取硬数据：</b>叶酸400μg孕前3月起；增重按BMI(正常11.5–16kg)；铁24/29mg；乳母钙1000、碘240、蛋白+25g、泌乳~750ml。</p>
+    <p><b>第三步·辨析陷阱：</b>看选项是否把"孕后补叶酸""天然叶酸够""孕吐绝食""越重越好""喝汤下奶""一人两份"当对——踩中易错点6条即错项。</p>
+  </div>
+
+  <!-- ===== 课堂提问 ===== -->
+  <h2>六、课堂提问（费曼互动：先自己答，再听解析）</h2>
+  <div class="card spk">
+    <p><b>老师问①：</b>小敏偏瘦（BMI 16.5）想备孕，营养师第一步会让她做什么？为什么？</p>
+    <p><b>老师问②：</b>孕早期吐得吃不下，能不吃东西"扛过去"吗？为什么必须吃碳水化合物？</p>
+    <p><b>老师问③：</b>有人说"我天天吃菠菜，叶酸够了不用吃片"——对吗？</p>
+    <p><b>老师问④：</b>长辈说"多喝猪蹄汤奶水才多"——从营养学怎么纠正？</p>
+  </div>
+  <div class="note spk"><p>参考答案：① 先把体重调正常（BMI 18.5–23.9）：加餐1–2次、加奶100–200ml、坚果10–20g，并提前3个月补叶酸；因消瘦增加小于胎龄儿风险。② 不能；饥饿性酮症经胎盘伤胎儿脑，须少量多餐、保证谷薯类碳水（≥约130g/d）。③ 错；天然叶酸遇热分解、利用率低，必须400μg补充剂。④ 错；汤不直接增产奶量，关键在优质蛋白、钙、碘、维A与充足饮水，浓油汤只增能量。</p></div>
+
+  <!-- ===== 改编题 ===== -->
+  <h2>七、改编题（6道，点"对答案"看解析）</h2>
+
+  <div class="quiz">
+    <h4 class="spk">1. 关于叶酸补充，下列说法正确的是：</h4>
+    <div class="opt" data-ans="B">A. 确认怀孕后开始吃即可</div>
+    <div class="opt" data-ans="B">B. 应从孕前3个月起每天补充400μg，持续至孕早期</div>
+    <div class="opt" data-ans="B">C. 只要天天吃绿叶菜就不需要吃叶酸片</div>
+    <div class="opt" data-ans="B">D. 只在孕晚期补充</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：B。</b>叶酸须在孕前3个月起每天400μg（0.4mg）、服至孕早期（全程更佳），预防神经管缺陷；天然叶酸遇热易分解、利用率低，不能只靠食补。A错过关键期；C是典型误区；D时机错。</div>
+  </div>
+
+  <div class="quiz">
+    <h4 class="spk">2. 孕吐严重者，最合理的饮食原则是：</h4>
+    <div class="opt" data-ans="B">A. 尽量不吃东西以免加重呕吐</div>
+    <div class="opt" data-ans="B">B. 少量多餐，保证摄入含必需量碳水化合物的食物</div>
+    <div class="opt" data-ans="B">C. 只喝果汁代替正餐</div>
+    <div class="opt" data-ans="B">D. 大量补充脂肪供能</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：B。</b>孕吐严重须少量多餐、保证碳水化合物（谷薯类），防止饥饿性酮症损害胎儿脑发育。A绝食危险；C果汁缺能量蛋白；D脂肪不解决酮症。</div>
+  </div>
+
+  <div class="quiz">
+    <h4 class="spk">3. 孕前BMI正常的妇女（18.5–23.9），孕期适宜增重范围约为：</h4>
+    <div class="opt" data-ans="B">A. 5–9 kg</div>
+    <div class="opt" data-ans="B">B. 11.5–16 kg（平均约12kg）</div>
+    <div class="opt" data-ans="B">C. 20–25 kg</div>
+    <div class="opt" data-ans="B">D. 越重越好</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：B。</b>正常BMI孕期增重11.5–16kg（平均约12kg）；A是肥胖孕妇范围；C/D过量增重增加巨大儿、妊娠糖尿病风险。</div>
+  </div>
+
+  <div class="quiz">
+    <h4 class="spk">4. 哺乳期妇女钙的推荐摄入量约为：</h4>
+    <div class="opt" data-ans="B">A. 800 mg/天</div>
+    <div class="opt" data-ans="B">B. 1000 mg/天（较一般女性+200）</div>
+    <div class="opt" data-ans="B">C. 1200 mg/天</div>
+    <div class="opt" data-ans="B">D. 600 mg/天</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：B。</b>乳母钙RNI为1000mg/天，比一般女性多200mg；靠喝奶、补维D、晒太阳获取。A是普通成人量；C偏高；D不足。</div>
+  </div>
+
+  <div class="quiz">
+    <h4 class="spk">5. 关于"喝汤与泌乳"，下列说法正确的是：</h4>
+    <div class="opt" data-ans="B">A. 多喝浓汤必然使乳汁大量增加</div>
+    <div class="opt" data-ans="B">B. 汤/水不直接增加泌乳量，关键是优质蛋白、钙、碘、维生素A与充足饮水</div>
+    <div class="opt" data-ans="B">C. 不喝酒就没奶</div>
+    <div class="opt" data-ans="B">D. 汤比肉更有营养</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：B。</b>汤水不直接增产奶量，只满足水分需要；乳汁质量取决于优质蛋白、钙、碘、维A。A是误区；C错（忌酒）；D错，营养多在肉不在汤。</div>
+  </div>
+
+  <div class="quiz">
+    <h4 class="spk">6. 关于母乳喂养，下列说法<b>错误</b>的是：</h4>
+    <div class="opt" data-ans="C">A. 6月龄内纯母乳能满足婴儿全部能量、营养素和水的需要</div>
+    <div class="opt" data-ans="C">B. 乳母应选用碘盐并增加海产品摄入</div>
+    <div class="opt" data-ans="C">C. 为"活血进补"可大量饮酒</div>
+    <div class="opt" data-ans="C">D. 添加辅食后仍应继续母乳喂养至2岁</div>
+    <button class="btn ghost" onclick="reveal(this)">对答案 / 解析</button>
+    <div class="reveal"><b>答案：C。</b>乳母应<b>忌烟酒</b>，大量饮酒既伤己又经乳汁危害婴儿；A、B、D均为正确表述，故C错误，是本题答案。</div>
+  </div>
+
+  <!-- ===== 费曼自检 ===== -->
+  <h2>八、费曼自检（逐条打勾，能讲出来才算会）</h2>
+  <div class="card feynman spk">
+    <label><input type="checkbox"> ① 我能脱口说出备孕/孕期6条核心推荐。</label>
+    <label><input type="checkbox"> ② 我能说清叶酸补充时机与剂量（孕前3月起、400μg/天）。</label>
+    <label><input type="checkbox"> ③ 我能解释孕吐为何必须保碳水化合物（防酮症伤脑）。</label>
+    <label><input type="checkbox"> ④ 我能按孕前BMI说出孕期增重范围（正常11.5–16kg等）。</label>
+    <label><input type="checkbox"> ⑤ 我能说出乳母四大数：钙1000、碘240、蛋白+25、泌乳~750ml。</label>
+    <label><input type="checkbox"> ⑥ 我能用一句口诀概括特定人群①（生命早期一千天…纯母乳到六月满）。</label>
+  </div>
+
+  <!-- ===== 下节预告 ===== -->
+  <div class="note spk">
+    <p><b>📌 下节预告（第10课 · 特定人群②：婴幼儿喂养指南）：</b>第10课讲<b>婴幼儿（0–24月龄）</b>：6月龄内<b>纯母乳喂养</b>、生后数日补维D、顺应喂养、辅食添加<b>不早于6月龄</b>且首添<b>富含铁食物</b>（铁强化米粉/肉泥）、7–24月龄继续母乳+均衡辅食。婴幼儿是生命早期1000天后段，RD考试大题区，别错过。</p>
+  </div>
+
+  <div class="footer">第9课 · 特定人群① 备孕/孕期/哺乳期 ｜ 依据《中国居民膳食指南(2022)》及《中国孕妇、乳母膳食指南(2022)》官方原文 ｜ 本页为独立一课，永久保留不更新 ｜ 注册营养师考点系列</div>
+</div>
+
+<!-- 浮动可拖动播放器 -->
+<div id="player">
+  <div id="phead">🔊 晓晓老师讲解 <span class="pin" id="pin" onclick="togglePin()">📌固定</span></div>
+  <div id="sub"><span class="cur">点"播放"开始听讲，或拖动画面到不挡位置。</span></div>
+  <div id="pctrl">
+    <div class="row">
+      <button onclick="prevSen()">⏮ 上一句</button>
+      <button id="playBtn" onclick="togglePlay()">▶ 播放</button>
+      <button onclick="nextSen()">下一句 ⏭</button>
+    </div>
+    <div class="row">
+      <input type="range" id="seek" min="0" max="0" value="0" oninput="seekTo(this.value)">
+    </div>
+    <div class="row mini"><span id="pos">第 0 / 0 句</span></div>
+    <div class="row">
+      <span class="mini">语速</span>
+      <input type="range" id="rate" min="0.5" max="2" step="0.1" value="1" oninput="setRate(this.value)">
+      <span class="mini" id="rateLab">1.0×</span>
+    </div>
+    <div class="row">
+      <span class="mini">语音</span>
+      <select id="voice" onchange="changeVoice()"></select>
+    </div>
+  </div>
+  <div id="hint">未检测到晓晓神经网络语音：当前浏览器将使用其他中文语音；在 Windows 的 Edge 浏览器中可调用"Microsoft Xiaoxiao Online"神经网络语音，效果最佳。</div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var spk = Array.prototype.slice.call(document.querySelectorAll('.spk'));
+  var total = spk.length;
+  var idx = -1, playing = false, pinned = false, curVoice = null;
+  var rate = 1, timer = null;
+
+  var sub = document.getElementById('sub');
+  var seek = document.getElementById('seek');
+  var pos = document.getElementById('pos');
+  var playBtn = document.getElementById('playBtn');
+  var voiceSel = document.getElementById('voice');
+
+  seek.max = total - 1;
+
+  function clean(el){ return (el.textContent || '').replace(/\s+/g,' ').trim(); }
+
+  function highlight(i){
+    spk.forEach(function(e){ e.classList.remove('active'); });
+    if(i>=0 && i<total){
+      spk[i].classList.add('active');
+      try{ spk[i].scrollIntoView({block:'center', behavior:'smooth'}); }catch(e){}
+    }
+  }
+
+  function showSub(i){
+    if(i<0||i>=total){ sub.innerHTML = '<span class="cur">已到结尾。</span>'; return; }
+    sub.innerHTML = '<span class="cur">'+ clean(spk[i]) +'</span>';
+    sub.scrollTop = sub.scrollHeight;
+    pos.textContent = '第 ' + (i+1) + ' / ' + total + ' 句';
+    seek.value = i;
+  }
+
+  function speak(i){
+    if(i<0||i>=total) return;
+    if(!('speechSynthesis' in window)){ showSub(i); return; }
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(clean(spk[i]));
+    u.lang = 'zh-CN'; u.rate = rate;
+    if(curVoice) u.voice = curVoice;
+    u.onend = function(){
+      if(idx === i && playing){
+        if(i+1 < total){ idx = i+1; highlight(idx); showSub(idx); speak(idx); }
+        else { playing = false; playBtn.textContent = '▶ 播放'; }
+      }
+    };
+    u.onerror = function(){ if(idx===i && playing){ playing=false; playBtn.textContent='▶ 播放'; } };
+    window.speechSynthesis.speak(u);
+  }
+
+  window.togglePlay = function(){
+    if(!('speechSynthesis' in window)){ alert('当前环境不支持语音朗读，请直接阅读正文。'); return; }
+    if(playing){ playing=false; window.speechSynthesis.cancel(); playBtn.textContent='▶ 播放'; return; }
+    if(idx<0) idx=0;
+    playing=true; playBtn.textContent='⏸ 暂停';
+    highlight(idx); showSub(idx); speak(idx);
+  };
+  window.nextSen = function(){ if(idx<total-1){ idx++; playing=false; playBtn.textContent='▶ 播放'; highlight(idx); showSub(idx); if('speechSynthesis'in window) window.speechSynthesis.cancel(); } };
+  window.prevSen = function(){ if(idx>0){ idx--; playing=false; playBtn.textContent='▶ 播放'; highlight(idx); showSub(idx); if('speechSynthesis'in window) window.speechSynthesis.cancel(); } };
+  window.seekTo = function(v){ idx=parseInt(v,10); playing=false; playBtn.textContent='▶ 播放'; highlight(idx); showSub(idx); if('speechSynthesis'in window) window.speechSynthesis.cancel(); };
+  window.setRate = function(v){ rate=parseFloat(v); document.getElementById('rateLab').textContent=rate.toFixed(1)+'×'; if(playing && idx>=0){ speak(idx); } };
+  window.changeVoice = function(){ var v=voiceSel.value; curVoice = voices.filter(function(x){return x.name===v;})[0] || null; };
+
+  // 字号
+  var fsStep = [10,11,12,14,16,18,20]; var fsI = 2; // 默认12pt=小四
+  window.setFS = function(d){ fsI = Math.max(0, Math.min(fsStep.length-1, fsI+d)); document.documentElement.style.setProperty('--fs', fsStep[fsI]+'pt'); };
+
+  // 语音列表
+  var voices = [];
+  function loadVoices(){
+    voices = window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
+    voiceSel.innerHTML = '';
+    var zh = voices.filter(function(v){ return /zh|chinese|中文|普通话/i.test(v.lang+v.name); });
+    if(zh.length===0) zh = voices;
+    zh.forEach(function(v){ var o=document.createElement('option'); o.value=v.name; o.textContent=v.name; voiceSel.appendChild(o); });
+    // 默认晓晓
+    var xiao = voices.filter(function(v){ return /xiaoxiao|晓晓/i.test(v.name); })[0];
+    if(xiao){ curVoice = xiao; voiceSel.value = xiao.name; document.getElementById('hint').style.display='none'; }
+    else if(zh.length){ curVoice = zh[0]; voiceSel.value = zh[0].name; document.getElementById('hint').style.display='block'; }
+  }
+  if('speechSynthesis' in window){
+    loadVoices();
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+  } else { document.getElementById('hint').style.display='block'; }
+
+  // 拖动播放器
+  var player = document.getElementById('player');
+  var head = document.getElementById('phead');
+  var drag=false, ox=0, oy=0;
+  head.addEventListener('mousedown', function(e){ if(pinned) return; drag=true; var r=player.getBoundingClientRect(); ox=e.clientX-r.left; oy=e.clientY-r.top; head.style.cursor='grabbing'; e.preventDefault(); });
+  window.addEventListener('mousemove', function(e){ if(!drag) return; var x=e.clientX-ox, y=e.clientY-oy; x=Math.max(0, Math.min(window.innerWidth-player.offsetWidth, x)); y=Math.max(0, Math.min(window.innerHeight-player.offsetHeight, y)); player.style.left=x+'px'; player.style.top=y+'px'; player.style.bottom='auto'; player.style.right='auto'; });
+  window.addEventListener('mouseup', function(){ drag=false; head.style.cursor='grab'; });
+  // 触摸拖动
+  head.addEventListener('touchstart', function(e){ if(pinned) return; drag=true; var r=player.getBoundingClientRect(); var t=e.touches[0]; ox=t.clientX-r.left; oy=t.clientY-r.top; e.preventDefault(); }, {passive:false});
+  window.addEventListener('touchmove', function(e){ if(!drag) return; var t=e.touches[0]; var x=t.clientX-ox, y=t.clientY-oy; x=Math.max(0, Math.min(window.innerWidth-player.offsetWidth, x)); y=Math.max(0, Math.min(window.innerHeight-player.offsetHeight, y)); player.style.left=x+'px'; player.style.top=y+'px'; player.style.bottom='auto'; player.style.right='auto'; }, {passive:false});
+  window.addEventListener('touchend', function(){ drag=false; });
+
+  window.togglePin = function(){ pinned=!pinned; document.getElementById('pin').textContent = pinned?'📌已固定':'📌固定'; };
+
+  // 选择题
+  window.reveal = function(btn){
+    var q = btn.parentNode;
+    var ans = q.querySelector('.opt[data-ans]').getAttribute('data-ans');
+    var opts = q.querySelectorAll('.opt');
+    opts.forEach(function(o){
+      o.classList.add('cho');
+      var l = o.textContent.trim().charAt(0);
+      if(l===ans) o.classList.add('right');
+    });
+    var rev = q.querySelector('.reveal');
+    rev.style.display='block';
+    btn.disabled = true;
+  };
+  // 选项点击高亮
+  document.querySelectorAll('.opt').forEach(function(o){
+    o.addEventListener('click', function(){
+      var sibs = o.parentNode.querySelectorAll('.opt');
+      sibs.forEach(function(s){ s.classList.remove('cho'); });
+      o.classList.add('cho');
+    });
+  });
+
+  showSub(-1);
+  console.log('LESSON9_OK sentences='+total);
+})();
+</script>
+</body>
+</html>
